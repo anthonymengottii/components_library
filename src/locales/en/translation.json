@@ -4,7 +4,12 @@
     "templates": "Templates",
     "tools": "Tools",
     "github": "GitHub",
-    "search": "Search..."
+    "search": "Search...",
+    "codeLanguage": "Code Language",
+    "styling": "Styling",
+    "favorites": "Favorites",
+    "switchToEnglish": "Switch language to English",
+    "switchToPortuguese": "Switch language to Portuguese"
   },
   "footer": {
     "product": "Product",
