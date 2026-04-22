@@ -1,22 +1,6 @@
 <div align="center">
 	<br>
 	<br>
-    <picture>
-      <source media="(prefers-color-scheme: light)" srcset="src/assets/logos/reactbits-gh-black.svg">
-      <source media="(prefers-color-scheme: dark)" srcset="src/assets/logos/reactbits-gh-white.svg">
-      <img src="src/assets/logos/reactbits-gh-black.svg" alt="logo da components-library" width="600">
-    </picture>
-	<br>
-	<br>
-  <strong>A maior e mais criativa biblioteca de componentes React animados.</strong>
-  <br />
-  <sub>Destaque-se com mais de 110 animações gratuitas e customizáveis para textos, fundos e interfaces.</sub>
-	<br>
-	<br>
-  <a href="https://github.com/anthonymengottii/components_library/stargazers"><img alt="Estrelas do repositório no GitHub" src="https://img.shields.io/github/stars/anthonymengottii/components_library"></a>
-  <a href="https://github.com/anthonymengottii/components_library/blob/main/LICENSE.md"><img alt="Licença" src="https://img.shields.io/badge/License-MIT+Commons_Clause-magenta"></a>
-  <br>
-  <br>
   <a href="https://github.com/anthonymengottii/components_library">📖 Documentação</a> · <a href="https://github.com/anthonymengottii/components_library/get-started/installation">⚡ Início Rápido</a> · <a href="https://github.com/anthonymengottii/components_library/tools">🛠️ Ferramentas</a>
 </div>
 
