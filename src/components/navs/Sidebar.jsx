@@ -152,7 +152,7 @@ const ToolsLinks = ({ onClose, t }) => (
             <span>{tool.label}</span>
             {tool.comingSoon && (
               <Text as="span" fontSize="10px" color={colors.accentMuted} fontWeight={600}>
-                SOON
+                {t('nav.soon')}
               </Text>
             )}
           </Flex>

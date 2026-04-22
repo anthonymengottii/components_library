@@ -4,7 +4,32 @@
     "templates": "Templates",
     "tools": "Ferramentas",
     "github": "GitHub",
-    "search": "Pesquisar..."
+    "search": "Pesquisar...",
+    "codeLanguage": "Linguagem do Código",
+    "styling": "Estilo",
+    "favorites": "Favoritos",
+    "community": "Comunidade",
+    "soon": "Em breve",
+    "switchToEnglish": "Mudar idioma para inglês",
+    "switchToPortuguese": "Mudar idioma para português"
+  },
+  "search": {
+    "placeholder": "Pesquise componentes, categorias ou palavras-chave...",
+    "inCategory": "em",
+    "noResults": "Nenhum resultado encontrado para"
+  },
+  "componentList": {
+    "allComponents": "Todos os Componentes",
+    "searchPlaceholder": "Pesquisar...",
+    "noResults": "Sem resultados...",
+    "nothingHereYet": "Ainda não há nada aqui...",
+    "tryAdjusting": "Tente ajustar seus filtros",
+    "saveHint": "Toque no coração de qualquer componente para salvar",
+    "clearFilters": "Limpar Filtros",
+    "browseComponents": "Explorar Componentes"
+  },
+  "favorites": {
+    "title": "Favoritos"
   },
   "footer": {
     "product": "Produto",
