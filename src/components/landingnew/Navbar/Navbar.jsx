@@ -132,7 +132,7 @@ const Navbar = ({ showDocs }) => {
         <div className="ln-navbar-right">
           {showDocs && (
             <>
-              <button className="ln-navbar-icon-btn ln-navbar-search-btn" onClick={toggleSearch} aria-label="Search">
+                <button className="ln-navbar-icon-btn ln-navbar-search-btn" onClick={toggleSearch} aria-label="Search">
                 <LuSearch size={15} />
                 <span className="ln-navbar-search-text">{t('nav.search')}</span>
                 <kbd className="ln-navbar-kbd">/</kbd>
@@ -149,7 +149,7 @@ const Navbar = ({ showDocs }) => {
 
                 {prefsOpen && (
                   <div className="ln-navbar-prefs-menu">
-                    <span className="ln-navbar-prefs-label">Language</span>
+                    <span className="ln-navbar-prefs-label">{t('nav.codeLanguage')}</span>
                     <div className="ln-navbar-toggle-group">
                       <button className={`ln-navbar-toggle-item${languagePreset === 'JS' ? ' active' : ''}`} onClick={() => setLanguagePreset('JS')}>
                         <img src={jsIcon} alt="JS" width={18} height={18} />
@@ -158,7 +158,7 @@ const Navbar = ({ showDocs }) => {
                         <img src={tsIcon} alt="TS" width={18} height={18} />
                       </button>
                     </div>
-                    <span className="ln-navbar-prefs-label">Styling</span>
+                    <span className="ln-navbar-prefs-label">{t('nav.styling')}</span>
                     <div className="ln-navbar-toggle-group">
                       <button className={`ln-navbar-toggle-item${stylePreset === 'CSS' ? ' active' : ''}`} onClick={() => setStylePreset('CSS')}>
                         <img src={cssIcon} alt="CSS" width={18} height={18} />
@@ -170,7 +170,7 @@ const Navbar = ({ showDocs }) => {
                     <div className="ln-navbar-prefs-divider" />
                     <Link to="/favorites" className="ln-navbar-prefs-fav" onClick={() => setPrefsOpen(false)}>
                       <LuHeart size={13} />
-                      Favorites
+                      {t('nav.favorites')}
                     </Link>
                   </div>
                 )}
