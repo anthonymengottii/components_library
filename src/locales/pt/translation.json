@@ -30,6 +30,8 @@
   },
   "favorites": {
     "title": "Favoritos"
+    "switchToEnglish": "Mudar idioma para inglês",
+    "switchToPortuguese": "Mudar idioma para português"
   },
   "footer": {
     "product": "Produto",
