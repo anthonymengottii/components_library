@@ -18,6 +18,7 @@ import { Link as RouterLink } from 'react-router-dom';
 import { FiSearch, FiTrash2, FiX } from 'react-icons/fi';
 import { RiHeartFill, RiHeartLine } from 'react-icons/ri';
 import { toast } from 'sonner';
+import { useTranslation } from 'react-i18next';
 import { componentMetadata } from '../../constants/Information';
 import { fuzzyMatch } from '../../utils/fuzzy';
 import {
@@ -92,6 +93,7 @@ const fromPascal = str =>
     .trim();
 
 const ComponentList = ({ list, hasDeleteButton = false, hasFavoriteButton = false, sorting = 'none', title }) => {
+  const { t } = useTranslation();
   const scrollRef = useRef(null);
   const GAP_PX = 16;
   const [hoveredKey, setHoveredKey] = useState(null);
@@ -154,8 +156,8 @@ const ComponentList = ({ list, hasDeleteButton = false, hasFavoriteButton = fals
   const categoriesList = useMemo(() => {
     const set = new Set();
     items.forEach(i => i.categoryLabel && set.add(i.categoryLabel));
-    return ['All Components', ...Array.from(set).sort((a, b) => a.localeCompare(b))];
-  }, [items]);
+    return [t('componentList.allComponents'), ...Array.from(set).sort((a, b) => a.localeCompare(b))];
+  }, [items, t]);
   const categories = useMemo(() => createListCollection({ items: categoriesList }), [categoriesList]);
 
   const [selectedCategory, setSelectedCategory] = useState(categories.items[0]);
@@ -181,13 +183,13 @@ const ComponentList = ({ list, hasDeleteButton = false, hasFavoriteButton = fals
 
   const filtered = useMemo(() => {
     const term = search.trim();
-    const all = selectedCategory === 'All Components';
+    const all = selectedCategory === t('componentList.allComponents');
     return items.filter(({ title, categoryLabel }) => {
       const categoryOk = all || categoryLabel === selectedCategory;
       if (!term) return categoryOk;
       return categoryOk && fuzzyMatch(title, term);
     });
-  }, [items, selectedCategory, search]);
+  }, [items, selectedCategory, search, t]);
   const controlsDisabled = items.length === 0;
   const hasCategoryFilter = selectedCategory !== categories.items[0];
 
@@ -311,7 +313,7 @@ const ComponentList = ({ list, hasDeleteButton = false, hasFavoriteButton = fals
             <Input
               value={search}
               onChange={e => setSearch(e.target.value)}
-              placeholder="Search..."
+              placeholder={t('componentList.searchPlaceholder')}
               h="36px"
               borderRadius="10px"
               bg="rgba(2, 11, 16, 0.45)"
@@ -411,7 +413,7 @@ const ComponentList = ({ list, hasDeleteButton = false, hasFavoriteButton = fals
           >
             <IconButton
               ref={clearBtnRef}
-              aria-label="Clear filters"
+              aria-label={t('componentList.clearFilters')}
               rounded="10px"
               size="sm"
               variant="ghost"
@@ -441,16 +443,16 @@ const ComponentList = ({ list, hasDeleteButton = false, hasFavoriteButton = fals
           <Box role="status" p={6} mt={'6em'} textAlign="center" position="relative">
             <Box position="relative">
               <Text color="#fff" fontWeight={500} fontSize="24px" mb={1}>
-                {items.length > 0 ? 'No results...' : 'Nothing here yet...'}
+                {items.length > 0 ? t('componentList.noResults') : t('componentList.nothingHereYet')}
               </Text>
               <Text color={colors.textMuted} fontSize="16px" mb={8}>
-                {items.length > 0 ? 'Try adjusting your filters' : 'Tap the heart on any component to save it'}
+                {items.length > 0 ? t('componentList.tryAdjusting') : t('componentList.saveHint')}
               </Text>
 
               <Flex gap={2} justify="center" wrap="wrap">
                 {items.length > 0 ? (
                   <Box as="button" onClick={clearFilters} {...PILL_BTN_STYLE}>
-                    Clear Filters
+                    {t('componentList.clearFilters')}
                   </Box>
                 ) : (
                   <Box
@@ -463,7 +465,7 @@ const ComponentList = ({ list, hasDeleteButton = false, hasFavoriteButton = fals
                     px={6}
                     {...PILL_BTN_STYLE}
                   >
-                    Browse Components
+                    {t('componentList.browseComponents')}
                   </Box>
                 )}
               </Flex>
