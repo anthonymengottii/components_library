@@ -35,14 +35,6 @@ Agradecimento especial ao **[React Bits](https://www.reactbits.dev/)** pela insp
 
 <hr />
 
-### Além dos componentes, a Components Library oferece **ferramentas criativas gratuitas** para acelerar seu fluxo de trabalho:
-
-| Ferramenta                                             | O que faz                                                                                |
-| ------------------------------------------------------ | ---------------------------------------------------------------------------------------- |
-| **[Background Studio](https://github.com/anthonymengottii/components_library/tools)** | Explora fundos animados, personaliza efeitos e exporta como vídeo/imagem/código          |
-| **[Shape Magic](https://github.com/anthonymengottii/components_library/tools)**       | Cria cantos internos arredondados entre formas e exporta como SVG, código React ou clip-path |
-| **[Texture Lab](https://github.com/anthonymengottii/components_library/tools)**       | Aplica 20+ efeitos (ruído, dithering, ASCII) em imagens/vídeos e exporta em alta qualidade |
-
 ## 📦 Instalação
 
 A Components Library oferece suporte ao [shadcn](https://ui.shadcn.com/) e ao [jsrepo](https://jsrepo.dev) para instalação rápida via CLI.
