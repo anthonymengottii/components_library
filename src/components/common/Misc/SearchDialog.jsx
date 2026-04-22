@@ -8,6 +8,7 @@ import { CATEGORIES } from '../../../constants/Categories';
 import { colors } from '../../../constants/colors';
 import { fuzzyMatch } from '../../../utils/fuzzy';
 import { useSearch } from '../../context/SearchContext/useSearch';
+import { useTranslation } from 'react-i18next';
 
 function searchComponents(query) {
   if (!query || query.trim() === '') return [];
@@ -52,6 +53,7 @@ const categoryIconMapping = {
 };
 
 const SearchDialog = ({ isOpen, onClose }) => {
+  const { t } = useTranslation();
   const [inputValue, setInputValue] = useState('');
   const [searchValue, setSearchValue] = useState('');
   const [topGradientOpacity, setTopGradientOpacity] = useState(0);
@@ -170,7 +172,7 @@ const SearchDialog = ({ isOpen, onClose }) => {
                 autoFocus
                 value={inputValue}
                 onChange={e => setInputValue(e.target.value)}
-                placeholder="Search components, categories, or keywords..."
+                placeholder={t('search.placeholder')}
                 variant="filled"
                 pb="4px"
                 bg={colors.bgBody}
@@ -231,7 +233,7 @@ const SearchDialog = ({ isOpen, onClose }) => {
                                     {r.componentName}
                                   </Text>
                                   <Text fontSize="sm" color={colors.accent}>
-                                    in {r.categoryName}
+                                    {t('search.inCategory')} {t(`categories.${r.categoryName}`, r.categoryName)}
                                   </Text>
                                 </Box>
                                 <Box>
@@ -243,7 +245,7 @@ const SearchDialog = ({ isOpen, onClose }) => {
                         })
                       ) : (
                         <Text textAlign="center" mt={2} color={colors.accent} p="1em">
-                          No results found for <span style={{ fontWeight: 900 }}>{searchValue}</span>
+                          {t('search.noResults')} <span style={{ fontWeight: 900 }}>{searchValue}</span>
                         </Text>
                       )}
                     </Box>

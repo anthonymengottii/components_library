@@ -8,8 +8,28 @@
     "codeLanguage": "Code Language",
     "styling": "Styling",
     "favorites": "Favorites",
+    "community": "Community",
+    "soon": "Soon",
     "switchToEnglish": "Switch language to English",
     "switchToPortuguese": "Switch language to Portuguese"
+  },
+  "search": {
+    "placeholder": "Search components, categories, or keywords...",
+    "inCategory": "in",
+    "noResults": "No results found for"
+  },
+  "componentList": {
+    "allComponents": "All Components",
+    "searchPlaceholder": "Search...",
+    "noResults": "No results...",
+    "nothingHereYet": "Nothing here yet...",
+    "tryAdjusting": "Try adjusting your filters",
+    "saveHint": "Tap the heart on any component to save it",
+    "clearFilters": "Clear Filters",
+    "browseComponents": "Browse Components"
+  },
+  "favorites": {
+    "title": "Favorites"
   },
   "footer": {
     "product": "Product",

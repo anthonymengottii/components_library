@@ -231,7 +231,7 @@ const Navbar = ({ showDocs }) => {
                       const slug = str => str.replace(/\s+/g, '-').toLowerCase();
                       return (
                         <div className="ln-navbar-mobile-section" key={cat.name}>
-                          <span className="ln-navbar-mobile-label">{cat.name}</span>
+                          <span className="ln-navbar-mobile-label">{t(`categories.${cat.name}`, cat.name)}</span>
                           {cat.subcategories.map(sub => (
                             <Link
                               key={sub}
@@ -239,12 +239,12 @@ const Navbar = ({ showDocs }) => {
                               to={`/${slug(cat.name)}/${slug(sub)}`}
                               onClick={() => setMenuOpen(false)}
                             >
-                              {sub}
+                              {t(`subcategories.${sub}`, sub)}
                             </Link>
                           ))}
                           {i === 0 && (
                             <>
-                              <span className="ln-navbar-mobile-label" style={{ marginTop: 12 }}>Tools</span>
+                              <span className="ln-navbar-mobile-label" style={{ marginTop: 12 }}>{t('sidebar.tools')}</span>
                               {TOOLS.map(tool => (
                                 <Link key={tool.id} className="ln-navbar-mobile-link" to={tool.path} onClick={() => setMenuOpen(false)}>
                                   {tool.label}
@@ -265,7 +265,7 @@ const Navbar = ({ showDocs }) => {
                     </Link>
                   ))}
                   <span className="ln-navbar-mobile-link">
-                    Community <span className="ln-navbar-soon">Soon</span>
+                    {t('nav.community')} <span className="ln-navbar-soon">{t('nav.soon')}</span>
                   </span>
                 </>
               )}
