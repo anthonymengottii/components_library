@@ -33,12 +33,6 @@ Agradecimento especial ao **[React Bits](https://www.reactbits.dev/)** pela insp
 - **4 variantes por componente** — JS-CSS, JS-TW, TS-CSS, TS-TW (para todos os gostos)
 - **Pronto para copiar e colar** — funciona com qualquer projeto React moderno
 
-## 🛠️ Ferramentas Criativas
-
-<div align="center">
-  <img src="src/assets/common/tools-readme.webp" alt="Ferramentas da Components Library" width="1000" style="border-radius: 30px; max-width: 1920px;">
-</div>
-
 <hr />
 
 ### Além dos componentes, a Components Library oferece **ferramentas criativas gratuitas** para acelerar seu fluxo de trabalho:
