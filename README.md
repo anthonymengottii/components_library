@@ -6,10 +6,6 @@
 
 <br />
 
-<div align="center">
-  <img src="src/assets/common/readme-showcase.png" alt="Vitrine de componentes da Components Library" width="1000">
-</div>
-
 <br />
 
 ## ✨ Por que Components Library?
