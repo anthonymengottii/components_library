@@ -68,15 +68,6 @@ Você também pode selecionar suas tecnologias preferidas e copiar o código man
 
 **[Anthony Mengotti](https://github.com/anthonymengottii)** — criador e mantenedor
 
-## 🌐 Portas Oficiais
-
-| Framework | Link                                  |
-| --------- | ------------------------------------- |
-| Vue.js    | [vue-bits.dev](https://vue-bits.dev/) |
-
-## 📊 Estatísticas
-
-![Repobeats analytics](https://repobeats.axiom.co/api/embed/b1bf4dc0226458617adbdbf5586f2df953eb0922.svg 'Imagem de analytics do Repobeats')
 
 ## 🗳️ Créditos
 
