@@ -9,16 +9,20 @@ import { useSearch } from '../context/SearchContext/useSearch';
 import { useTranslation } from 'react-i18next';
 import './SearchDialog.css';
 
-function searchComponents(query) {
+function searchComponents(query, t) {
   if (!query || query.trim() === '') return [];
   const results = [];
   CATEGORIES.forEach(category => {
     const { name: categoryName, subcategories } = category;
-    if (fuzzyMatch(categoryName, query)) {
+    const translatedCategoryName = t(`categories.${categoryName}`, categoryName);
+    if (fuzzyMatch(categoryName, query) || fuzzyMatch(translatedCategoryName, query)) {
       subcategories.forEach(component => results.push({ categoryName, componentName: component }));
     } else {
       subcategories.forEach(component => {
-        if (fuzzyMatch(component, query)) results.push({ categoryName, componentName: component });
+        const translatedComponentName = t(`subcategories.${component}`, component);
+        if (fuzzyMatch(component, query) || fuzzyMatch(translatedComponentName, query)) {
+          results.push({ categoryName, componentName: component });
+        }
       });
     }
   });
@@ -72,7 +76,7 @@ const SearchDialog = ({ isOpen, onClose }) => {
     return () => clearTimeout(t);
   }, [inputValue]);
 
-  const results = searchComponents(searchValue);
+  const results = searchComponents(searchValue, t);
 
   const handleScroll = e => {
     const { scrollTop, scrollHeight, clientHeight } = e.target;

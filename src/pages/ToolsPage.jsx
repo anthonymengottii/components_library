@@ -1,6 +1,6 @@
 import { Box, Flex, Text, Icon, Portal } from '@chakra-ui/react';
 import { ChevronDown, Info } from 'lucide-react';
-import { useRef, useEffect, useState, Suspense, lazy } from 'react';
+import { useRef, useEffect, useState, Suspense, lazy, useMemo } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import Navbar from '../components/landingnew/Navbar/Navbar';
 import DotField from '../components/landingnew/Hero/DotField';
@@ -22,12 +22,18 @@ const TOOL_COMPONENTS = {
   'texture-lab': TextureLab
 };
 
-const TOOLS = BASE_TOOLS.map(tool => ({
-  ...tool,
-  component: TOOL_COMPONENTS[tool.id]
-}));
-
 const ToolDropdown = ({ selectedTool, onSelect, isOpen, setIsOpen }) => {
+  const { t } = useTranslation();
+  const TOOLS = useMemo(
+    () =>
+      BASE_TOOLS.map(tool => ({
+        ...tool,
+        label: t(`tools.items.${tool.id}.label`, tool.label),
+        description: t(`tools.items.${tool.id}.description`, tool.description),
+        component: TOOL_COMPONENTS[tool.id]
+      })),
+    [t]
+  );
   const dropdownRef = useRef(null);
   const infoRef = useRef(null);
   const [tooltipVisible, setTooltipVisible] = useState(false);
@@ -220,11 +226,22 @@ const ComingSoon = ({ label, toolSelector, t }) => (
 );
 
 const ToolContent = ({ toolId, toolSelector, mobileToolSelector }) => {
+  const { t } = useTranslation();
+  const TOOLS = useMemo(
+    () =>
+      BASE_TOOLS.map(tool => ({
+        ...tool,
+        label: t(`tools.items.${tool.id}.label`, tool.label),
+        description: t(`tools.items.${tool.id}.description`, tool.description),
+        component: TOOL_COMPONENTS[tool.id]
+      })),
+    [t]
+  );
   const tool = TOOLS.find(t => t.id === toolId);
 
   if (!tool?.component) {
     return (
-      <ComingSoon label={tool?.label || 'Tool'} toolSelector={toolSelector} mobileToolSelector={mobileToolSelector} />
+      <ComingSoon label={tool?.label || t('tools.genericTool')} toolSelector={toolSelector} mobileToolSelector={mobileToolSelector} />
     );
   }
 
@@ -233,7 +250,7 @@ const ToolContent = ({ toolId, toolSelector, mobileToolSelector }) => {
     <Suspense
       fallback={
         <Flex w="100%" h="100%" align="center" justify="center">
-          <Text color={colors.accentMuted}>Loading...</Text>
+          <Text color={colors.accentMuted}>{t('tools.loading')}</Text>
         </Flex>
       }
     >
@@ -244,6 +261,16 @@ const ToolContent = ({ toolId, toolSelector, mobileToolSelector }) => {
 
 export default function ToolsPage() {
   const { t } = useTranslation();
+  const TOOLS = useMemo(
+    () =>
+      BASE_TOOLS.map(tool => ({
+        ...tool,
+        label: t(`tools.items.${tool.id}.label`, tool.label),
+        description: t(`tools.items.${tool.id}.description`, tool.description),
+        component: TOOL_COMPONENTS[tool.id]
+      })),
+    [t]
+  );
   const { toolId } = useParams();
   const navigate = useNavigate();
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -258,7 +285,7 @@ export default function ToolsPage() {
         document.title = `Components Library - ${tool.label}`;
       }
     }
-  }, [toolId]);
+  }, [toolId, t, TOOLS]);
 
   if (!toolId) {
     return (

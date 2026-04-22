@@ -149,7 +149,7 @@ const ToolsLinks = ({ onClose, t }) => (
         >
           <Flex alignItems="center" gap="8px">
             <Icon as={tool.icon} boxSize={4} color={colors.accent} />
-            <span>{tool.label}</span>
+            <span>{t(`tools.items.${tool.id}.label`, tool.label)}</span>
             {tool.comingSoon && (
               <Text as="span" fontSize="10px" color={colors.accentMuted} fontWeight={600}>
                 {t('nav.soon')}
@@ -531,7 +531,7 @@ const Sidebar = () => {
                         >
                           <Flex alignItems="center" gap="6px">
                             <Icon as={tool.icon} boxSize={3.5} color={colors.accent} />
-                            <span>{tool.label}</span>
+                            <span>{t(`tools.items.${tool.id}.label`, tool.label)}</span>
                           </Flex>
                         </Link>
                       ))}

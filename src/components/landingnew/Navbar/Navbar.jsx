@@ -247,7 +247,7 @@ const Navbar = ({ showDocs }) => {
                               <span className="ln-navbar-mobile-label" style={{ marginTop: 12 }}>{t('sidebar.tools')}</span>
                               {TOOLS.map(tool => (
                                 <Link key={tool.id} className="ln-navbar-mobile-link" to={tool.path} onClick={() => setMenuOpen(false)}>
-                                  {tool.label}
+                                  {t(`tools.items.${tool.id}.label`, tool.label)}
                                 </Link>
                               ))}
                             </>
