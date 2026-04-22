@@ -64,18 +64,6 @@ Você também pode selecionar suas tecnologias preferidas e copiar o código man
 
 <hr />
 
-## 🤝 Contribuindo
-
-Adoraríamos sua ajuda! Confira as [issues abertas](https://github.com/anthonymengottii/components_library/issues) ou envie ideias pelo [template de solicitação de recurso](https://github.com/anthonymengottii/components_library/issues/new?template=2-feature-request.yml).
-
-Leia primeiro o [guia de contribuição](https://github.com/anthonymengottii/components_library/blob/main/CONTRIBUTING.md) — obrigado por ajudar a tornar a Components Library ainda melhor!
-
-## 🙌 Contribuidores
-
-<a href="https://github.com/anthonymengottii/components_library/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=anthonymengottii/components_library" />
-</a>
-
 ## 👤 Mantenedor
 
 **[Anthony Mengotti](https://github.com/anthonymengottii)** — criador e mantenedor
