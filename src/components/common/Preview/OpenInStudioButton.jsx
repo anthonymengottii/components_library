@@ -2,8 +2,10 @@ import { Button, Icon } from '@chakra-ui/react';
 import { Palette } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { colors } from '../../../constants/colors';
+import { useTranslation } from 'react-i18next';
 
 const OpenInStudioButton = ({ backgroundId, currentProps = {}, defaultProps = {} }) => {
+  const { t } = useTranslation();
   const navigate = useNavigate();
 
   const handleClick = () => {
@@ -40,7 +42,7 @@ const OpenInStudioButton = ({ backgroundId, currentProps = {}, defaultProps = {}
       onClick={handleClick}
       _hover={{ color: '#fff', bg: `${colors.primary}aa` }}
     >
-      <Icon as={Palette} boxSize={4} /> Open in BG Studio
+      <Icon as={Palette} boxSize={4} /> {t('preview.openInBgStudio')}
     </Button>
   );
 };

@@ -19,9 +19,15 @@ i18n
   .use(initReactI18next)
   .init({
     resources,
+    supportedLngs: ['en', 'pt'],
+    nonExplicitSupportedLngs: true,
     fallbackLng: 'en',
+    detection: {
+      order: ['localStorage', 'navigator', 'htmlTag'],
+      caches: ['localStorage']
+    },
     interpolation: {
-      escapeValue: false // React already safes from xss
+      escapeValue: false // React already escapes from xss
     }
   });
 

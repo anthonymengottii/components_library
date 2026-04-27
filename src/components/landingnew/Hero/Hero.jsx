@@ -4,6 +4,7 @@ import DotField from './DotField';
 import HeroBand from './HeroBand';
 import { FaArrowRight } from 'react-icons/fa6';
 import { LuRotateCcw } from 'react-icons/lu';
+import { useTranslation } from 'react-i18next';
 import './Hero.css';
 
 /* ── Color conversion helpers ── */
@@ -405,6 +406,7 @@ function InteractiveCode({ def, values, onChange }) {
 /* ── Hero ── */
 
 const Hero = () => {
+  const { t } = useTranslation();
   const [activeSnippet, setActiveSnippet] = useState(0);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const dropdownRef = useRef(null);
@@ -517,15 +519,15 @@ const Hero = () => {
       <div className="ln-hero-content">
         <div className="ln-hero-left">
           <Link to="/backgrounds/line-waves" className="ln-hero-tag">
-            <span className="ln-hero-tag-new" style={{ background: accentColor, color: accentFg }}>New Component</span>
-            Line Waves <FaArrowRight size={10} />
+            <span className="ln-hero-tag-new" style={{ background: accentColor, color: accentFg }}>{t('hero.newComponent')}</span>
+            {t('subcategories.Line Waves')} <FaArrowRight size={10} />
           </Link>
-          <h1 className="ln-hero-headline"><span className="ln-hero-headline-line">React components for</span><br /><span className="ln-hero-headline-line">creative developers</span></h1>
+          <h1 className="ln-hero-headline"><span className="ln-hero-headline-line">{t('hero.headlineLine1')}</span><br /><span className="ln-hero-headline-line">{t('hero.headlineLine2')}</span></h1>
           <p className="ln-hero-description">
-            Highly customizable animated components & backgrounds that drop into your project and instantly make it stand out
+            {t('hero.description')}
           </p>
           <div className="ln-hero-buttons">
-            <Link to="/get-started/index" className="ln-hero-btn ln-hero-btn-primary" style={{ background: accentColor, borderColor: accentColor, color: accentFg }}>Browse Components</Link>
+            <Link to="/get-started/index" className="ln-hero-btn ln-hero-btn-primary" style={{ background: accentColor, borderColor: accentColor, color: accentFg }}>{t('componentList.browseComponents')}</Link>
           </div>
         </div>
         <div className="ln-hero-right">
@@ -536,7 +538,7 @@ const Hero = () => {
               </div>
               <div className="ln-hero-code-titlebar-actions">
                 {hasChanges && (
-                  <button className="ln-hero-code-reset" onClick={resetProps} aria-label="Reset to defaults">
+                  <button className="ln-hero-code-reset" onClick={resetProps} aria-label={t('hero.resetDefaults')}>
                     <LuRotateCcw size={14} strokeWidth={1.5} />
                   </button>
                 )}
@@ -568,7 +570,7 @@ const Hero = () => {
                 onChange={handlePropChange}
               />
             </div>
-            <p className="ln-hero-code-hint">Drag or click values to edit</p>
+            <p className="ln-hero-code-hint">{t('hero.codeHint')}</p>
           </div>
         </div>
       </div>

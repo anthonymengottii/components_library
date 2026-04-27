@@ -2,6 +2,7 @@ import { lazy, Suspense } from 'react';
 import { motion } from 'motion/react';
 import { Link } from 'react-router-dom';
 import { FiHome, FiSearch, FiStar, FiHeart, FiSettings } from 'react-icons/fi';
+import { useTranslation } from 'react-i18next';
 import './LiveDemo.css';
 
 const ShapeGrid = lazy(() => import('../../../content/Backgrounds/ShapeGrid/ShapeGrid'));
@@ -12,7 +13,7 @@ const Dock = lazy(() => import('../../../content/Components/Dock/Dock'));
 const CARDS = [
   {
     category: 'Backgrounds',
-    component: 'ShapeGrid',
+    component: 'Shape Grid',
     href: '/backgrounds/shape-grid',
     span: 7,
     tall: true,
@@ -52,7 +53,7 @@ const CARDS = [
   },
   {
     category: 'Text Animations',
-    component: 'ShinyText',
+    component: 'Shiny Text',
     href: '/text-animations/shiny-text',
     span: 4,
     render: () => (
@@ -94,35 +95,39 @@ const CARDS = [
   },
 ];
 
-const LiveDemo = () => (
-  <section className="ln-demo-section">
-    <div className="ln-demo-inner">
-      <h2 className="ln-demo-title">See them in action</h2>
+const LiveDemo = () => {
+  const { t } = useTranslation();
 
-      <div className="ln-demo-grid">
-        {CARDS.map((card, i) => (
-          <motion.div
-            key={card.component}
-            className={`ln-demo-card ln-demo-card--span-${card.span}${card.tall ? ' ln-demo-card--tall' : ''}`}
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-60px' }}
-            transition={{ duration: 0.5, delay: i * 0.07, ease: [0.21, 0.47, 0.32, 0.98] }}
-          >
-            <Link to={card.href} className="ln-demo-card-link">
-              <div className="ln-demo-card-visual">
-                {card.render()}
-              </div>
-              <div className="ln-demo-card-overlay">
-                <span className="ln-demo-card-category">{card.category}</span>
-                <span className="ln-demo-card-name">{card.component}</span>
-              </div>
-            </Link>
-          </motion.div>
-        ))}
+  return (
+    <section className="ln-demo-section">
+      <div className="ln-demo-inner">
+        <h2 className="ln-demo-title">{t('liveDemo.title')}</h2>
+
+        <div className="ln-demo-grid">
+          {CARDS.map((card, i) => (
+            <motion.div
+              key={card.component}
+              className={`ln-demo-card ln-demo-card--span-${card.span}${card.tall ? ' ln-demo-card--tall' : ''}`}
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-60px' }}
+              transition={{ duration: 0.5, delay: i * 0.07, ease: [0.21, 0.47, 0.32, 0.98] }}
+            >
+              <Link to={card.href} className="ln-demo-card-link">
+                <div className="ln-demo-card-visual">
+                  {card.render()}
+                </div>
+                <div className="ln-demo-card-overlay">
+                  <span className="ln-demo-card-category">{t(`categories.${card.category}`, card.category)}</span>
+                  <span className="ln-demo-card-name">{t(`subcategories.${card.component}`, card.component)}</span>
+                </div>
+              </Link>
+            </motion.div>
+          ))}
+        </div>
       </div>
-    </div>
-  </section>
-);
+    </section>
+  );
+};
 
 export default LiveDemo;

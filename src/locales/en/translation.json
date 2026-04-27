@@ -4,14 +4,125 @@
     "templates": "Templates",
     "tools": "Tools",
     "github": "GitHub",
-    "search": "Search..."
+    "search": "Search...",
+    "codeLanguage": "Code Language",
+    "styling": "Styling",
+    "favorites": "Favorites",
+    "community": "Community",
+    "soon": "Soon",
+    "getPro": "Get Pro",
+    "switchToEnglish": "Switch language to English",
+    "switchToPortuguese": "Switch language to Portuguese"
+  },
+  "index": {
+    "title": "Index"
+  },
+  "quickStart": {
+    "title": "Get started in seconds",
+    "copyCommand": "Copy command",
+    "hint": "Works with any React project. Components are copied into your codebase."
+  },
+  "cta": {
+    "headline": "Stop building from scratch.",
+    "subtitle": "Beautiful, animated React components you can drop into any project. Open source. Always free.",
+    "browse": "Browse Components",
+    "starGithub": "Star on GitHub"
+  },
+  "liveDemo": {
+    "title": "See them in action"
+  },
+  "testimonials": {
+    "title": "Loved by developers"
+  },
+  "hero": {
+    "newComponent": "New Component",
+    "headlineLine1": "React components for",
+    "headlineLine2": "creative developers",
+    "description": "Highly customizable animated components & backgrounds that drop into your project and instantly make it stand out",
+    "resetDefaults": "Reset to defaults",
+    "codeHint": "Drag or click values to edit"
+  },
+  "features": {
+    "title": "What's inside",
+    "cards": {
+      "components": {
+        "title": "130+ Components",
+        "desc": "Backgrounds, text effects, animations, UI patterns. The stuff you'd build from scratch, already done."
+      },
+      "visualEditors": {
+        "title": "Visual Editors",
+        "desc": "Three free tools to play with components and grab the code."
+      },
+      "wellOrganized": {
+        "title": "Well Organized",
+        "desc": "Four clear categories so you're not scrolling through a wall of unrelated stuff."
+      },
+      "pickYourStack": {
+        "title": "Pick Your Stack",
+        "desc": "JS or TypeScript, CSS or Tailwind. Every component comes in all four flavors."
+      },
+      "aiReady": {
+        "title": "AI-Ready",
+        "desc": "Works great with Cursor, Copilot, and v0. Describe what you need, drop it in, ship."
+      },
+      "growingFast": {
+        "title": "Growing Fast",
+        "desc": "React's fastest-growing component library on GitHub. Not even close."
+      }
+    }
+  },
+  "contribution": {
+    "heading": "Help improve this component",
+    "subtext": "Found a bug or have an idea? Let us know on GitHub.",
+    "reportIssue": "Report an issue",
+    "requestFeature": "Request a feature"
+  },
+  "proCard": {
+    "title": "Get React Bits Pro",
+    "description": "85+ components, 100+ blocks & 5 templates to ship memorable products faster.",
+    "cta": "Explore Pro"
+  },
+  "preview": {
+    "customize": "Customize",
+    "props": "Props",
+    "property": "Property",
+    "type": "Type",
+    "default": "Default",
+    "description": "Description",
+    "openInBgStudio": "Open in BG Studio",
+    "reset": "Reset",
+    "resetDefaults": "Reset to defaults",
+    "resetDefaultValues": "Reset to default values"
+  },
+  "search": {
+    "placeholder": "Search components, categories, or keywords...",
+    "inCategory": "in",
+    "noResults": "No results found for"
+  },
+  "componentList": {
+    "allComponents": "All Components",
+    "searchPlaceholder": "Search...",
+    "noResults": "No results...",
+    "nothingHereYet": "Nothing here yet...",
+    "tryAdjusting": "Try adjusting your filters",
+    "saveHint": "Tap the heart on any component to save it",
+    "clearFilters": "Clear Filters",
+    "browseComponents": "Browse Components"
+  },
+  "favorites": {
+    "title": "Favorites"
   },
   "footer": {
     "product": "Product",
     "resources": "Resources",
     "whoMadeThis": "Who made this?",
     "installation": "Installation",
-    "builtBy": "Created with by Anthony Mengotti."
+    "builtBy": "Created with by Anthony Mengotti.",
+    "tagline": "Premium Animated UI components for React.",
+    "twitter": "Twitter / X",
+    "createdWith": "Created with",
+    "by": "by",
+    "copyright": "Components Library"
   },
   "templates": {
     "title": "Templates",
@@ -25,7 +136,22 @@
     "comingSoon": "Coming Soon",
     "open": "Open",
     "loading": "Loading...",
-    "settingsSoon": "Settings will appear here when the tool is ready."
+    "settingsSoon": "Settings will appear here when the tool is ready.",
+    "genericTool": "Tool",
+    "items": {
+      "background-studio": {
+        "label": "Background Studio",
+        "description": "Explore animated backgrounds for your projects. Choose from various effects and customize as you like. Export as video, image, or code or share your creations as URLs."
+      },
+      "shape-magic": {
+        "label": "Shape Magic",
+        "description": "Tool for automagically creating inner rounded corners between shapes of different sizes. Export as code or SVG."
+      },
+      "texture-lab": {
+        "label": "Texture Lab",
+        "description": "Apply effects to your images and export the results. Add noise, dithering, halftone, ASCII art, and more. Save your presets for sharing or future use."
+      }
+    }
   },
   "sidebar": {
     "categories": "Categories",
