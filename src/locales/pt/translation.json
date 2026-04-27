@@ -22,6 +22,11 @@
     "copyCommand": "Copiar comando",
     "hint": "Funciona com qualquer projeto React. Os componentes são copiados para seu código."
   },
+  "header": {
+    "backToDocs": "Voltar para Docs",
+    "preferences": "Preferências",
+    "other": "Outros"
+  },
   "cta": {
     "headline": "Pare de construir do zero.",
     "subtitle": "Componentes React bonitos e animados que você pode usar em qualquer projeto. Código aberto. Sempre grátis.",

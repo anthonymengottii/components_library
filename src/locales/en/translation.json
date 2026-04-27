@@ -22,6 +22,11 @@
     "copyCommand": "Copy command",
     "hint": "Works with any React project. Components are copied into your codebase."
   },
+  "header": {
+    "backToDocs": "Back to Docs",
+    "preferences": "Preferences",
+    "other": "Other"
+  },
   "cta": {
     "headline": "Stop building from scratch.",
     "subtitle": "Beautiful, animated React components you can drop into any project. Open source. Always free.",
