@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { Palette, Shapes, ImageIcon } from 'lucide-react';
 import { FiType, FiCircle, FiLayers, FiImage, FiCode, FiGrid, FiZap, FiBox, FiStar, FiHeart, FiEye, FiCompass } from 'react-icons/fi';
 import { useStars } from '../../../hooks/useStars';
+import { useTranslation } from 'react-i18next';
 import rbLogo from '../../../assets/logos/react-bits-logo-small.svg';
 import './Features.css';
 
@@ -36,24 +37,28 @@ const ROW_B = [
   { name: 'Beams', cat: 'backgrounds' },
 ];
 
-const ComponentMarquee = () => (
-  <div className="ln-feat-marquee">
-    <div className="ln-feat-marquee-track">
-      <div className="ln-feat-marquee-scroll">
-        {[...ROW_A, ...ROW_A].map((c, i) => (
-          <Link key={i} to={`/${c.cat}/${toSlug(c.name)}`} className="ln-feat-pill">{c.name}</Link>
-        ))}
+const ComponentMarquee = () => {
+  const { t } = useTranslation();
+
+  return (
+    <div className="ln-feat-marquee">
+      <div className="ln-feat-marquee-track">
+        <div className="ln-feat-marquee-scroll">
+          {[...ROW_A, ...ROW_A].map((c, i) => (
+            <Link key={i} to={`/${c.cat}/${toSlug(c.name)}`} className="ln-feat-pill">{t(`subcategories.${c.name}`, c.name)}</Link>
+          ))}
+        </div>
+      </div>
+      <div className="ln-feat-marquee-track">
+        <div className="ln-feat-marquee-scroll ln-feat-marquee-scroll--rev">
+          {[...ROW_B, ...ROW_B].map((c, i) => (
+            <Link key={i} to={`/${c.cat}/${toSlug(c.name)}`} className="ln-feat-pill">{t(`subcategories.${c.name}`, c.name)}</Link>
+          ))}
+        </div>
       </div>
     </div>
-    <div className="ln-feat-marquee-track">
-      <div className="ln-feat-marquee-scroll ln-feat-marquee-scroll--rev">
-        {[...ROW_B, ...ROW_B].map((c, i) => (
-          <Link key={i} to={`/${c.cat}/${toSlug(c.name)}`} className="ln-feat-pill">{c.name}</Link>
-        ))}
-      </div>
-    </div>
-  </div>
-);
+  );
+};
 
 /* ─── 2. Free Tools List ─── */
 
@@ -423,33 +428,49 @@ const CARDS = [
 
 /* ─── Features Section ─── */
 
-const Features = () => (
-  <section className="ln-features-section">
-    <div className="ln-features-inner">
-      <h2 className="ln-features-title">What&apos;s inside</h2>
+const CARD_TRANSLATION_KEYS = {
+  '130+ Components': { title: 'features.cards.components.title', desc: 'features.cards.components.desc' },
+  'Visual Editors': { title: 'features.cards.visualEditors.title', desc: 'features.cards.visualEditors.desc' },
+  'Well Organized': { title: 'features.cards.wellOrganized.title', desc: 'features.cards.wellOrganized.desc' },
+  'Pick Your Stack': { title: 'features.cards.pickYourStack.title', desc: 'features.cards.pickYourStack.desc' },
+  'AI-Ready': { title: 'features.cards.aiReady.title', desc: 'features.cards.aiReady.desc' },
+  'Growing Fast': { title: 'features.cards.growingFast.title', desc: 'features.cards.growingFast.desc' }
+};
 
-      <div className="ln-features-grid">
-        {CARDS.map((card, i) => (
-          <motion.div
-            key={card.title}
-            className={`ln-features-card ln-features-card--span-${card.span}`}
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-60px' }}
-            transition={{ duration: 0.5, delay: i * 0.07, ease: [0.21, 0.47, 0.32, 0.98] }}
-          >
-            <div className="ln-features-card-visual">
-              {card.visual}
-            </div>
-            <div className="ln-features-card-body">
-              <h3>{card.title}</h3>
-              <p>{card.desc}</p>
-            </div>
-          </motion.div>
-        ))}
+const Features = () => {
+  const { t } = useTranslation();
+
+  return (
+    <section className="ln-features-section">
+      <div className="ln-features-inner">
+        <h2 className="ln-features-title">{t('features.title')}</h2>
+
+        <div className="ln-features-grid">
+          {CARDS.map((card, i) => {
+            const keys = CARD_TRANSLATION_KEYS[card.title];
+            return (
+              <motion.div
+                key={card.title}
+                className={`ln-features-card ln-features-card--span-${card.span}`}
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '-60px' }}
+                transition={{ duration: 0.5, delay: i * 0.07, ease: [0.21, 0.47, 0.32, 0.98] }}
+              >
+                <div className="ln-features-card-visual">
+                  {card.visual}
+                </div>
+                <div className="ln-features-card-body">
+                  <h3>{keys ? t(keys.title) : card.title}</h3>
+                  <p>{keys ? t(keys.desc) : card.desc}</p>
+                </div>
+              </motion.div>
+            );
+          })}
+        </div>
       </div>
-    </div>
-  </section>
-);
+    </section>
+  );
+};
 
 export default Features;

@@ -191,10 +191,10 @@ const Navbar = ({ showDocs }) => {
                   e.currentTarget.style.setProperty('--pro-mx', `${x}%`);
                 }}
               >
-                GET PRO
+                {t('nav.getPro')}
               </a>
               <span className="ln-navbar-browse">
-                COMMUNITY <span className="ln-navbar-soon">SOON</span>
+                {t('nav.community')} <span className="ln-navbar-soon">{t('nav.soon')}</span>
               </span>
             </>
           )}

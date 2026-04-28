@@ -29,7 +29,7 @@ const Footer = () => {
               </span>
             </Link>
             <p className="ln-footer-tagline">
-              Premium Animated UI components for React.
+              {t('footer.tagline')}
             </p>
           </div>
 
@@ -43,10 +43,10 @@ const Footer = () => {
             <div className="ln-footer-col">
               <span className="ln-footer-col-title">{t('footer.resources')}</span>
               <a href={GITHUB_URL} target="_blank" rel="noopener noreferrer" className="ln-footer-link">
-                GitHub
+                {t('nav.github')}
               </a>
               <a href="https://x.com/AnthonyM78841" target="_blank" rel="noopener noreferrer" className="ln-footer-link">
-                Twitter / X
+                {t('footer.twitter')}
               </a>
             </div>
           </nav>
@@ -54,12 +54,12 @@ const Footer = () => {
 
         <div className="ln-footer-bottom">
           <p className="ln-footer-attribution">
-            Created with <AiFillHeart className="ln-footer-heart" /> by{' '}
+            {t('footer.createdWith')} <AiFillHeart className="ln-footer-heart" /> {t('footer.by')}{' '}
             <a href="https://x.com/AnthonyM78841" target="_blank" rel="noopener noreferrer" className="ln-footer-creator">
               Anthony Mengotti
             </a>
           </p>
-          <p className="ln-footer-copy">© {new Date().getFullYear()} Components Library</p>
+          <p className="ln-footer-copy">© {new Date().getFullYear()} {t('footer.copyright')}</p>
         </div>
       </motion.div>
     </footer>
@@ -67,4 +67,3 @@ const Footer = () => {
 };
 
 export default Footer;
-

@@ -10,8 +10,94 @@
     "favorites": "Favoritos",
     "community": "Comunidade",
     "soon": "Em breve",
+    "getPro": "Assinar Pro",
     "switchToEnglish": "Mudar idioma para inglês",
     "switchToPortuguese": "Mudar idioma para português"
+  },
+  "index": {
+    "title": "Índice"
+  },
+  "quickStart": {
+    "title": "Comece em segundos",
+    "copyCommand": "Copiar comando",
+    "hint": "Funciona com qualquer projeto React. Os componentes são copiados para seu código."
+  },
+  "header": {
+    "backToDocs": "Voltar para Docs",
+    "preferences": "Preferências",
+    "other": "Outros"
+  },
+  "cta": {
+    "headline": "Pare de construir do zero.",
+    "subtitle": "Componentes React bonitos e animados que você pode usar em qualquer projeto. Código aberto. Sempre grátis.",
+    "browse": "Explorar Componentes",
+    "starGithub": "Dar estrela no GitHub"
+  },
+  "liveDemo": {
+    "title": "Veja em ação"
+  },
+  "testimonials": {
+    "title": "Amado por desenvolvedores"
+  },
+  "hero": {
+    "newComponent": "Novo Componente",
+    "headlineLine1": "Componentes React para",
+    "headlineLine2": "desenvolvedores criativos",
+    "description": "Componentes e fundos animados altamente personalizáveis que entram no seu projeto e fazem ele se destacar instantaneamente",
+    "resetDefaults": "Restaurar padrão",
+    "codeHint": "Arraste ou clique nos valores para editar"
+  },
+  "features": {
+    "title": "O que você encontra",
+    "cards": {
+      "components": {
+        "title": "130+ Componentes",
+        "desc": "Fundos, efeitos de texto, animações e padrões de UI. Aquilo que você faria do zero, já está pronto."
+      },
+      "visualEditors": {
+        "title": "Editores Visuais",
+        "desc": "Três ferramentas grátis para testar componentes e pegar o código."
+      },
+      "wellOrganized": {
+        "title": "Bem Organizado",
+        "desc": "Quatro categorias claras para você não ficar rolando uma parede de itens sem relação."
+      },
+      "pickYourStack": {
+        "title": "Escolha sua Stack",
+        "desc": "JS ou TypeScript, CSS ou Tailwind. Todo componente vem nas quatro variações."
+      },
+      "aiReady": {
+        "title": "Pronto para IA",
+        "desc": "Funciona muito bem com Cursor, Copilot e v0. Descreva o que precisa, adicione no projeto e publique."
+      },
+      "growingFast": {
+        "title": "Crescendo Rápido",
+        "desc": "A biblioteca de componentes React que mais cresce no GitHub. Nem tem comparação."
+      }
+    }
+  },
+  "contribution": {
+    "heading": "Ajude a melhorar este componente",
+    "subtext": "Encontrou um bug ou teve uma ideia? Conte para a gente no GitHub.",
+    "reportIssue": "Reportar problema",
+    "requestFeature": "Solicitar recurso"
+  },
+  "proCard": {
+    "title": "Conheça o React Bits Pro",
+    "description": "85+ componentes, 100+ blocos e 5 templates para lançar produtos memoráveis mais rápido.",
+    "cta": "Explorar Pro"
+  },
+  "preview": {
+    "customize": "Personalizar",
+    "props": "Props",
+    "property": "Propriedade",
+    "type": "Tipo",
+    "default": "Padrão",
+    "description": "Descrição",
+    "openInBgStudio": "Abrir no BG Studio",
+    "reset": "Resetar",
+    "resetDefaults": "Resetar para padrão",
+    "resetDefaultValues": "Resetar para valores padrão"
   },
   "search": {
     "placeholder": "Pesquise componentes, categorias ou palavras-chave...",
@@ -36,7 +122,12 @@
     "resources": "Recursos",
     "whoMadeThis": "Quem fez isso?",
     "installation": "Instalação",
-    "builtBy": "Criado por Anthony Mengotti."
+    "builtBy": "Criado por Anthony Mengotti.",
+    "tagline": "Componentes de UI animados premium para React.",
+    "twitter": "Twitter / X",
+    "createdWith": "Criado com",
+    "by": "por",
+    "copyright": "Components Library"
   },
   "templates": {
     "title": "Templates",
