@@ -13,7 +13,7 @@ export const glitchText = {
   enableOnHover={true}
   className='custom-class'
 >
-  React Bits
+  Components Library
 </GlitchText>`,
   code,
   css,

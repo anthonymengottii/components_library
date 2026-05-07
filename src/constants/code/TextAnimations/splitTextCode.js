@@ -1,4 +1,3 @@
-// Fun fact: this is the first component ever made for React Bits!
 import code from '@content/TextAnimations/SplitText/SplitText.jsx?raw';
 import tailwind from '@tailwind/TextAnimations/SplitText/SplitText.jsx?raw';
 import tsCode from '@ts-default/TextAnimations/SplitText/SplitText.tsx?raw';

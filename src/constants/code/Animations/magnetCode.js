@@ -7,7 +7,7 @@ export const magnet = {
   usage: `import Magnet from './Magnet'
 
 <Magnet padding={50} disabled={false} magnetStrength={50}>
-  <p>Star React Bits on GitHub!</p>
+  <p>Star Components Library on GitHub!</p>
 </Magnet>`,
   code,
   tailwind,

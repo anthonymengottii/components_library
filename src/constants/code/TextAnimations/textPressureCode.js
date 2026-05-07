@@ -11,7 +11,7 @@ import TextPressure from './TextPressure';
 
 // Note:
 // Make sure the font you're using supports all the variable properties. 
-// React Bits does not take responsibility for the fonts used
+// Components Library does not take responsibility for the fonts used
 
 <div style={{position: 'relative', height: '300px'}}>
   <TextPressure
