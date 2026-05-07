@@ -4,8 +4,10 @@ import BackToTopButton from '../components/common/BackToTopButton';
 import { getSavedComponents } from '../utils/favorites';
 import { componentMetadata } from '../constants/Information';
 import ComponentList from '../components/common/ComponentList';
+import { useTranslation } from 'react-i18next';
 
 const FavoritesPage = () => {
+  const { t } = useTranslation();
   const [savedKeys, setSavedKeys] = useState(() => getSavedComponents());
 
   useEffect(() => {
@@ -30,8 +32,8 @@ const FavoritesPage = () => {
 
   return (
     <Box>
-      <title>{`Components Library - Favorites`}</title>
-      <ComponentList title="Favorites" list={savedList} hasDeleteButton sorting="none" />
+      <title>{`Components Library - ${t('favorites.title')}`}</title>
+      <ComponentList title={t('favorites.title')} list={savedList} hasDeleteButton sorting="none" />
       <BackToTopButton />
     </Box>
   );

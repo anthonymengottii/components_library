@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Box, Text } from '@chakra-ui/react';
 import { TbMenu } from 'react-icons/tb';
+import { useTranslation } from 'react-i18next';
 
 import PreviewSwitch from './PreviewSwitch';
 import logo from '../../../assets/logos/react-bits-logo.svg';
@@ -8,7 +9,9 @@ import logo from '../../../assets/logos/react-bits-logo.svg';
 const BackgroundContent = ({
   headline = 'Build interfaces that feel alive'
 }) => {
+  const { t } = useTranslation();
   const [showContent, setShowContent] = useState(true);
+  const displayHeadline = headline === 'Build interfaces that feel alive' ? t('preview.headline') : headline;
 
   return (
     <Box userSelect="none">
@@ -24,7 +27,7 @@ const BackgroundContent = ({
         transition="opacity 0.3s ease"
         userSelect="none"
       >
-        <PreviewSwitch title="Demo Content" isChecked={showContent} onChange={setShowContent} />
+        <PreviewSwitch title={t('preview.demoContent')} isChecked={showContent} onChange={setShowContent} />
       </Box>
 
       {showContent && (
@@ -54,7 +57,7 @@ const BackgroundContent = ({
               </Box>
 
               <Box display={{ base: 'none', md: 'flex' }} alignItems="center" gap={5}>
-                {['Features', 'About'].map(item => (
+                {[t('preview.features'), t('preview.about')].map(item => (
                   <Text key={item} color="rgba(255,255,255,0.4)" fontSize="13px" fontWeight={500}>{item}</Text>
                 ))}
                 <Box
@@ -68,7 +71,7 @@ const BackgroundContent = ({
                   display="flex"
                   alignItems="center"
                 >
-                  Sign up
+                  {t('preview.signUp')}
                 </Box>
               </Box>
             </Box>
@@ -110,10 +113,10 @@ const BackgroundContent = ({
                 textTransform="uppercase"
                 letterSpacing="0.02em"
               >
-                New
+                {t('sidebar.new')}
               </Box>
               <Text fontSize="12px" fontWeight={500} color="rgba(255,255,255,0.5)">
-                Just shipped v2.0
+                {t('preview.justShipped')}
               </Text>
             </Box>
 
@@ -129,7 +132,7 @@ const BackgroundContent = ({
               maxW="20ch"
               textShadow="0 4px 24px rgba(0,0,0,0.5)"
             >
-              {headline}
+              {displayHeadline}
             </Text>
 
             {/* Buttons */}
@@ -146,7 +149,7 @@ const BackgroundContent = ({
                 display="flex"
                 alignItems="center"
               >
-                Get started
+                {t('preview.getStarted')}
               </Box>
               <Box
                 as="span"
@@ -162,7 +165,7 @@ const BackgroundContent = ({
                 alignItems="center"
                 className="bg-content-glass"
               >
-                Learn more
+                {t('preview.learnMore')}
               </Box>
             </Box>
           </Box>

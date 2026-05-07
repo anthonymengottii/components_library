@@ -30,6 +30,7 @@ import { useStars } from '../../hooks/useStars';
 import { useSearch } from '../context/SearchContext/useSearch';
 import { useOptions } from '../context/OptionsContext/useOptions';
 import FadeContent from '../../content/Animations/FadeContent/FadeContent';
+import { useTranslation } from 'react-i18next';
 
 import Logo from '../../assets/logos/react-bits-logo.svg';
 import Star from '../../assets/common/star.svg';
@@ -61,10 +62,11 @@ const OPTION_ROW_STYLES = {
 };
 
 // ─── Sub-components ──────────────────────────────────────────────────────────
-const SearchButton = ({ onClick }) => (
+const SearchButton = ({ onClick, ariaLabel }) => (
   <Flex
     as="button"
     onClick={onClick}
+    aria-label={ariaLabel}
     fontSize="12px"
     h={10}
     pr={2.5}
@@ -99,10 +101,10 @@ const SearchButton = ({ onClick }) => (
   </Flex>
 );
 
-const ToolsLink = ({ isToolsPage, onMouseEnter, onMouseLeave, showMenu }) => {
+const ToolsLink = ({ isToolsPage, onMouseEnter, onMouseLeave, showMenu, t }) => {
   const linkTo = isToolsPage ? '/get-started/index' : '/tools';
   const linkIcon = isToolsPage ? TbLibrary : ToolCase;
-  const linkText = isToolsPage ? 'Back to Docs' : 'Tools';
+  const linkText = isToolsPage ? t('header.backToDocs') : t('nav.tools');
 
   return (
     <Box position="relative" onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
@@ -143,17 +145,17 @@ const ToolsLink = ({ isToolsPage, onMouseEnter, onMouseLeave, showMenu }) => {
               }
             }}
           >
-            New
+            {t('sidebar.new')}
           </Box>
         )}
       </Flex>
 
-      {!isToolsPage && <ToolsMenu isOpen={showMenu} />}
+      {!isToolsPage && <ToolsMenu isOpen={showMenu} t={t} />}
     </Box>
   );
 };
 
-const ToolsMenu = ({ isOpen }) => (
+const ToolsMenu = ({ isOpen, t }) => (
   <Box
     position="absolute"
     top="100%"
@@ -200,11 +202,11 @@ const ToolsMenu = ({ isOpen }) => (
             </Flex>
             <Flex direction="column" gap={0}>
               <Text fontSize="13px" color="#fff" fontWeight={500}>
-                {tool.label}
+                {t(`tools.items.${tool.id}.label`, tool.label)}
               </Text>
               {tool.comingSoon && (
                 <Text fontSize="10px" color={colors.accentMuted}>
-                  Coming Soon
+                  {t('tools.comingSoon')}
                 </Text>
               )}
             </Flex>
@@ -245,7 +247,8 @@ const PreferencesMenu = ({
   languagePreset,
   stylePreset,
   onLanguageChange,
-  onStyleChange
+  onStyleChange,
+  t
 }) => (
   <Box
     position="absolute"
@@ -267,20 +270,20 @@ const PreferencesMenu = ({
       boxShadow="0 8px 32px rgba(0, 0, 0, 0.4)"
     >
       <Text fontSize="12px" fontWeight={600} color={colors.accentMuted} mb={1} px={1}>
-        Preferences
+        {t('header.preferences')}
       </Text>
 
       <Flex direction="column" gap={1}>
         <Flex {...OPTION_ROW_STYLES}>
           <Text fontSize="13px" color="#fff" fontWeight={500}>
-            Language
+            {t('nav.codeLanguage')}
           </Text>
           <OptionToggle items={langItems} value={languagePreset} onChange={onLanguageChange} />
         </Flex>
 
         <Flex {...OPTION_ROW_STYLES}>
           <Text fontSize="13px" color="#fff" fontWeight={500}>
-            Styling
+            {t('nav.styling')}
           </Text>
           <OptionToggle items={styleItems} value={stylePreset} onChange={onStyleChange} />
         </Flex>
@@ -300,7 +303,7 @@ const PreferencesMenu = ({
             <Icon as={HeartIcon} color="#fff" boxSize={3} />
           </Flex>
           <Text fontSize="13px" color="#fff" fontWeight={500}>
-            Favorites
+            {t('nav.favorites')}
           </Text>
         </Flex>
       </Flex>
@@ -308,7 +311,7 @@ const PreferencesMenu = ({
   </Box>
 );
 
-const MobileDrawer = ({ isOpen, onClose }) => (
+const MobileDrawer = ({ isOpen, onClose, t }) => (
   <Drawer.Root placement="top" open={isOpen} onOpenChange={onClose}>
     <Drawer.Backdrop zIndex={1000} mt="50px" />
     <Drawer.Positioner zIndex={1001} mt="50px" h="calc(100vh - 50px)">
@@ -320,7 +323,7 @@ const MobileDrawer = ({ isOpen, onClose }) => (
                 Components Library
               </Text>
               <IconButton
-                aria-label="Close Menu"
+                aria-label={t('sidebar.close')}
                 size="md"
                 onClick={onClose}
                 bg="transparent"
@@ -333,7 +336,7 @@ const MobileDrawer = ({ isOpen, onClose }) => (
 
             <Flex direction="column" px={6} gap={2}>
               <Text fontWeight="bold" color="#fff">
-                Tools
+                {t('sidebar.tools')}
               </Text>
               {TOOLS.map(tool => (
                 <RouterLink
@@ -350,10 +353,10 @@ const MobileDrawer = ({ isOpen, onClose }) => (
                   }}
                 >
                   <Icon as={tool.icon} boxSize={4} color={colors.accent} />
-                  {tool.label}
+                  {t(`tools.items.${tool.id}.label`, tool.label)}
                   {tool.comingSoon && (
                     <Box as="span" fontSize="10px" color={colors.accentMuted} fontWeight={600} ml={1}>
-                      SOON
+                      {t('nav.soon')}
                     </Box>
                   )}
                 </RouterLink>
@@ -362,27 +365,27 @@ const MobileDrawer = ({ isOpen, onClose }) => (
               <Separator my={4} borderColor={colors.borderPrimary} />
 
               <Text fontWeight="bold" color="#fff">
-                Useful Links
+                {t('sidebar.usefulLinks')}
               </Text>
 
               <RouterLink to="/get-started/index" onClick={onClose} style={{ color: colors.accentMuted }}>
-                Back to Docs
+                {t('header.backToDocs')}
               </RouterLink>
 
               <RouterLink to="/favorites" onClick={onClose} style={{ color: colors.accentMuted }}>
-                Favorites
+                {t('nav.favorites')}
               </RouterLink>
 
               <Separator my={4} borderColor={colors.borderPrimary} />
 
               <Text fontWeight="bold" color="#fff">
-                Other
+                {t('header.other')}
               </Text>
               <RouterLink to={GITHUB_URL} target="_blank" onClick={onClose} style={{ color: colors.accentMuted }}>
-                GitHub <Icon boxSize={4} as={ArrowRight} transform="rotate(-45deg)" />
+                {t('nav.github')} <Icon boxSize={4} as={ArrowRight} transform="rotate(-45deg)" />
               </RouterLink>
               <RouterLink to="https://x.com/AnthonyM78841" target="_blank" onClick={onClose} style={{ color: colors.accentMuted }}>
-                Who made this? <Icon boxSize={4} as={ArrowRight} transform="rotate(-45deg)" />
+                {t('footer.whoMadeThis')} <Icon boxSize={4} as={ArrowRight} transform="rotate(-45deg)" />
               </RouterLink>
             </Flex>
           </Flex>
@@ -394,6 +397,7 @@ const MobileDrawer = ({ isOpen, onClose }) => (
 
 // ─── Main Component ──────────────────────────────────────────────────────────
 const Header = () => {
+  const { t } = useTranslation();
   const location = useLocation();
   const isToolsPage = location.pathname.startsWith('/tools');
 
@@ -443,7 +447,7 @@ const Header = () => {
         </RouterLink>
 
         <IconButton
-          aria-label="Open Menu"
+          aria-label={t('header.openMenu')}
           size="md"
           display={{ md: 'none' }}
           onClick={() => setDrawerOpen(true)}
@@ -461,11 +465,12 @@ const Header = () => {
               onMouseEnter={handleToolsEnter}
               onMouseLeave={handleToolsLeave}
               showMenu={toolsOpen}
+              t={t}
             />
           </FadeContent>
 
           <FadeContent blur>
-            <SearchButton onClick={toggleSearch} />
+            <SearchButton onClick={toggleSearch} ariaLabel={t('nav.search')} />
           </FadeContent>
 
           <FadeContent blur>
@@ -492,13 +497,14 @@ const Header = () => {
                 stylePreset={stylePreset}
                 onLanguageChange={setLanguagePreset}
                 onStyleChange={setStylePreset}
+                t={t}
               />
             </Box>
           </FadeContent>
 
           <FadeContent blur>
             <button className="cta-button-docs" onClick={openGitHub}>
-              Star On GitHub
+              {t('cta.starGithub')}
               <span ref={starCountRef}>
                 <img src={Star} alt="Star Icon" />
                 {stars}
@@ -508,7 +514,7 @@ const Header = () => {
         </Flex>
       </Flex>
 
-      <MobileDrawer isOpen={isDrawerOpen} onClose={closeDrawer} isToolsPage={isToolsPage} />
+      <MobileDrawer isOpen={isDrawerOpen} onClose={closeDrawer} isToolsPage={isToolsPage} t={t} />
     </Box>
   );
 };

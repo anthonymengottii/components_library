@@ -4,14 +4,154 @@
     "templates": "Templates",
     "tools": "Ferramentas",
     "github": "GitHub",
-    "search": "Pesquisar..."
+    "search": "Pesquisar...",
+    "codeLanguage": "Linguagem do Código",
+    "styling": "Estilo",
+    "favorites": "Favoritos",
+    "community": "Comunidade",
+    "soon": "Em breve",
+    "getPro": "Assinar Pro",
+    "switchToEnglish": "Mudar idioma para inglês",
+    "switchToPortuguese": "Mudar idioma para português"
+  },
+  "index": {
+    "title": "Índice"
+  },
+  "quickStart": {
+    "title": "Comece em segundos",
+    "copyCommand": "Copiar comando",
+    "hint": "Funciona com qualquer projeto React. Os componentes são copiados para seu código."
+  },
+  "header": {
+    "backToDocs": "Voltar para Docs",
+    "preferences": "Preferências",
+    "other": "Outros",
+    "openMenu": "Abrir menu"
+  },
+  "cta": {
+    "headline": "Pare de construir do zero.",
+    "subtitle": "Componentes React bonitos e animados que você pode usar em qualquer projeto. Código aberto. Sempre grátis.",
+    "browse": "Explorar Componentes",
+    "starGithub": "Dar estrela no GitHub"
+  },
+  "liveDemo": {
+    "title": "Veja em ação"
+  },
+  "testimonials": {
+    "title": "Amado por desenvolvedores"
+  },
+  "hero": {
+    "newComponent": "Novo Componente",
+    "headlineLine1": "Componentes React para",
+    "headlineLine2": "desenvolvedores criativos",
+    "description": "Componentes e fundos animados altamente personalizáveis que entram no seu projeto e fazem ele se destacar instantaneamente",
+    "resetDefaults": "Restaurar padrão",
+    "codeHint": "Arraste ou clique nos valores para editar"
+  },
+  "features": {
+    "title": "O que você encontra",
+    "cards": {
+      "components": {
+        "title": "130+ Componentes",
+        "desc": "Fundos, efeitos de texto, animações e padrões de UI. Aquilo que você faria do zero, já está pronto."
+      },
+      "visualEditors": {
+        "title": "Editores Visuais",
+        "desc": "Três ferramentas grátis para testar componentes e pegar o código."
+      },
+      "wellOrganized": {
+        "title": "Bem Organizado",
+        "desc": "Quatro categorias claras para você não ficar rolando uma parede de itens sem relação."
+      },
+      "pickYourStack": {
+        "title": "Escolha sua Stack",
+        "desc": "JS ou TypeScript, CSS ou Tailwind. Todo componente vem nas quatro variações."
+      },
+      "aiReady": {
+        "title": "Pronto para IA",
+        "desc": "Funciona muito bem com Cursor, Copilot e v0. Descreva o que precisa, adicione no projeto e publique."
+      },
+      "growingFast": {
+        "title": "Crescendo Rápido",
+        "desc": "A biblioteca de componentes React que mais cresce no GitHub. Nem tem comparação."
+      }
+    }
+  },
+  "contribution": {
+    "heading": "Ajude a melhorar este componente",
+    "subtext": "Encontrou um bug ou teve uma ideia? Conte para a gente no GitHub.",
+    "reportIssue": "Reportar problema",
+    "requestFeature": "Solicitar recurso"
+  },
+  "proCard": {
+    "title": "Conheça o React Bits Pro",
+    "description": "85+ componentes, 100+ blocos e 5 templates para lançar produtos memoráveis mais rápido.",
+    "cta": "Explorar Pro"
+  },
+  "backToTop": {
+    "ariaLabel": "Voltar ao topo",
+    "msg1": "🐴  Estradas da vida, me levem pra casa!",
+    "msg2": "🚀  Ao infinito e além!",
+    "msg3": "🦾  Vai pro ataque!",
+    "msg4": "🚕  Grove Street, lar doce lar...",
+    "msg5": "🐉  Fus Ro Dah!",
+    "msg6": "🍄  A princesa está em outro castelo!",
+    "msg7": "🦸‍♂️  Vingadores, avante!",
+    "msg8": "🗡️  É perigoso ir sozinho! Leve isto.",
+    "msg9": "📜  Um mago nunca se atrasa.",
+    "msg10": "💍  Maculado vil, em busca do Anel Prístino!",
+    "msg11": "🐊  Até mais, jacaré.",
+    "msg12": "🔥  Dracarys!"
+  },
+  "preview": {
+    "customize": "Personalizar",
+    "demoContent": "Conteúdo de Demonstração",
+    "features": "Recursos",
+    "about": "Sobre",
+    "signUp": "Criar conta",
+    "justShipped": "Acabamos de lançar a v2.0",
+    "headline": "Crie interfaces que parecem vivas",
+    "getStarted": "Começar",
+    "learnMore": "Saiba mais",
+    "props": "Props",
+    "property": "Propriedade",
+    "type": "Tipo",
+    "default": "Padrão",
+    "description": "Descrição",
+    "openInBgStudio": "Abrir no BG Studio",
+    "reset": "Resetar",
+    "resetDefaults": "Resetar para padrão",
+    "resetDefaultValues": "Resetar para valores padrão"
+  },
+  "search": {
+    "placeholder": "Pesquise componentes, categorias ou palavras-chave...",
+    "inCategory": "em",
+    "noResults": "Nenhum resultado encontrado para"
+  },
+  "componentList": {
+    "allComponents": "Todos os Componentes",
+    "searchPlaceholder": "Pesquisar...",
+    "noResults": "Sem resultados...",
+    "nothingHereYet": "Ainda não há nada aqui...",
+    "tryAdjusting": "Tente ajustar seus filtros",
+    "saveHint": "Toque no coração de qualquer componente para salvar",
+    "clearFilters": "Limpar Filtros",
+    "browseComponents": "Explorar Componentes"
+  },
+  "favorites": {
+    "title": "Favoritos"
   },
   "footer": {
     "product": "Produto",
     "resources": "Recursos",
     "whoMadeThis": "Quem fez isso?",
     "installation": "Instalação",
-    "builtBy": "Criado por Anthony Mengotti."
+    "builtBy": "Criado por Anthony Mengotti.",
+    "tagline": "Componentes de UI animados premium para React.",
+    "twitter": "Twitter / X",
+    "createdWith": "Criado com",
+    "by": "por",
+    "copyright": "Components Library"
   },
   "templates": {
     "title": "Templates",
@@ -25,7 +165,22 @@
     "comingSoon": "Em Breve",
     "open": "Abrir",
     "loading": "Carregando...",
-    "settingsSoon": "As configurações aparecerão aqui quando a ferramenta estiver pronta."
+    "settingsSoon": "As configurações aparecerão aqui quando a ferramenta estiver pronta.",
+    "genericTool": "Ferramenta",
+    "items": {
+      "background-studio": {
+        "label": "Estúdio de Fundos",
+        "description": "Explore fundos animados para seus projetos. Escolha entre vários efeitos e personalize como quiser. Exporte como vídeo, imagem ou código, ou compartilhe suas criações por URL."
+      },
+      "shape-magic": {
+        "label": "Mágica de Formas",
+        "description": "Ferramenta para criar automaticamente cantos internos arredondados entre formas de tamanhos diferentes. Exporte como código ou SVG."
+      },
+      "texture-lab": {
+        "label": "Laboratório de Texturas",
+        "description": "Aplique efeitos às suas imagens e exporte os resultados. Adicione ruído, dithering, halftone, arte ASCII e muito mais. Salve seus presets para compartilhar ou usar depois."
+      }
+    }
   },
   "sidebar": {
     "categories": "Categorias",

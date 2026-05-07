@@ -6,18 +6,23 @@ import { useNavigate } from 'react-router-dom';
 import { CATEGORIES } from '../../constants/Categories';
 import { fuzzyMatch } from '../../utils/fuzzy';
 import { useSearch } from '../context/SearchContext/useSearch';
+import { useTranslation } from 'react-i18next';
 import './SearchDialog.css';
 
-function searchComponents(query) {
+function searchComponents(query, t) {
   if (!query || query.trim() === '') return [];
   const results = [];
   CATEGORIES.forEach(category => {
     const { name: categoryName, subcategories } = category;
-    if (fuzzyMatch(categoryName, query)) {
+    const translatedCategoryName = t(`categories.${categoryName}`, categoryName);
+    if (fuzzyMatch(categoryName, query) || fuzzyMatch(translatedCategoryName, query)) {
       subcategories.forEach(component => results.push({ categoryName, componentName: component }));
     } else {
       subcategories.forEach(component => {
-        if (fuzzyMatch(component, query)) results.push({ categoryName, componentName: component });
+        const translatedComponentName = t(`subcategories.${component}`, component);
+        if (fuzzyMatch(component, query) || fuzzyMatch(translatedComponentName, query)) {
+          results.push({ categoryName, componentName: component });
+        }
       });
     }
   });
@@ -51,6 +56,7 @@ const categoryIconMapping = {
 };
 
 const SearchDialog = ({ isOpen, onClose }) => {
+  const { t } = useTranslation();
   const [inputValue, setInputValue] = useState('');
   const [searchValue, setSearchValue] = useState('');
   const [topGradientOpacity, setTopGradientOpacity] = useState(0);
@@ -70,7 +76,7 @@ const SearchDialog = ({ isOpen, onClose }) => {
     return () => clearTimeout(t);
   }, [inputValue]);
 
-  const results = searchComponents(searchValue);
+  const results = searchComponents(searchValue, t);
 
   const handleScroll = e => {
     const { scrollTop, scrollHeight, clientHeight } = e.target;
@@ -176,7 +182,7 @@ const SearchDialog = ({ isOpen, onClose }) => {
             className="search-input"
             value={inputValue}
             onChange={e => setInputValue(e.target.value)}
-            placeholder="Search components, categories, or keywords..."
+            placeholder={t('search.placeholder')}
           />
           <kbd className="search-kbd" onClick={onClose}>esc</kbd>
         </div>
@@ -215,7 +221,9 @@ const SearchDialog = ({ isOpen, onClose }) => {
                             </div>
                             <div className="search-result-text">
                               <span className="search-result-name">{r.componentName}</span>
-                              <span className="search-result-category">in {r.categoryName}</span>
+                              <span className="search-result-category">
+                                {t('search.inCategory')} {t(`categories.${r.categoryName}`, r.categoryName)}
+                              </span>
                             </div>
                             <div className="search-result-enter">
                               <AiOutlineEnter size={16} />
@@ -226,7 +234,7 @@ const SearchDialog = ({ isOpen, onClose }) => {
                     })
                   ) : (
                     <p className="search-no-results">
-                      No results found for <strong>{searchValue}</strong>
+                      {t('search.noResults')} <strong>{searchValue}</strong>
                     </p>
                   )}
                 </div>

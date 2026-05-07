@@ -1,5 +1,6 @@
 import { useRef, useEffect } from 'react';
 import { LuArrowRight } from 'react-icons/lu';
+import { useTranslation } from 'react-i18next';
 
 const ORB_COUNT = 5;
 const LINE_DIST = 120;
@@ -91,6 +92,7 @@ function useParticles(canvasRef) {
 }
 
 const ProCard = () => {
+  const { t } = useTranslation();
   const canvasRef = useRef(null);
   useParticles(canvasRef);
 
@@ -101,12 +103,12 @@ const ProCard = () => {
         <div className="pro-card-glow" />
         <div className="pro-card-content">
           <span className="pro-card-badge">PRO</span>
-          <h3 className="pro-card-title">Get React Bits Pro</h3>
+          <h3 className="pro-card-title">{t('proCard.title')}</h3>
           <p className="pro-card-desc">
-            85+ components, 100+ blocks &amp; 5 templates to ship memorable products faster.
+            {t('proCard.description')}
           </p>
           <div className="pro-card-cta">
-            <span>Explore Pro</span>
+            <span>{t('proCard.cta')}</span>
             <LuArrowRight size={14} />
           </div>
         </div>

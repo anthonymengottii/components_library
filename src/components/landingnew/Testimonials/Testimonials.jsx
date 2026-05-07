@@ -1,4 +1,5 @@
 import { FaXTwitter } from 'react-icons/fa6';
+import { useTranslation } from 'react-i18next';
 import './Testimonials.css';
 
 const TWEETS = [
@@ -100,17 +101,21 @@ const Column = ({ tweets, direction = 'up' }) => (
   </div>
 );
 
-const Testimonials = () => (
-  <section className="ln-test-section">
-    <div className="ln-test-inner">
-      <h2 className="ln-test-title">Loved by developers</h2>
-      <div className="ln-test-grid">
-        <Column tweets={COL_1} direction="up" />
-        <Column tweets={COL_2} direction="down" />
-        <Column tweets={COL_3} direction="up" />
+const Testimonials = () => {
+  const { t } = useTranslation();
+
+  return (
+    <section className="ln-test-section">
+      <div className="ln-test-inner">
+        <h2 className="ln-test-title">{t('testimonials.title')}</h2>
+        <div className="ln-test-grid">
+          <Column tweets={COL_1} direction="up" />
+          <Column tweets={COL_2} direction="down" />
+          <Column tweets={COL_3} direction="up" />
+        </div>
       </div>
-    </div>
-  </section>
-);
+    </section>
+  );
+};
 
 export default Testimonials;

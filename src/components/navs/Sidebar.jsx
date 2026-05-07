@@ -109,7 +109,7 @@ const HoverLine = ({ position, isVisible }) => (
   />
 );
 
-const MobileHeader = ({ onSearchClick, onMenuClick }) => (
+const MobileHeader = ({ onSearchClick, onMenuClick, t }) => (
   <Box display={{ md: 'none' }} position="fixed" top="60px" left={0} zIndex="overlay" w="100%" bg={colors.bgBody} p="1em">
     <Flex align="center" justify="space-between" gap="1em">
       <Link to="/" style={{ textDecoration: 'none' }}>
@@ -118,10 +118,10 @@ const MobileHeader = ({ onSearchClick, onMenuClick }) => (
         </Text>
       </Link>
       <Flex gap={2}>
-        <IconButton {...ICON_BUTTON_STYLES} aria-label="Search" onClick={onSearchClick}>
+        <IconButton {...ICON_BUTTON_STYLES} aria-label={t('nav.search')} onClick={onSearchClick}>
           <Icon as={SearchIcon} color="#fff" />
         </IconButton>
-        <IconButton {...ICON_BUTTON_STYLES} aria-label="Open Menu" onClick={onMenuClick}>
+        <IconButton {...ICON_BUTTON_STYLES} aria-label={t('header.openMenu')} onClick={onMenuClick}>
           <Icon as={MenuIcon} color="#fff" />
         </IconButton>
       </Flex>
@@ -149,10 +149,10 @@ const ToolsLinks = ({ onClose, t }) => (
         >
           <Flex alignItems="center" gap="8px">
             <Icon as={tool.icon} boxSize={4} color={colors.accent} />
-            <span>{tool.label}</span>
+            <span>{t(`tools.items.${tool.id}.label`, tool.label)}</span>
             {tool.comingSoon && (
               <Text as="span" fontSize="10px" color={colors.accentMuted} fontWeight={600}>
-                SOON
+                {t('nav.soon')}
               </Text>
             )}
           </Flex>
@@ -207,7 +207,7 @@ const MainDrawer = ({ isOpen, onClose, categories, location, pendingActivePath, 
                 Components Library
               </Text>
             </Link>
-            <IconButton {...ICON_BUTTON_STYLES} aria-label="Close" onClick={onClose}>
+            <IconButton {...ICON_BUTTON_STYLES} aria-label={t('sidebar.close')} onClick={onClose}>
               <Icon as={XIcon} color="#fff" />
             </IconButton>
           </Flex>
@@ -531,7 +531,7 @@ const Sidebar = () => {
                         >
                           <Flex alignItems="center" gap="6px">
                             <Icon as={tool.icon} boxSize={3.5} color={colors.accent} />
-                            <span>{tool.label}</span>
+                            <span>{t(`tools.items.${tool.id}.label`, tool.label)}</span>
                           </Flex>
                         </Link>
                       ))}

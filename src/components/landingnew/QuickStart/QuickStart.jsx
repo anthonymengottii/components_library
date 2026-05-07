@@ -2,6 +2,7 @@ import { useState, useRef, useCallback } from 'react';
 import { motion } from 'motion/react';
 import { FiCheck, FiCopy, FiChevronDown } from 'react-icons/fi';
 import { useInstallation } from '../../../hooks/useInstallation';
+import { useTranslation } from 'react-i18next';
 import './QuickStart.css';
 
 const TOOLS = ['shadcn', 'jsrepo'];
@@ -16,6 +17,7 @@ const COMMANDS = {
 };
 
 const QuickStart = () => {
+  const { t } = useTranslation();
   const { cliTool, setCliTool, packageManager, setPackageManager } = useInstallation();
   const [copied, setCopied] = useState(false);
   const [dropOpen, setDropOpen] = useState(false);
@@ -41,7 +43,7 @@ const QuickStart = () => {
           viewport={{ once: true, margin: '-60px' }}
           transition={{ duration: 0.5, ease: [0.21, 0.47, 0.32, 0.98] }}
         >
-          <h2 className="ln-qs-title">Get started in seconds</h2>
+          <h2 className="ln-qs-title">{t('quickStart.title')}</h2>
         </motion.div>
 
         <motion.div
@@ -103,13 +105,13 @@ const QuickStart = () => {
             <button
               className={`ln-qs-copy${copied ? ' ln-qs-copy--done' : ''}`}
               onClick={copy}
-              aria-label="Copy command"
+              aria-label={t('quickStart.copyCommand')}
             >
               {copied ? <FiCheck size={14} /> : <FiCopy size={14} />}
             </button>
           </div>
         </div>
-          <p className="ln-qs-hint">Works with any React project. Components are copied into your codebase.</p>
+          <p className="ln-qs-hint">{t('quickStart.hint')}</p>
         </motion.div>
       </div>
     </section>

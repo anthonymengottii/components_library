@@ -1,12 +1,15 @@
 import { RotateCcw } from 'lucide-react';
 import { Tooltip, Box, Icon } from '@chakra-ui/react';
 import { colors } from '../../../constants/colors';
+import { useTranslation } from 'react-i18next';
 
 /**
  * Reset button to restore demo props to default values.
  * Only visible when props have been changed from defaults.
  */
 const ResetPropsButton = ({ onReset, hasChanges }) => {
+  const { t } = useTranslation();
+
   if (!hasChanges) return null;
 
   return (
@@ -14,7 +17,7 @@ const ResetPropsButton = ({ onReset, hasChanges }) => {
       <Tooltip.Trigger asChild>
         <Box
           as="button"
-          aria-label="Reset to defaults"
+          aria-label={t('preview.resetDefaults')}
           onClick={onReset}
           display="flex"
           alignItems="center"
@@ -32,7 +35,7 @@ const ResetPropsButton = ({ onReset, hasChanges }) => {
           transition="all 0.2s"
         >
           <Icon as={RotateCcw} boxSize={3.5} />
-          Reset
+          {t('preview.reset')}
         </Box>
       </Tooltip.Trigger>
       <Tooltip.Positioner>
@@ -53,7 +56,7 @@ const ResetPropsButton = ({ onReset, hasChanges }) => {
           textAlign="center"
           pointerEvents="none"
         >
-          Reset to default values
+          {t('preview.resetDefaultValues')}
         </Tooltip.Content>
       </Tooltip.Positioner>
     </Tooltip.Root>

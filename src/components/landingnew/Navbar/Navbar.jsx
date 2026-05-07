@@ -132,7 +132,7 @@ const Navbar = ({ showDocs }) => {
         <div className="ln-navbar-right">
           {showDocs && (
             <>
-              <button className="ln-navbar-icon-btn ln-navbar-search-btn" onClick={toggleSearch} aria-label="Search">
+                <button className="ln-navbar-icon-btn ln-navbar-search-btn" onClick={toggleSearch} aria-label={t('nav.search')}>
                 <LuSearch size={15} />
                 <span className="ln-navbar-search-text">{t('nav.search')}</span>
                 <kbd className="ln-navbar-kbd">/</kbd>
@@ -143,13 +143,13 @@ const Navbar = ({ showDocs }) => {
                 onMouseEnter={handlePrefsEnter}
                 onMouseLeave={handlePrefsLeave}
               >
-                <button className="ln-navbar-icon-btn ln-navbar-prefs-trigger" aria-label="Preferences">
+                <button className="ln-navbar-icon-btn ln-navbar-prefs-trigger" aria-label={t('header.preferences')}>
                   <LuUser size={16} />
                 </button>
 
                 {prefsOpen && (
                   <div className="ln-navbar-prefs-menu">
-                    <span className="ln-navbar-prefs-label">Language</span>
+                    <span className="ln-navbar-prefs-label">{t('nav.codeLanguage')}</span>
                     <div className="ln-navbar-toggle-group">
                       <button className={`ln-navbar-toggle-item${languagePreset === 'JS' ? ' active' : ''}`} onClick={() => setLanguagePreset('JS')}>
                         <img src={jsIcon} alt="JS" width={18} height={18} />
@@ -158,7 +158,7 @@ const Navbar = ({ showDocs }) => {
                         <img src={tsIcon} alt="TS" width={18} height={18} />
                       </button>
                     </div>
-                    <span className="ln-navbar-prefs-label">Styling</span>
+                    <span className="ln-navbar-prefs-label">{t('nav.styling')}</span>
                     <div className="ln-navbar-toggle-group">
                       <button className={`ln-navbar-toggle-item${stylePreset === 'CSS' ? ' active' : ''}`} onClick={() => setStylePreset('CSS')}>
                         <img src={cssIcon} alt="CSS" width={18} height={18} />
@@ -170,7 +170,7 @@ const Navbar = ({ showDocs }) => {
                     <div className="ln-navbar-prefs-divider" />
                     <Link to="/favorites" className="ln-navbar-prefs-fav" onClick={() => setPrefsOpen(false)}>
                       <LuHeart size={13} />
-                      Favorites
+                      {t('nav.favorites')}
                     </Link>
                   </div>
                 )}
@@ -191,10 +191,10 @@ const Navbar = ({ showDocs }) => {
                   e.currentTarget.style.setProperty('--pro-mx', `${x}%`);
                 }}
               >
-                GET PRO
+                {t('nav.getPro')}
               </a>
               <span className="ln-navbar-browse">
-                COMMUNITY <span className="ln-navbar-soon">SOON</span>
+                {t('nav.community')} <span className="ln-navbar-soon">{t('nav.soon')}</span>
               </span>
             </>
           )}
@@ -214,7 +214,7 @@ const Navbar = ({ showDocs }) => {
           <button
             className={`ln-navbar-hamburger${menuOpen ? ' open' : ''}`}
             onClick={() => setMenuOpen(o => !o)}
-            aria-label="Menu"
+            aria-label={t('header.openMenu')}
           >
             <span /><span /><span />
           </button>
@@ -229,25 +229,25 @@ const Navbar = ({ showDocs }) => {
                   <div className="ln-navbar-mobile-scroll">
                     {CATEGORIES.map((cat, i) => {
                       const slug = str => str.replace(/\s+/g, '-').toLowerCase();
+                      const firstSub = cat.subcategories?.[0];
                       return (
                         <div className="ln-navbar-mobile-section" key={cat.name}>
-                          <span className="ln-navbar-mobile-label">{cat.name}</span>
-                          {cat.subcategories.map(sub => (
+                          <span className="ln-navbar-mobile-label">{t(`categories.${cat.name}`, cat.name)}</span>
+                          {firstSub && (
                             <Link
-                              key={sub}
                               className="ln-navbar-mobile-link"
-                              to={`/${slug(cat.name)}/${slug(sub)}`}
+                              to={`/${slug(cat.name)}/${slug(firstSub)}`}
                               onClick={() => setMenuOpen(false)}
                             >
-                              {sub}
+                              {t(`categories.${cat.name}`, cat.name)}
                             </Link>
-                          ))}
+                          )}
                           {i === 0 && (
                             <>
-                              <span className="ln-navbar-mobile-label" style={{ marginTop: 12 }}>Tools</span>
+                              <span className="ln-navbar-mobile-label" style={{ marginTop: 12 }}>{t('sidebar.tools')}</span>
                               {TOOLS.map(tool => (
                                 <Link key={tool.id} className="ln-navbar-mobile-link" to={tool.path} onClick={() => setMenuOpen(false)}>
-                                  {tool.label}
+                                  {t(`tools.items.${tool.id}.label`, tool.label)}
                                 </Link>
                               ))}
                             </>
@@ -265,7 +265,7 @@ const Navbar = ({ showDocs }) => {
                     </Link>
                   ))}
                   <span className="ln-navbar-mobile-link">
-                    Community <span className="ln-navbar-soon">Soon</span>
+                    {t('nav.community')} <span className="ln-navbar-soon">{t('nav.soon')}</span>
                   </span>
                 </>
               )}

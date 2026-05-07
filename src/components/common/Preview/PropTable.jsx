@@ -1,18 +1,22 @@
 import './PropTable.css';
+import { useTranslation } from 'react-i18next';
 
-const PropTable = ({ data }) => (
-  <div className="prop-table-section">
-    <h2 className="demo-title-extra">Props</h2>
+const PropTable = ({ data }) => {
+  const { t } = useTranslation();
+
+  return (
+    <div className="prop-table-section">
+      <h2 className="demo-title-extra">{t('preview.props')}</h2>
 
     {/* Desktop table */}
     <div className="prop-table-wrap">
       <table className="prop-table">
         <thead>
           <tr>
-            <th>Property</th>
-            <th>Type</th>
-            <th>Default</th>
-            <th>Description</th>
+            <th>{t('preview.property')}</th>
+            <th>{t('preview.type')}</th>
+            <th>{t('preview.default')}</th>
+            <th>{t('preview.description')}</th>
           </tr>
         </thead>
         <tbody>
@@ -38,13 +42,14 @@ const PropTable = ({ data }) => (
           </div>
           <p className="prop-card-desc">{prop.description}</p>
           <div className="prop-card-default">
-            <span className="prop-card-label">Default</span>
+            <span className="prop-card-label">{t('preview.default')}</span>
             <code className="prop-code">{prop.default?.length ? prop.default : '—'}</code>
           </div>
         </div>
       ))}
     </div>
-  </div>
-);
+    </div>
+  );
+};
 
 export default PropTable;

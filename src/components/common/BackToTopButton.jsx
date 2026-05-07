@@ -2,26 +2,27 @@ import { Button, Icon } from '@chakra-ui/react';
 import { useState, useEffect } from 'react';
 import { FiArrowUp } from 'react-icons/fi';
 import { toast } from 'sonner';
+import { useTranslation } from 'react-i18next';
 
-const MESSAGES = [
-  '🐴  Country roads, take me home!',
-  '🚀  To infinity and beyond!',
-  '🦾  Get to the choppa!',
-  '🚕  Grove Street, home...',
-  '🐉  Fus Ro Dah!',
-  '🍄  The princess is in another castle!',
-  '🦸‍♂️  Avengers, assemble!',
-  '🗡️  It’s dangerous to go alone! Take this.',
-  '📜  A wizard is never late.',
-  '💍  Foul Tarnished, in search of the Elden Ring!',
-  '🐊  See you later, alligator.',
-  '🔥  Dracarys!'
+const MESSAGE_KEYS = [
+  'backToTop.msg1',
+  'backToTop.msg2',
+  'backToTop.msg3',
+  'backToTop.msg4',
+  'backToTop.msg5',
+  'backToTop.msg6',
+  'backToTop.msg7',
+  'backToTop.msg8',
+  'backToTop.msg9',
+  'backToTop.msg10',
+  'backToTop.msg11',
+  'backToTop.msg12'
 ];
 
-const randomMessage = () => MESSAGES[Math.floor(Math.random() * MESSAGES.length)];
-
 const BackToTopButton = () => {
+  const { t } = useTranslation();
   const [visible, setVisible] = useState(false);
+  const randomMessage = () => t(MESSAGE_KEYS[Math.floor(Math.random() * MESSAGE_KEYS.length)]);
 
   const scrollToTop = () => {
     window.scrollTo(0, 0);
@@ -49,6 +50,7 @@ const BackToTopButton = () => {
       bottom={visible ? '2.5em' : '1em'}
       cursor={visible ? 'pointer' : 'default'}
       onClick={() => visible && scrollToTop()}
+      aria-label={t('backToTop.ariaLabel')}
     >
       <Icon as={FiArrowUp} color="#fff" boxSize={4} />
     </Button>
