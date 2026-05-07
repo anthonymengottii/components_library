@@ -84,7 +84,7 @@
     "requestFeature": "Solicitar recurso"
   },
   "proCard": {
-    "title": "Conheça o React Bits Pro",
+    "title": "Conheça o Components Library Pro",
     "description": "85+ componentes, 100+ blocos e 5 templates para lançar produtos memoráveis mais rápido.",
     "cta": "Explorar Pro"
   },
@@ -202,7 +202,6 @@
     "Installation": "Instalação",
     "MCP": "MCP",
     "Index": "Índice",
-
     "Split Text": "Texto Dividido",
     "Blur Text": "Texto Borrado",
     "Circular Text": "Texto Circular",
@@ -226,7 +225,6 @@
     "Scroll Velocity": "Velocidade de Scroll",
     "Variable Proximity": "Proximidade Variável",
     "Count Up": "Contagem",
-
     "Animated Content": "Conteúdo Animado",
     "Fade Content": "Conteúdo com Fade",
     "Electric Border": "Borda Elétrica",
@@ -256,7 +254,6 @@
     "Meta Balls": "Meta Balls",
     "Blob Cursor": "Cursor Blob",
     "Star Border": "Borda Estrela",
-
     "Animated List": "Lista Animada",
     "Scroll Stack": "Pilha no Scroll",
     "Bubble Menu": "Menu Bolha",
@@ -293,7 +290,6 @@
     "Infinite Menu": "Menu Infinito",
     "Stepper": "Stepper",
     "Bounce Cards": "Cartões Saltando",
-
     "Liquid Ether": "Éter Líquido",
     "Prism": "Prisma",
     "Dark Veil": "Véu Escuro",

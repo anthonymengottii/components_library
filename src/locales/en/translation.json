@@ -25,12 +25,8 @@
   "header": {
     "backToDocs": "Back to Docs",
     "preferences": "Preferences",
-<<<<<<< codex/add-language-switcher-functionality-l6o3ye
     "other": "Other",
     "openMenu": "Open menu"
-=======
-    "other": "Other"
->>>>>>> main
   },
   "cta": {
     "headline": "Stop building from scratch.",
@@ -88,11 +84,10 @@
     "requestFeature": "Request a feature"
   },
   "proCard": {
-    "title": "Get React Bits Pro",
+    "title": "Get Components Library Pro",
     "description": "85+ components, 100+ blocks & 5 templates to ship memorable products faster.",
     "cta": "Explore Pro"
   },
-<<<<<<< codex/add-language-switcher-functionality-l6o3ye
   "backToTop": {
     "ariaLabel": "Back to top",
     "msg1": "🐴  Country roads, take me home!",
@@ -118,10 +113,6 @@
     "headline": "Build interfaces that feel alive",
     "getStarted": "Get started",
     "learnMore": "Learn more",
-=======
-  "preview": {
-    "customize": "Customize",
->>>>>>> main
     "props": "Props",
     "property": "Property",
     "type": "Type",
@@ -211,7 +202,6 @@
     "Installation": "Installation",
     "MCP": "MCP",
     "Index": "Index",
-
     "Split Text": "Split Text",
     "Blur Text": "Blur Text",
     "Circular Text": "Circular Text",
@@ -235,7 +225,6 @@
     "Scroll Velocity": "Scroll Velocity",
     "Variable Proximity": "Variable Proximity",
     "Count Up": "Count Up",
-
     "Animated Content": "Animated Content",
     "Fade Content": "Fade Content",
     "Electric Border": "Electric Border",
@@ -265,7 +254,6 @@
     "Meta Balls": "Meta Balls",
     "Blob Cursor": "Blob Cursor",
     "Star Border": "Star Border",
-
     "Animated List": "Animated List",
     "Scroll Stack": "Scroll Stack",
     "Bubble Menu": "Bubble Menu",
@@ -302,7 +290,6 @@
     "Infinite Menu": "Infinite Menu",
     "Stepper": "Stepper",
     "Bounce Cards": "Bounce Cards",
-
     "Liquid Ether": "Liquid Ether",
     "Prism": "Prism",
     "Dark Veil": "Dark Veil",
