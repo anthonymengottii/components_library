@@ -45,20 +45,13 @@ const Footer = () => {
               <a href={GITHUB_URL} target="_blank" rel="noopener noreferrer" className="ln-footer-link">
                 {t('nav.github')}
               </a>
-              <a href="https://x.com/AnthonyM78841" target="_blank" rel="noopener noreferrer" className="ln-footer-link">
-                {t('footer.twitter')}
-              </a>
+
             </div>
           </nav>
         </div>
 
         <div className="ln-footer-bottom">
-          <p className="ln-footer-attribution">
-            {t('footer.createdWith')} <AiFillHeart className="ln-footer-heart" /> {t('footer.by')}{' '}
-            <a href="https://x.com/AnthonyM78841" target="_blank" rel="noopener noreferrer" className="ln-footer-creator">
-              Anthony Mengotti
-            </a>
-          </p>
+
           <p className="ln-footer-copy">© {new Date().getFullYear()} {t('footer.copyright')}</p>
         </div>
       </motion.div>
