@@ -74,7 +74,7 @@ const VariableProximityDemo = () => {
         <PreviewTab>
           <Box ref={containerRef} position="relative" className="demo-container" minH={400} overflow="hidden" p={4}>
             <VariableProximity
-              label={'Hover me! And then star React Bits on GitHub, or else...'}
+              label={'Hover me! And then star Components Library on GitHub, or else...'}
               className={'variable-proximity-demo'}
               fromFontVariationSettings="'wght' 400, 'opsz' 9"
               toFontVariationSettings="'wght' 1000, 'opsz' 40"

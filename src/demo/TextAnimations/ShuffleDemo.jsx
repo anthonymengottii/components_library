@@ -164,7 +164,7 @@ const ShuffleDemo = () => {
           >
             <Shuffle
               key={key}
-              text="REACT BITS"
+              text="COMPONENTS LIBRARY"
               ease={ease}
               duration={duration}
               shuffleTimes={shuffleTimes}

@@ -136,7 +136,7 @@ const ScrollFloatDemo = () => {
             </Text>
             <Box position="relative" pt={1600} pb={600} px="3rem">
               <ScrollFloat stagger={stagger} animationDuration={duration} key={key} scrollContainerRef={containerRef}>
-                React Bits
+                Components Library
               </ScrollFloat>
             </Box>
           </Box>

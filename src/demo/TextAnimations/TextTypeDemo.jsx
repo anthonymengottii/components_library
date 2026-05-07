@@ -18,7 +18,7 @@ import TextType from '../../content/TextAnimations/TextType/TextType';
 import { textType } from '../../constants/code/TextAnimations/textTypeCode';
 
 const DEFAULT_PROPS = {
-  texts: ['Welcome to React Bits! Good to see you!', 'Build some amazing experiences!'],
+  texts: ['Welcome to Components Library! Good to see you!', 'Build some amazing experiences!'],
   typingSpeed: 75,
   pauseDuration: 1500,
   deletingSpeed: 50,

@@ -149,7 +149,7 @@ const StepperDemo = () => {
             >
               <Step>
                 <Text color="#5227FF" fontSize="1.2rem" fontWeight={600}>
-                  Welcome to the React Bits stepper!
+                  Welcome to the Components Library stepper!
                 </Text>
                 <p>Check out the next step!</p>
               </Step>

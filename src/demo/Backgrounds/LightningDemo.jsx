@@ -74,7 +74,7 @@ const LightningDemo = () => {
             <Lightning key={key} hue={hue} xOffset={xOffset} speed={speed} intensity={intensity} size={size} />
 
             {/* For Demo Purposes Only */}
-            <BackgroundContent pillText="New Background" headline="The power of nature's fury, with React Bits!" />
+            <BackgroundContent pillText="New Background" headline="The power of nature's fury, with Components Library!" />
           </Box>
 
           <Flex justify="flex-end" mt={2} mb={-2}>

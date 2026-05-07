@@ -350,7 +350,7 @@ const GlassSurfaceDemo = () => {
 
                 <Box position="absolute" top="2em" left={0} width="100%" height="60px" zIndex={0} pointerEvents="none">
                   <GlassSurface className="custom-glass-surface" width="90%" height={60} {...commonGlassProps}>
-                    <img src={logo} alt="React Bits Logo" style={{ height: '24px', borderRadius: '50px' }} />
+                    <img src={logo} alt="Components Library Logo" style={{ height: '24px', borderRadius: '50px' }} />
 
                     <Box display={{ base: 'flex', md: 'none' }} alignItems="center" color="white">
                       <TbMenu size={20} />

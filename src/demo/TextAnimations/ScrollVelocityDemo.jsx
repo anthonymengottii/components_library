@@ -111,7 +111,7 @@ const ScrollVelocityDemo = () => {
           <Box position="relative" className="demo-container" h={400} overflow={'hidden'}>
             <Flex position="relative" justifyContent="center" alignItems="center">
               <ScrollVelocity
-                texts={['React Bits', 'Scroll Down']}
+                texts={['Components Library', 'Scroll Down']}
                 velocity={velocity}
                 numCopies={numCopies}
                 damping={damping}

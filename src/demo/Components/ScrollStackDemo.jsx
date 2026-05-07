@@ -205,7 +205,7 @@ const ScrollStackDemo = () => {
               </ScrollStackItem>
 
               <ScrollStackItem itemClassName="scroll-stack-card-demo ssc-demo-5">
-                <h3>All on React Bits!</h3>
+                <h3>All on Components Library!</h3>
               </ScrollStackItem>
             </ScrollStack>
           </Box>
