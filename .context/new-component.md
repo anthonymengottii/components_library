@@ -1,4 +1,4 @@
-# React Bits – New Component Creation Context
+# Components Library – New Component Creation Context
 
 This file provides complete, concrete context for an AI agent to reliably create new components in this repository. It is based on the OrbitImages component as a reference implementation.
 
