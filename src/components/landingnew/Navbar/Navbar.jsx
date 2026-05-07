@@ -1,6 +1,5 @@
 import { useState, useEffect, useRef, useCallback, useMemo } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Logo } from '../../common/SVGComponents';
 import { useTranslation } from 'react-i18next';
 import LanguageSwitcher from '../../common/LanguageSwitcher';
 import { useStars } from '../../../hooks/useStars';
