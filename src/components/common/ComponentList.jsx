@@ -259,7 +259,7 @@ const ComponentList = ({ list, hasDeleteButton = false, hasFavoriteButton = fals
           pt={{ base: 4, md: 0 }}
         >
           <Text fontSize={{ base: '16px', md: '24px' }} fontWeight="600" color="#fff" letterSpacing={'-.5px'}>
-            React Bits Pro is live!
+            Components Library Pro is live!
           </Text>
           <Text fontSize={{ base: '12px', md: '16px' }} fontWeight="500" color={colors.accent} letterSpacing={'-.5px'}>
             Explore unique components, UI blocks, and templates to supercharge your work.
@@ -647,7 +647,7 @@ const LazyCardMedia = ({ videoUrl, playing }) => {
         try {
           const p = v.play();
           if (p && typeof p.then === 'function') {
-            p.catch(() => {});
+            p.catch(() => { });
           }
         } catch (e) {
           // ignore

@@ -76,7 +76,7 @@ interface ZoomMaterial extends THREE.Material {
   zoom: number;
 }
 
-interface ZoomMesh extends THREE.Mesh<THREE.BufferGeometry, ZoomMaterial> {}
+interface ZoomMesh extends THREE.Mesh<THREE.BufferGeometry, ZoomMaterial> { }
 
 type ZoomGroup = THREE.Group & { children: ZoomMesh[] };
 
@@ -314,7 +314,7 @@ function Typography() {
       anchorX="center"
       anchorY="middle"
     >
-      React Bits
+      Components Library
     </Text>
   );
 }

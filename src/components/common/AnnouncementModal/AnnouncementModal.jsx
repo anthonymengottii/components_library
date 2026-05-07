@@ -129,7 +129,7 @@ const AnnouncementModal = () => {
                 <motion.img
                   key={currentImageIndex}
                   src={IMAGES[currentImageIndex]}
-                  alt="React Bits Pro Preview"
+                  alt="Components Library Pro Preview"
                   loading="lazy"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
@@ -145,7 +145,7 @@ const AnnouncementModal = () => {
               </div>
 
               <h2 id="announcement-modal-title" className="announcement-modal-title">
-                React Bits Pro just launched!
+                Components Library Pro just launched!
               </h2>
 
               <p id="announcement-modal-description" className="announcement-modal-description">

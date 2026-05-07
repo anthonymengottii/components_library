@@ -12,19 +12,19 @@ const TWEETS = [
   {
     handle: '@gregberge_',
     avatar: 'https://pbs.twimg.com/profile_images/1722358890807861248/75S7CB3G_400x400.jpg',
-    text: 'React Bits: A stellar collection of React components to make your landing pages shine ✨',
+    text: 'Components Library: A stellar collection of React components to make your landing pages shine ✨',
     url: 'https://x.com/gregberge_/status/1896425347866059041',
   },
   {
     handle: '@GibsonSMurray',
     avatar: 'https://pbs.twimg.com/profile_images/1724192049002340352/-tood-4D_400x400.jpg',
-    text: 'React Bits has got to be the most artistic ui component lib I have seen in a while 🤌',
+    text: 'Components Library has got to be the most artistic ui component lib I have seen in a while 🤌',
     url: 'https://x.com/GibsonSMurray/status/1889909058838339626',
   },
   {
     handle: '@orcdev',
     avatar: 'https://pbs.twimg.com/profile_images/1756766826736893952/6Gvg6jha_400x400.jpg',
-    text: 'React Bits has become the ultimate visual animation library for React. This level of flexibility doesn\'t exist anywhere else.',
+    text: 'Components Library has become the ultimate visual animation library for React. This level of flexibility doesn\'t exist anywhere else.',
     url: 'https://x.com/orcdev/status/2005627805938422123',
   },
   {
@@ -36,25 +36,25 @@ const TWEETS = [
   {
     handle: '@syskey_dmg',
     avatar: 'https://pbs.twimg.com/profile_images/1918646280223608832/nqBF4zh__400x400.jpg',
-    text: 'Just discovered reactbits.dev — a sleek, minimal, and super dev-friendly React component library. Clean UI, easy to use, and perfect for modern projects.',
+    text: 'Just discovered Components Library — a sleek, minimal, and super dev-friendly React component library. Clean UI, easy to use, and perfect for modern projects.',
     url: 'https://x.com/syskey_dmg/status/1929762648922398754',
   },
   {
     handle: '@DIYDevs',
     avatar: 'https://pbs.twimg.com/profile_images/1880284612062056448/4Y2C8Xnv_400x400.jpg',
-    text: 'Have you heard of react bits? David Haz has lovingly put together a collection of animated and fully customizable React components.',
+    text: 'Have you heard of Components Library? David Haz has lovingly put together a collection of animated and fully customizable React components.',
     url: 'https://x.com/DIYDevs/status/1892964440900763761',
   },
   {
     handle: '@irohandev',
     avatar: 'https://pbs.twimg.com/profile_images/1920165535351742464/CJU2uWMU_400x400.jpg',
-    text: 'Got to know about React Bits and its just wow, the components are incredibly well designed! Really loved the overall feel and quality.',
+    text: 'Got to know about Components Library and its just wow, the components are incredibly well designed! Really loved the overall feel and quality.',
     url: 'https://x.com/irohandev/status/1934877463064268822',
   },
   {
     handle: '@makwanadeepam',
     avatar: 'https://pbs.twimg.com/profile_images/1794450494686932992/wqRqF4dt_400x400.jpg',
-    text: 'Really impressed by reactbits.dev. Check it out. The Splash Cursor effect is amazing.',
+    text: 'Really impressed by Components Library. Check it out. The Splash Cursor effect is amazing.',
     url: 'https://x.com/makwanadeepam/status/1879416558461890864',
   },
   {
