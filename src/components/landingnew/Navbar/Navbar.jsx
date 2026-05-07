@@ -132,7 +132,11 @@ const Navbar = ({ showDocs }) => {
         <div className="ln-navbar-right">
           {showDocs && (
             <>
+<<<<<<< codex/add-language-switcher-functionality-l6o3ye
                 <button className="ln-navbar-icon-btn ln-navbar-search-btn" onClick={toggleSearch} aria-label={t('nav.search')}>
+=======
+                <button className="ln-navbar-icon-btn ln-navbar-search-btn" onClick={toggleSearch} aria-label="Search">
+>>>>>>> main
                 <LuSearch size={15} />
                 <span className="ln-navbar-search-text">{t('nav.search')}</span>
                 <kbd className="ln-navbar-kbd">/</kbd>
@@ -233,13 +237,21 @@ const Navbar = ({ showDocs }) => {
                       return (
                         <div className="ln-navbar-mobile-section" key={cat.name}>
                           <span className="ln-navbar-mobile-label">{t(`categories.${cat.name}`, cat.name)}</span>
+<<<<<<< codex/add-language-switcher-functionality-l6o3ye
                           {firstSub && (
+=======
+                          {cat.subcategories.map(sub => (
+>>>>>>> main
                             <Link
                               className="ln-navbar-mobile-link"
                               to={`/${slug(cat.name)}/${slug(firstSub)}`}
                               onClick={() => setMenuOpen(false)}
                             >
+<<<<<<< codex/add-language-switcher-functionality-l6o3ye
                               {t(`categories.${cat.name}`, cat.name)}
+=======
+                              {t(`subcategories.${sub}`, sub)}
+>>>>>>> main
                             </Link>
                           )}
                           {i === 0 && (

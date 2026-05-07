@@ -25,8 +25,12 @@
   "header": {
     "backToDocs": "Back to Docs",
     "preferences": "Preferences",
+<<<<<<< codex/add-language-switcher-functionality-l6o3ye
     "other": "Other",
     "openMenu": "Open menu"
+=======
+    "other": "Other"
+>>>>>>> main
   },
   "cta": {
     "headline": "Stop building from scratch.",
@@ -88,6 +92,7 @@
     "description": "85+ components, 100+ blocks & 5 templates to ship memorable products faster.",
     "cta": "Explore Pro"
   },
+<<<<<<< codex/add-language-switcher-functionality-l6o3ye
   "backToTop": {
     "ariaLabel": "Back to top",
     "msg1": "🐴  Country roads, take me home!",
@@ -113,6 +118,10 @@
     "headline": "Build interfaces that feel alive",
     "getStarted": "Get started",
     "learnMore": "Learn more",
+=======
+  "preview": {
+    "customize": "Customize",
+>>>>>>> main
     "props": "Props",
     "property": "Property",
     "type": "Type",
