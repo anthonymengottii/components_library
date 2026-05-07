@@ -1,6 +1,5 @@
 import { useState, useEffect, useRef, useCallback, useMemo } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Logo } from '../../common/SVGComponents';
 import { useTranslation } from 'react-i18next';
 import LanguageSwitcher from '../../common/LanguageSwitcher';
 import { useStars } from '../../../hooks/useStars';
@@ -254,7 +253,7 @@ const Navbar = ({ showDocs }) => {
                               </>
                             )
                           }
-                        </div >
+                        </div>
                       );
                     })}
                     <div className="ln-navbar-mobile-divider" />
@@ -310,11 +309,11 @@ const Navbar = ({ showDocs }) => {
                   </div>
                 </div>
               )}
-            </div >
+            </div>
           </>
         )}
-      </div >
-    </header >
+      </div>
+    </header>
   );
 };
 
