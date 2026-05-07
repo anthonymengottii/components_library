@@ -53,6 +53,14 @@
   width: auto;
 }
 
+.ln-navbar-logo-text {
+  font-size: 1.25rem;
+  font-weight: 900;
+  color: #fff;
+  letter-spacing: -0.5px;
+  white-space: nowrap;
+}
+
 .ln-navbar-divider {
   color: var(--text-primary);
   font-size: 18px;
@@ -229,19 +237,26 @@
     padding: 0 5px 0 16px;
   }
 
-  .ln-navbar-links {
-    display: none;
-  }
-
-  .ln-navbar-divider {
-    display: none;
-  }
-
-  .ln-navbar-browse {
-    display: none;
-  }
-
+  .ln-navbar-links,
+  .ln-navbar-divider,
+  .ln-navbar-browse,
   .ln-navbar-pro {
+    display: none;
+  }
+
+  .ln-navbar-logo-text {
+    font-size: 1.05rem;
+  }
+
+  .ln-navbar-github span {
+    display: none;
+  }
+
+  .ln-navbar-github {
+    padding: 0 10px;
+  }
+
+  .ln-navbar-right .ln-navbar-toggle-group {
     display: none;
   }
 }

@@ -112,7 +112,7 @@ const Navbar = ({ showDocs }) => {
       <div className="ln-navbar-inner">
         <div className="ln-navbar-left">
           <Link to="/" className="ln-navbar-logo" style={{ textDecoration: 'none' }}>
-            <span style={{ fontSize: '1.25rem', fontWeight: '900', color: '#fff', letterSpacing: '-0.5px', whiteSpace: 'nowrap' }}>
+            <span className="ln-navbar-logo-text">
               Components Library
             </span>
           </Link>
@@ -132,11 +132,7 @@ const Navbar = ({ showDocs }) => {
         <div className="ln-navbar-right">
           {showDocs && (
             <>
-<<<<<<< codex/add-language-switcher-functionality-l6o3ye
-                <button className="ln-navbar-icon-btn ln-navbar-search-btn" onClick={toggleSearch} aria-label={t('nav.search')}>
-=======
-                <button className="ln-navbar-icon-btn ln-navbar-search-btn" onClick={toggleSearch} aria-label="Search">
->>>>>>> main
+              <button className="ln-navbar-icon-btn ln-navbar-search-btn" onClick={toggleSearch} aria-label={t('nav.search')}>
                 <LuSearch size={15} />
                 <span className="ln-navbar-search-text">{t('nav.search')}</span>
                 <kbd className="ln-navbar-kbd">/</kbd>
@@ -237,55 +233,88 @@ const Navbar = ({ showDocs }) => {
                       return (
                         <div className="ln-navbar-mobile-section" key={cat.name}>
                           <span className="ln-navbar-mobile-label">{t(`categories.${cat.name}`, cat.name)}</span>
-<<<<<<< codex/add-language-switcher-functionality-l6o3ye
                           {firstSub && (
-=======
-                          {cat.subcategories.map(sub => (
->>>>>>> main
                             <Link
                               className="ln-navbar-mobile-link"
                               to={`/${slug(cat.name)}/${slug(firstSub)}`}
                               onClick={() => setMenuOpen(false)}
                             >
-<<<<<<< codex/add-language-switcher-functionality-l6o3ye
                               {t(`categories.${cat.name}`, cat.name)}
-=======
-                              {t(`subcategories.${sub}`, sub)}
->>>>>>> main
                             </Link>
                           )}
-                          {i === 0 && (
-                            <>
-                              <span className="ln-navbar-mobile-label" style={{ marginTop: 12 }}>{t('sidebar.tools')}</span>
-                              {TOOLS.map(tool => (
-                                <Link key={tool.id} className="ln-navbar-mobile-link" to={tool.path} onClick={() => setMenuOpen(false)}>
-                                  {t(`tools.items.${tool.id}.label`, tool.label)}
-                                </Link>
-                              ))}
-                            </>
-                          )}
-                        </div>
+                          {
+                            i === 0 && (
+                              <>
+                                <span className="ln-navbar-mobile-label" style={{ marginTop: 12 }}>{t('sidebar.tools')}</span>
+                                {TOOLS.map(tool => (
+                                  <Link key={tool.id} className="ln-navbar-mobile-link" to={tool.path} onClick={() => setMenuOpen(false)}>
+                                    {t(`tools.items.${tool.id}.label`, tool.label)}
+                                  </Link>
+                                ))}
+                              </>
+                            )
+                          }
+                        </div >
                       );
                     })}
+                    <div className="ln-navbar-mobile-divider" />
+                    <div className="ln-navbar-mobile-section">
+                      <span className="ln-navbar-mobile-label">{t('nav.codeLanguage')}</span>
+                      <div className="ln-navbar-mobile-prefs">
+                        <div className="ln-navbar-toggle-group">
+                          <button className={`ln-navbar-toggle-item${languagePreset === 'JS' ? ' active' : ''}`} onClick={() => setLanguagePreset('JS')}>
+                            <img src={jsIcon} alt="JS" width={18} height={18} />
+                            JS
+                          </button>
+                          <button className={`ln-navbar-toggle-item${languagePreset === 'TS' ? ' active' : ''}`} onClick={() => setLanguagePreset('TS')}>
+                            <img src={tsIcon} alt="TS" width={18} height={18} />
+                            TS
+                          </button>
+                        </div>
+                      </div>
+
+                      <span className="ln-navbar-mobile-label" style={{ marginTop: 12 }}>{t('nav.styling')}</span>
+                      <div className="ln-navbar-mobile-prefs">
+                        <div className="ln-navbar-toggle-group">
+                          <button className={`ln-navbar-toggle-item${stylePreset === 'CSS' ? ' active' : ''}`} onClick={() => setStylePreset('CSS')}>
+                            <img src={cssIcon} alt="CSS" width={18} height={18} />
+                            CSS
+                          </button>
+                          <button className={`ln-navbar-toggle-item${stylePreset === 'TW' ? ' active' : ''}`} onClick={() => setStylePreset('TW')}>
+                            <img src={twIcon} alt="TW" width={18} height={18} />
+                            TW
+                          </button>
+                        </div>
+                      </div>
+
+                      <span className="ln-navbar-mobile-label" style={{ marginTop: 12 }}>{t('nav.language')}</span>
+                      <div className="ln-navbar-mobile-prefs">
+                        <LanguageSwitcher />
+                      </div>
+                    </div>
                   </div>
                 </>
               ) : (
-                <>
+                <div className="ln-navbar-mobile-scroll">
                   {NAV_LINKS.map(({ label, to }) => (
                     <Link key={to} className="ln-navbar-mobile-link" to={to} onClick={() => setMenuOpen(false)}>
                       {t(`nav.${label.toLowerCase()}`)}
                     </Link>
                   ))}
-                  <span className="ln-navbar-mobile-link">
-                    {t('nav.community')} <span className="ln-navbar-soon">{t('nav.soon')}</span>
-                  </span>
-                </>
+                  <div className="ln-navbar-mobile-divider" />
+                  <div className="ln-navbar-mobile-section">
+                    <span className="ln-navbar-mobile-label">{t('nav.language')}</span>
+                    <div className="ln-navbar-mobile-prefs">
+                      <LanguageSwitcher />
+                    </div>
+                  </div>
+                </div>
               )}
-            </div>
+            </div >
           </>
         )}
-      </div>
-    </header>
+      </div >
+    </header >
   );
 };
 
