@@ -1,5 +1,5 @@
-import React, { useEffect, useMemo, useState, useCallback } from 'react';
 import TabsFooter from './TabsFooter';
+import { useTranslation } from 'react-i18next';
 
 import { Tabs, Icon, Flex, Tooltip, Box } from '@chakra-ui/react';
 import { FiCode, FiEye } from 'react-icons/fi';
@@ -117,6 +117,7 @@ ${css ? '5' : '4'}. Adjust props as needed for the specific use case — refer t
 }
 
 const TabsLayout = ({ children, className }) => {
+  const { t } = useTranslation();
   const { category, subcategory } = useParams();
   const { hasChanges, resetProps, props: currentProps, defaultProps, demoOnlyProps, computedProps } = useComponentPropsContext();
 
@@ -153,8 +154,8 @@ const TabsLayout = ({ children, className }) => {
       </span>
     );
 
-    if (saved) toast.success?.(<>Added {nameEl} to favorites</>) ?? toast(<>Added {nameEl} to favorites</>);
-    else toast.error?.(<>Removed {nameEl} from favorites</>) ?? toast(<>Removed {nameEl} from favorites</>);
+    if (saved) toast.success?.(<>{t('preview.addedToFavorites')} {nameEl}</>) ?? toast(<>{t('preview.addedToFavorites')} {nameEl}</>);
+    else toast.error?.(<>{t('preview.removedFromFavorites')} {nameEl}</>) ?? toast(<>{t('preview.removedFromFavorites')} {nameEl}</>);
   };
   const contentMap = {
     PreviewTab: null,
@@ -206,11 +207,11 @@ const TabsLayout = ({ children, className }) => {
         <Flex gap={2} justifyContent="space-between" alignItems="flex-start" w="100%" wrap="wrap">
           <Flex gap={2} wrap="wrap" minW="0" flex="1">
             <Tabs.Trigger value="preview" {...TAB_STYLE_PROPS}>
-              <Icon as={FiEye} /> Preview
+              <Icon as={FiEye} /> {t('preview.customize')}
             </Tabs.Trigger>
 
             <Tabs.Trigger value="code" {...TAB_STYLE_PROPS}>
-              <Icon as={FiCode} /> Code
+              <Icon as={FiCode} /> {t('preview.code')}
             </Tabs.Trigger>
           </Flex>
 
@@ -227,7 +228,7 @@ const TabsLayout = ({ children, className }) => {
                 gap={2}
                 {...TAB_STYLE_PROPS}
               >
-                <RotateCcw size={16} color="#fff" /> Reset
+                <RotateCcw size={16} color="#fff" /> {t('preview.reset')}
               </Box>
             )}
 
@@ -270,7 +271,7 @@ const TabsLayout = ({ children, className }) => {
                     textAlign="center"
                     pointerEvents="none"
                   >
-                    {isSaved ? 'Remove from Favorites' : 'Add to Favorites'}
+                    {isSaved ? t('preview.removedFromFavorites') : t('preview.addedToFavorites')}
                   </Tooltip.Content>
                 </Tooltip.Positioner>
               </Tooltip.Root>
@@ -288,7 +289,7 @@ const TabsLayout = ({ children, className }) => {
                 {...TAB_STYLE_PROPS}
               >
                 {copied ? <Check size={14} color={colors.accent} /> : <Clipboard size={14} color="#fff" />}
-                {copied ? 'Copied!' : 'Copy Prompt'}
+                {copied ? t('preview.copied') : t('preview.copyPrompt')}
               </Box>
             )}
           </Flex>

@@ -121,7 +121,12 @@
     "openInBgStudio": "Open in BG Studio",
     "reset": "Reset",
     "resetDefaults": "Reset to defaults",
-    "resetDefaultValues": "Reset to default values"
+    "resetDefaultValues": "Reset to default values",
+    "code": "Code",
+    "copyPrompt": "Copy Prompt",
+    "copied": "Copied!",
+    "addedToFavorites": "Added to favorites",
+    "removedFromFavorites": "Removed from favorites"
   },
   "search": {
     "placeholder": "Search components, categories, or keywords...",
@@ -146,7 +151,7 @@
     "resources": "Resources",
     "whoMadeThis": "Who made this?",
     "installation": "Installation",
-    "builtBy": "Created with by Anthony Mengotti.",
+    "builtBy": "",
     "tagline": "Premium Animated UI components for React.",
     "twitter": "Twitter / X",
     "createdWith": "Created with",
@@ -422,5 +427,80 @@
       "Add the Dither background from Components Library to the page, make it purple",
       "Add a new section which fades in on scroll using FadeContent from Components Library"
     ]
+  },
+  "tools": {
+    "common": {
+      "controls": "Controls",
+      "reset": "Reset",
+      "share": "Share",
+      "copied": "Copied!",
+      "exportCode": "Export Code",
+      "copyCode": "Copy Code",
+      "readFullDocs": "Read Full Docs",
+      "loading": "Loading...",
+      "error": "An error occurred",
+      "step1": "Step 1: Install via CLI",
+      "step2": "Step 2: Copy Code",
+      "copyInstall": "Copy installation command",
+      "search": "Search..."
+    },
+    "backgroundStudio": {
+      "title": "Background Studio",
+      "background": "Background",
+      "canvasBg": "Canvas BG",
+      "canvasBgTip": "Light backgrounds might not work well with some effects, and some effects might not have a transparent background.",
+      "noProps": "No customizable props for this background",
+      "image": "Image",
+      "video": "10s Video",
+      "exportTitle": "Export Your Background",
+      "searchPlaceholder": "Search backgrounds...",
+      "noResults": "No backgrounds found",
+      "addColor": "Add Color",
+      "enter": "Enter"
+    },
+    "shapeMagic": {
+      "title": "Shape Magic",
+      "addShape": "Add Shape",
+      "delete": "Delete",
+      "duplicate": "Duplicate",
+      "radius": "Global Radius",
+      "style": "Style",
+      "alignment": "Alignment",
+      "distribute": "Distribute",
+      "exportTitle": "Export Your Shape",
+      "noShapes": "Add a shape to get started",
+      "debug": "Debug Mode"
+    },
+    "textureLab": {
+      "title": "Texture Lab",
+      "upload": "Upload Image",
+      "effects": "Effects",
+      "intensity": "Intensity",
+      "exportTitle": "Export Texture",
+      "noImage": "Upload an image to apply textures",
+      "dropMedia": "Drop image or video here",
+      "canvasHint": "Scroll to zoom • Space + Drag to pan"
+    },
+    "title": "Interactive Tools",
+    "subtitle": "Interactive tools to help you build and customize your projects faster than ever.",
+    "open": "Open Tool",
+    "comingSoon": "Coming Soon",
+    "loading": "Loading tool...",
+    "genericTool": "Design Tool",
+    "settingsSoon": "Settings for this tool will be available soon.",
+    "items": {
+      "background-studio": {
+        "label": "Background Studio",
+        "description": "Explore animated backgrounds for your projects. Choose from various effects and customize as you like. Export as video, image, or code or share your creations as URLs."
+      },
+      "shape-magic": {
+        "label": "Shape Magic",
+        "description": "Tool for automagically creating inner rounded corners between shapes of different sizes. Export as code or SVG."
+      },
+      "texture-lab": {
+        "label": "Texture Lab",
+        "description": "Apply effects to your images and export the results. Add noise, dithering, halftone, ASCII art, and more. Save your presets for sharing or future use."
+      }
+    }
   }
 }

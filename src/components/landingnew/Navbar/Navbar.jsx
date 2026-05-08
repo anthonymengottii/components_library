@@ -250,6 +250,10 @@ const Navbar = ({ showDocs }) => {
                                     {t(`tools.items.${tool.id}.label`, tool.label)}
                                   </Link>
                                 ))}
+                                <div className="ln-navbar-mobile-divider" />
+                                <a href={GITHUB_URL} target="_blank" rel="noopener noreferrer" className="ln-navbar-mobile-link">
+                                  GitHub
+                                </a>
                               </>
                             )
                           }
@@ -300,6 +304,10 @@ const Navbar = ({ showDocs }) => {
                       {t(`nav.${label.toLowerCase()}`)}
                     </Link>
                   ))}
+                  <div className="ln-navbar-mobile-divider" />
+                  <a href={GITHUB_URL} target="_blank" rel="noopener noreferrer" className="ln-navbar-mobile-link">
+                    GitHub
+                  </a>
                   <div className="ln-navbar-mobile-divider" />
                   <div className="ln-navbar-mobile-section">
                     <span className="ln-navbar-mobile-label">{t('nav.language')}</span>

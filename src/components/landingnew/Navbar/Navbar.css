@@ -256,7 +256,8 @@
     padding: 0 10px;
   }
 
-  .ln-navbar-right .ln-navbar-toggle-group {
+  .ln-navbar-right .ln-navbar-toggle-group,
+  .ln-navbar-desktop-only {
     display: none;
   }
 }

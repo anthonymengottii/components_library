@@ -1,4 +1,5 @@
 import { Box, Flex, Text, Icon, Slider } from '@chakra-ui/react';
+import { useTranslation } from 'react-i18next';
 import { useRef, useEffect, useState, useCallback } from 'react';
 import { ZoomIn, ZoomOut, SplitSquareHorizontal, Upload, Maximize, GripVertical, Play, Pause, Eye } from 'lucide-react';
 
@@ -24,6 +25,7 @@ export default function Canvas({
   onSeek,
   isExporting
 }) {
+  const { t } = useTranslation();
   const containerRef = useRef(null);
   const canvasWrapperRef = useRef(null);
   const [zoom, setZoom] = useState(1);
@@ -215,7 +217,7 @@ export default function Canvas({
           pointerEvents="none"
         >
           <Text fontSize="lg" fontWeight={600} color="#6f94f1">
-            Drop image or video here
+            {t('tools.textureLab.dropMedia', 'Drop image or video here')}
           </Text>
         </Flex>
       )}
@@ -386,7 +388,7 @@ export default function Canvas({
               pointerEvents="none"
             >
               <Text fontSize="10px" color="#fff" fontWeight={600}>
-                ORIGINAL
+                {t('nav.original', 'ORIGINAL')}
               </Text>
             </Box>
             <Box
@@ -400,7 +402,7 @@ export default function Canvas({
               pointerEvents="none"
             >
               <Text fontSize="10px" color="#fff" fontWeight={600}>
-                EFFECT
+                {t('nav.effect', 'EFFECT')}
               </Text>
             </Box>
           </Box>
@@ -439,10 +441,7 @@ export default function Canvas({
           <Box w="60px" h="60px" borderRadius="16px" display="flex" alignItems="center" justifyContent="center">
             <Icon as={Upload} boxSize={8} color="var(--border-primary)" />
           </Box>
-          <Text fontSize="14px" color="var(--text-muted)" textAlign="center">
-            Upload an image/video
-            <br />
-            to get started
+            {t('tools.textureLab.noImage')}
           </Text>
         </Flex>
       )}
@@ -533,7 +532,7 @@ export default function Canvas({
       </Flex>
 
       <Text position="absolute" bottom={4} right={4} fontSize="10px" color="var(--border-primary)">
-        Scroll to zoom • Space + Drag to pan
+        {t('tools.textureLab.canvasHint', 'Scroll to zoom • Space + Drag to pan')}
       </Text>
     </Box>
   );

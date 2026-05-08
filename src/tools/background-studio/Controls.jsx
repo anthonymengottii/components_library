@@ -1,8 +1,7 @@
 import { Box, Flex, Text, Icon, Input, Code, Button, Tooltip } from '@chakra-ui/react';
 import { ChevronDown, RotateCcw, Share2, Code2, Plus, X, ExternalLink, Info } from 'lucide-react';
 import { TbCopy, TbCopyCheckFilled } from 'react-icons/tb';
-import { useState, useRef, useEffect, useCallback, useMemo } from 'react';
-import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { BACKGROUNDS, getDocsPath } from './backgrounds';
 import { generateExportCode } from './utils/exportCode';
 import { useOptions } from '../../components/context/OptionsContext/useOptions';
@@ -13,6 +12,7 @@ import PreviewColorPickerCustom from '../../components/common/Preview/PreviewCol
 import CodeHighlighter from '../../components/code/CodeHighlighter';
 
 const BackgroundSelector = ({ selectedId, onSelect }) => {
+  const { t } = useTranslation();
   const [isOpen, setIsOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const dropdownRef = useRef(null);
@@ -93,7 +93,7 @@ const BackgroundSelector = ({ selectedId, onSelect }) => {
         <Box p={2} borderBottom="1px solid var(--border-primary)">
           <Input
             ref={searchInputRef}
-            placeholder="Search backgrounds..."
+            placeholder={t('tools.backgroundStudio.searchPlaceholder')}
             value={searchQuery}
             onChange={e => setSearchQuery(e.target.value)}
             size="sm"
@@ -120,7 +120,7 @@ const BackgroundSelector = ({ selectedId, onSelect }) => {
           {filteredBackgrounds.length === 0 ? (
             <Flex align="center" justify="center" py={4}>
               <Text fontSize="13px" color="var(--text-muted)">
-                No backgrounds found
+                {t('tools.backgroundStudio.noResults')}
               </Text>
             </Flex>
           ) : (
@@ -265,7 +265,7 @@ const ColorArrayControl = ({ prop, value, onChange }) => {
         >
           <Icon as={Plus} boxSize={3.5} color="var(--text-muted)" />
           <Text fontSize="12px" color="var(--text-muted)" fontWeight={500}>
-            Add Color
+            {t('tools.backgroundStudio.addColor')}
           </Text>
         </Flex>
       )}
@@ -340,7 +340,7 @@ const TextControl = ({ prop, value, onChange }) => {
         py={2}
         _hover={{ borderColor: 'var(--border-primary)' }}
         _focus={{ borderColor: 'var(--color-primary)', boxShadow: 'none' }}
-        placeholder={`Enter ${label.toLowerCase()}...`}
+        placeholder={`${t('tools.backgroundStudio.enter')} ${label.toLowerCase()}...`}
       />
     </Box>
   );
@@ -370,6 +370,7 @@ const DynamicControl = ({ prop, value, onChange }) => {
 const PKG_MANAGERS = ['pnpm', 'npm', 'yarn', 'bun'];
 
 const ExportModal = ({ isOpen, onClose, background, props }) => {
+  const { t } = useTranslation();
   const { languagePreset, stylePreset } = useOptions() || {};
   const [copied, setCopied] = useState(null);
   const [pkg, setPkg] = useState('pnpm');
@@ -429,7 +430,7 @@ const ExportModal = ({ isOpen, onClose, background, props }) => {
       >
         <Flex justify="space-between" align="center" mb={6}>
           <Text fontSize="18px" fontWeight={700} color="var(--text-primary)">
-            Export Your Background
+            {t('tools.backgroundStudio.exportTitle')}
           </Text>
           <Flex
             as="button"
@@ -448,7 +449,7 @@ const ExportModal = ({ isOpen, onClose, background, props }) => {
 
         <Box mb={6}>
           <Text className="demo-title" mb={3}>
-            Step 1: Install via CLI
+            {t('tools.common.step1')}
           </Text>
           <Box className="cli-install">
             <Box className="cli-install-section cli-mode">
@@ -480,7 +481,7 @@ const ExportModal = ({ isOpen, onClose, background, props }) => {
                   _active={{ backgroundColor: 'var(--color-primary)' }}
                   transition="background-color 0.3s ease"
                   onClick={() => copyToClipboard(currentCommand, 'install')}
-                  aria-label="Copy installation command"
+                  aria-label={t('tools.common.copyInstall')}
                 >
                   {copied === 'install' ? (
                     <Icon as={TbCopyCheckFilled} color="#fff" boxSize={4} />
@@ -495,7 +496,7 @@ const ExportModal = ({ isOpen, onClose, background, props }) => {
 
         <Box>
           <Text className="demo-title" mb={3}>
-            Step 2: Copy Code
+            {t('tools.common.step2')}
           </Text>
           <CodeHighlighter
             language="jsx"
@@ -523,12 +524,13 @@ export default function Controls({
   canvasBg = '#020b10',
   onCanvasBgChange
 }) {
+  const { t } = useTranslation();
   const [exportOpen, setExportOpen] = useState(false);
   const [shareStatus, setShareStatus] = useState(null);
 
   const handleShare = useCallback(() => {
     navigator.clipboard.writeText(window.location.href);
-    setShareStatus('Copied!');
+    setShareStatus(t('tools.common.copied'));
     setTimeout(() => setShareStatus(null), 2000);
   }, []);
 
@@ -557,7 +559,7 @@ export default function Controls({
         }}
       >
         <Text fontSize="11px" color="var(--text-muted)" fontWeight={600} mb={3} textTransform="uppercase" letterSpacing="0.5px">
-          Background
+          {t('tools.backgroundStudio.background')}
         </Text>
         <BackgroundSelector selectedId={backgroundId} onSelect={onBackgroundChange} />
 
@@ -565,7 +567,7 @@ export default function Controls({
           <Box mb={4}>
             <Flex align="center" gap={1.5} mb={2}>
               <PreviewColorPickerCustom
-                title="Canvas BG"
+                title={t('tools.backgroundStudio.canvasBg')}
                 color={canvasBg}
                 onChange={onCanvasBgChange}
               />
@@ -588,8 +590,7 @@ export default function Controls({
                     maxW="220px"
                     lineHeight="1.4"
                   >
-                    Light backgrounds might not work well with some effects, and some effects might not have a
-                    transparent background.
+                    {t('tools.backgroundStudio.canvasBgTip')}
                   </Tooltip.Content>
                 </Tooltip.Positioner>
               </Tooltip.Root>
@@ -606,7 +607,7 @@ export default function Controls({
             ))
           ) : (
             <Text fontSize="13px" color="var(--text-muted)" textAlign="center" py={4}>
-              No customizable props for this background
+              {t('tools.backgroundStudio.noProps')}
             </Text>
           )}
         </Flex>
@@ -632,7 +633,7 @@ export default function Controls({
           >
             <Icon as={RotateCcw} boxSize={3.5} color="var(--text-muted)" />
             <Text fontSize="12px" color="var(--text-muted)" fontWeight={500}>
-              Reset
+              {t('tools.common.reset')}
             </Text>
           </Flex>
           <Flex
@@ -653,7 +654,7 @@ export default function Controls({
           >
             <Icon as={Share2} boxSize={3.5} color="var(--text-muted)" />
             <Text fontSize="12px" color="var(--text-muted)" fontWeight={500}>
-              {shareStatus || 'Share'}
+              {shareStatus || t('tools.common.share')}
             </Text>
           </Flex>
         </Flex>
@@ -678,7 +679,7 @@ export default function Controls({
         >
           <Icon as={ExternalLink} boxSize={3.5} color="var(--text-muted)" />
           <Text fontSize="12px" color="var(--text-muted)" fontWeight={500}>
-            Read Full Docs
+            {t('tools.common.readFullDocs')}
           </Text>
         </Flex>
         <Flex
@@ -698,7 +699,7 @@ export default function Controls({
         >
           <Icon as={Code2} boxSize={4} color="var(--text-primary)" />
           <Text fontSize="13px" color="var(--text-primary)" fontWeight={600}>
-            Export Code
+            {t('tools.backgroundStudio.exportCode')}
           </Text>
         </Flex>
       </Box>

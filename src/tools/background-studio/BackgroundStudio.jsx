@@ -1,4 +1,5 @@
 import { Box, Flex, Text, Spinner, Icon, useBreakpointValue } from '@chakra-ui/react';
+import { useTranslation } from 'react-i18next';
 import React, { Suspense, useMemo, useState, useEffect, useRef, useCallback } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { Settings, ChevronUp, Download, Video } from 'lucide-react';
@@ -6,30 +7,35 @@ import Controls from './Controls';
 import { BACKGROUNDS, getBackgroundById, getDefaultProps } from './backgrounds';
 import { hyperspeedPresets } from '../../content/Backgrounds/Hyperspeed/HyperSpeedPresets';
 
-const LoadingFallback = () => (
-  <Flex w="100%" h="100%" align="center" justify="center" bg="var(--bg-body)">
-    <Flex direction="column" align="center" gap={3}>
-      <Spinner size="lg" color="var(--color-primary)" />
-      <Text color="var(--text-muted)" fontSize="14px">
-
-        Loading background...
-      </Text>
+const LoadingFallback = () => {
+  const { t } = useTranslation();
+  return (
+    <Flex w="100%" h="100%" align="center" justify="center" bg="var(--bg-body)">
+      <Flex direction="column" align="center" gap={3}>
+        <Spinner size="lg" color="var(--color-primary)" />
+        <Text color="var(--text-muted)" fontSize="14px">
+          {t('tools.common.loading')}
+        </Text>
+      </Flex>
     </Flex>
-  </Flex>
-);
+  );
+};
 
-const ErrorFallback = ({ error }) => (
-  <Flex w="100%" h="100%" align="center" justify="center" bg="var(--bg-body)">
-    <Flex direction="column" align="center" gap={2}>
-      <Text color="#ff6b6b" fontSize="16px" fontWeight={600}>
-        Failed to load background
-      </Text>
-      <Text color="var(--text-muted)" fontSize="13px">
-        {error?.message || 'Unknown error'}
-      </Text>
+const ErrorFallback = ({ error }) => {
+  const { t } = useTranslation();
+  return (
+    <Flex w="100%" h="100%" align="center" justify="center" bg="var(--bg-body)">
+      <Flex direction="column" align="center" gap={2}>
+        <Text color="#ff6b6b" fontSize="16px" fontWeight={600}>
+          {t('tools.backgroundStudio.error')}
+        </Text>
+        <Text color="var(--text-muted)" fontSize="13px">
+          {error?.message || t('tools.common.error')}
+        </Text>
+      </Flex>
     </Flex>
-  </Flex>
-);
+  );
+};
 
 const BackgroundRenderer = React.memo(({ background, props, renderKey }) => {
   const [Component, setComponent] = useState(null);
@@ -128,6 +134,7 @@ const BackgroundRenderer = React.memo(({ background, props, renderKey }) => {
 BackgroundRenderer.displayName = 'BackgroundRenderer';
 
 export default function BackgroundStudio({ toolSelector }) {
+  const { t } = useTranslation();
   const [searchParams, setSearchParams] = useSearchParams();
   const [mobileControlsOpen, setMobileControlsOpen] = useState(false);
   const isMobile = useBreakpointValue({ base: true, lg: false });
@@ -499,7 +506,7 @@ export default function BackgroundStudio({ toolSelector }) {
           >
             <Icon as={Download} boxSize={3.5} color="var(--text-muted)" />
             <Text fontSize="12px" color="var(--text-muted)" fontWeight={500}>
-              Image
+              {t('tools.backgroundStudio.image')}
             </Text>
           </Flex>
 
@@ -532,7 +539,7 @@ export default function BackgroundStudio({ toolSelector }) {
             )}
             <Icon as={Video} boxSize={3.5} color={isRecording ? '#ff3b30' : 'var(--text-muted)'} position="relative" />
             <Text fontSize="12px" color={isRecording ? '#ff3b30' : 'var(--text-muted)'} fontWeight={500} position="relative">
-              {isRecording ? `${Math.ceil((100 - recordingProgress) / 10)}s` : '10s Video'}
+              {isRecording ? `${Math.ceil((100 - recordingProgress) / 10)}s` : t('tools.backgroundStudio.video')}
             </Text>
           </Flex>
         </Flex>
@@ -557,7 +564,7 @@ export default function BackgroundStudio({ toolSelector }) {
         >
           <Icon as={Settings} boxSize={4} color="#fff" />
           <Text fontSize="13px" fontWeight={600} color="#fff">
-            Controls
+            {t('tools.common.controls')}
           </Text>
         </Flex>
       </Box>
@@ -600,7 +607,7 @@ export default function BackgroundStudio({ toolSelector }) {
 
             <Flex align="center" justify="space-between" px={4} pb={3} borderBottom="1px solid var(--border-primary)">
               <Text fontSize="16px" fontWeight={700} color="var(--text-primary)">
-                Controls
+                {t('tools.common.controls')}
               </Text>
               <Flex
                 as="button"

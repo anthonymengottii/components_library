@@ -1,4 +1,5 @@
 import { Box, Flex, Text, Icon, useBreakpointValue } from '@chakra-ui/react';
+import { useTranslation } from 'react-i18next';
 import { useState, useCallback, useRef, useEffect } from 'react';
 import { Settings, ChevronUp } from 'lucide-react';
 import Controls from './Controls';
@@ -19,6 +20,7 @@ import {
 import { toaster } from '../../components/setup/toaster';
 
 export default function TextureLab({ toolSelector }) {
+  const { t } = useTranslation();
   const isMobile = useBreakpointValue({ base: true, lg: false });
   const [mobileControlsOpen, setMobileControlsOpen] = useState(false);
 
@@ -762,7 +764,7 @@ export default function TextureLab({ toolSelector }) {
         >
           <Icon as={Settings} boxSize={4} color="#fff" />
           <Text fontSize="13px" fontWeight={600} color="#fff">
-            Controls
+            {t('tools.common.controls')}
           </Text>
         </Flex>
       </Box>
@@ -804,8 +806,8 @@ export default function TextureLab({ toolSelector }) {
             </Flex>
 
             <Flex align="center" justify="space-between" px={4} pb={3} borderBottom="1px solid var(--border-primary)">
-              <Text fontSize="16px" fontWeight={700} color="#fff">
-                Controls
+              <Text fontSize="16px" fontWeight={700} color="var(--text-primary)">
+                {t('tools.common.controls')}
               </Text>
               <Flex
                 as="button"

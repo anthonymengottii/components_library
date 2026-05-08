@@ -1,4 +1,5 @@
 import { Box, Flex, Text, Icon, useBreakpointValue } from '@chakra-ui/react';
+import { useTranslation } from 'react-i18next';
 import { useState, useCallback, useMemo, useEffect, useRef } from 'react';
 import { Settings, ChevronUp } from 'lucide-react';
 import Canvas from './Canvas';
@@ -39,6 +40,7 @@ const useHistory = initialState => {
 };
 
 export default function ShapeMagic({ toolSelector }) {
+  const { t } = useTranslation();
   const isMobile = useBreakpointValue({ base: true, lg: false });
   const [mobileControlsOpen, setMobileControlsOpen] = useState(false);
   const canvasRef = useRef(null);
@@ -393,7 +395,7 @@ export default function ShapeMagic({ toolSelector }) {
         >
           <Icon as={Settings} boxSize={4} color="#fff" />
           <Text fontSize="13px" fontWeight={600} color="#fff">
-            Controls
+            {t('tools.common.controls')}
           </Text>
         </Flex>
       </Box>
@@ -436,7 +438,7 @@ export default function ShapeMagic({ toolSelector }) {
 
             <Flex align="center" justify="space-between" px={4} pb={3} borderBottom="1px solid var(--border-primary)">
               <Text fontSize="16px" fontWeight={700} color="var(--text-primary)">
-                Controls
+                {t('tools.common.controls')}
               </Text>
               <Flex
                 as="button"

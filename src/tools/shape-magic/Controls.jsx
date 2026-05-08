@@ -19,6 +19,7 @@ import {
   FileCode2,
   Image
 } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import { useState, useCallback } from 'react';
 import {
   generateMergedSVG,
@@ -126,6 +127,7 @@ export default function Controls({
   toolSelector,
   disabled = false
 }) {
+  const { t } = useTranslation();
   const [copyStatus, setCopyStatus] = useState(null);
   const [shortcutsHovered, setShortcutsHovered] = useState(false);
 
@@ -137,21 +139,21 @@ export default function Controls({
     navigator.clipboard.writeText(svg);
     setCopyStatus('svg');
     setTimeout(() => setCopyStatus(null), 2000);
-  }, [shapes, bridges, cornerRadii, globalRadius, style]);
+  }, [shapes, bridges, cornerRadii, globalRadius, style, t]);
 
   const handleCopyReact = useCallback(() => {
     const code = generateReactComponent(shapes, bridges, cornerRadii || {}, style, globalRadius);
     navigator.clipboard.writeText(code);
     setCopyStatus('react');
     setTimeout(() => setCopyStatus(null), 2000);
-  }, [shapes, bridges, cornerRadii, globalRadius, style]);
+  }, [shapes, bridges, cornerRadii, globalRadius, style, t]);
 
   const handleCopyMerged = useCallback(() => {
     const svg = generateMergedClipPathSVG(shapes, bridges, cornerRadii || {}, style, globalRadius);
     navigator.clipboard.writeText(svg);
     setCopyStatus('merged');
     setTimeout(() => setCopyStatus(null), 2000);
-  }, [shapes, bridges, cornerRadii, globalRadius, style]);
+  }, [shapes, bridges, cornerRadii, globalRadius, style, t]);
 
   const handleDownloadSVG = useCallback(() => {
     const svg = generateMergedSVG(shapes, bridges, cornerRadii || {}, style, globalRadius);
@@ -169,7 +171,7 @@ export default function Controls({
     navigator.clipboard.writeText(css);
     setCopyStatus('css');
     setTimeout(() => setCopyStatus(null), 2000);
-  }, [shapes, bridges, cornerRadii, globalRadius]);
+  }, [shapes, bridges, cornerRadii, globalRadius, t]);
 
   const handleDownloadPNG = useCallback(() => {
     const svg = generateMergedSVG(shapes, bridges, cornerRadii || {}, style, globalRadius);
@@ -223,16 +225,16 @@ export default function Controls({
         }}
       >
         {/* Toolbar */}
-        <SectionHeader>Tools</SectionHeader>
+        <SectionHeader>{t('tools.common.controls')}</SectionHeader>
         <Flex gap={2} mb={4}>
-          <ToggleButton icon={Plus} label="Add" onClick={onAddShape} flex={1} />
-          <ToggleButton icon={Trash2} label="Delete" onClick={onDeleteShapes} isActive={false} flex={1} />
-          <ToggleButton icon={Copy} label="Duplicate" onClick={onDuplicateShapes} flex={1} />
+          <ToggleButton icon={Plus} label={t('tools.shapeMagic.addShape')} onClick={onAddShape} flex={1} />
+          <ToggleButton icon={Trash2} label={t('tools.shapeMagic.delete')} onClick={onDeleteShapes} isActive={false} flex={1} />
+          <ToggleButton icon={Copy} label={t('tools.shapeMagic.duplicate')} onClick={onDuplicateShapes} flex={1} />
         </Flex>
 
         {hasMultiSelection && (
           <>
-            <SectionHeader>Align</SectionHeader>
+            <SectionHeader>{t('tools.shapeMagic.alignment')}</SectionHeader>
             <Flex gap={2} mb={4} flexWrap="wrap">
               <ToggleButton icon={AlignHorizontalJustifyStart} onClick={() => onAlignShapes('left')} />
               <ToggleButton icon={AlignHorizontalJustifyCenter} onClick={() => onAlignShapes('centerH')} />
@@ -243,17 +245,17 @@ export default function Controls({
             </Flex>
             {hasThreeOrMoreSelected && (
               <>
-                <SectionHeader>Distribute</SectionHeader>
+                <SectionHeader>{t('tools.shapeMagic.distribute')}</SectionHeader>
                 <Flex gap={2} mb={4}>
                   <ToggleButton
                     icon={AlignHorizontalSpaceAround}
-                    label="Horizontal"
+                    label={t('nav.horizontal', 'Horizontal')}
                     onClick={() => onDistributeShapes('horizontal')}
                     flex={1}
                   />
                   <ToggleButton
                     icon={AlignVerticalSpaceAround}
-                    label="Vertical"
+                    label={t('nav.vertical', 'Vertical')}
                     onClick={() => onDistributeShapes('vertical')}
                     flex={1}
                   />
@@ -265,7 +267,7 @@ export default function Controls({
 
         {selectedShape && !hasMultiSelection && (
           <>
-            <SectionHeader>Selected Shape</SectionHeader>
+            <SectionHeader>{t('tools.shapeMagic.selected', 'Selected Shape')}</SectionHeader>
             <Flex direction="column" gap={2} mb={4}>
               <Flex gap={2}>
                 <NumberInput
@@ -294,7 +296,7 @@ export default function Controls({
                 />
               </Flex>
               <NumberInput
-                label="Radius"
+                label={t('tools.shapeMagic.radius')}
                 value={selectedShape.r !== undefined ? selectedShape.r : globalRadius}
                 onChange={v => onShapeUpdate(selectedShape.id, { r: v })}
                 min={0}
@@ -303,14 +305,14 @@ export default function Controls({
           </>
         )}
 
-        <SectionHeader>Style</SectionHeader>
+        <SectionHeader>{t('tools.shapeMagic.style')}</SectionHeader>
         <Flex direction="column" gap={2} mb={4}>
-          <ColorInput label="Fill" value={style.fill} onChange={v => onStyleChange({ ...style, fill: v })} />
+          <ColorInput label={t('nav.fill', 'Fill')} value={style.fill} onChange={v => onStyleChange({ ...style, fill: v })} />
         </Flex>
 
-        <SectionHeader>Settings</SectionHeader>
+        <SectionHeader>{t('nav.settings', 'Settings')}</SectionHeader>
         <Flex direction="column" gap={2} mb={4}>
-          <NumberInput label="Radius" value={globalRadius} onChange={onGlobalRadiusChange} min={0} max={100} />
+          <NumberInput label={t('tools.shapeMagic.radius')} value={globalRadius} onChange={onGlobalRadiusChange} min={0} max={100} />
         </Flex>
       </Box>
 
@@ -329,7 +331,7 @@ export default function Controls({
           <Flex align="center" gap={1.5}>
             <Icon as={Keyboard} boxSize={3} color="var(--text-muted)" />
             <Text fontSize="10px" color="var(--text-muted)" fontWeight={600} textTransform="uppercase" letterSpacing="0.5px">
-              Shortcuts
+              {t('nav.shortcuts', 'Shortcuts')}
             </Text>
           </Flex>
           <Icon
@@ -351,7 +353,7 @@ export default function Controls({
           <Flex direction="column" gap={1.5}>
             <Flex justify="space-between" align="center">
               <Text fontSize="12px" color="var(--text-muted)">
-                Undo
+                {t('nav.undo', 'Undo')}
               </Text>
               <Flex gap={1}>
                 <StyledKbd>⌘</StyledKbd>
@@ -360,7 +362,7 @@ export default function Controls({
             </Flex>
             <Flex justify="space-between" align="center">
               <Text fontSize="12px" color="var(--text-muted)">
-                Redo
+                {t('nav.redo', 'Redo')}
               </Text>
               <Flex gap={1}>
                 <StyledKbd>⌘</StyledKbd>
@@ -370,7 +372,7 @@ export default function Controls({
             </Flex>
             <Flex justify="space-between" align="center">
               <Text fontSize="12px" color="var(--text-muted)">
-                Duplicate
+                {t('tools.shapeMagic.duplicate')}
               </Text>
               <Flex gap={1}>
                 <StyledKbd>⌘</StyledKbd>
@@ -379,16 +381,16 @@ export default function Controls({
             </Flex>
             <Flex justify="space-between" align="center">
               <Text fontSize="12px" color="var(--text-muted)">
-                Delete
+                {t('tools.shapeMagic.delete')}
               </Text>
               <StyledKbd>⌫</StyledKbd>
             </Flex>
             <Flex justify="space-between" align="center">
               <Text fontSize="12px" color="var(--text-muted)">
-                Pan
+                {t('nav.pan', 'Pan')}
               </Text>
               <Flex gap={1} align="center">
-                <StyledKbd>Space+Drag</StyledKbd>
+                <StyledKbd>{t('nav.spaceDrag', 'Space+Drag')}</StyledKbd>
               </Flex>
             </Flex>
           </Flex>
@@ -396,7 +398,7 @@ export default function Controls({
       </Box>
 
       <Box pt={4} borderTop="1px solid var(--border-primary)" flexShrink={0}>
-        <SectionHeader>Export</SectionHeader>
+        <SectionHeader>{t('nav.export', 'Export')}</SectionHeader>
         <Flex direction="column" gap={2}>
           <Flex
             as="button"
@@ -414,7 +416,7 @@ export default function Controls({
           >
             <Icon as={Merge} boxSize={4} color="var(--text-muted)" />
             <Text fontSize="12px" color="var(--text-muted)" fontWeight={500}>
-              {copyStatus === 'merged' ? 'Copied!' : 'Merge & Copy (Mask-Ready)'}
+              {copyStatus === 'merged' ? t('tools.common.copied') : t('tools.shapeMagic.mergeCopy', 'Merge & Copy (Mask-Ready)')}
             </Text>
           </Flex>
           <Flex gap={2}>
@@ -435,7 +437,7 @@ export default function Controls({
             >
               <Icon as={Code2} boxSize={4} color="var(--text-muted)" />
               <Text fontSize="12px" color="var(--text-muted)" fontWeight={500}>
-                {copyStatus === 'svg' ? 'Copied!' : 'Copy SVG'}
+                {copyStatus === 'svg' ? t('tools.common.copied') : t('tools.shapeMagic.copySVG', 'Copy SVG')}
               </Text>
             </Flex>
             <Flex
@@ -455,7 +457,7 @@ export default function Controls({
             >
               <Icon as={Code2} boxSize={4} color="var(--text-muted)" />
               <Text fontSize="12px" color="var(--text-muted)" fontWeight={500}>
-                {copyStatus === 'react' ? 'Copied!' : 'Copy React'}
+                {copyStatus === 'react' ? t('tools.common.copied') : t('tools.shapeMagic.copyReact', 'Copy React')}
               </Text>
             </Flex>
           </Flex>
@@ -475,7 +477,7 @@ export default function Controls({
           >
             <Icon as={FileCode2} boxSize={4} color="var(--text-muted)" />
             <Text fontSize="12px" color="var(--text-muted)" fontWeight={500}>
-              {copyStatus === 'css' ? 'Copied!' : 'Copy CSS clip-path'}
+              {copyStatus === 'css' ? t('tools.common.copied') : t('tools.shapeMagic.copyCSS', 'Copy CSS clip-path')}
             </Text>
           </Flex>
           <Flex gap={2}>
@@ -495,7 +497,7 @@ export default function Controls({
             >
               <Icon as={Download} boxSize={4} color="var(--text-primary)" />
               <Text fontSize="12px" color="var(--text-primary)" fontWeight={600}>
-                Download SVG
+                {t('tools.shapeMagic.downloadSVG', 'Download SVG')}
               </Text>
             </Flex>
             <Flex
@@ -514,7 +516,7 @@ export default function Controls({
             >
               <Icon as={Image} boxSize={4} color="var(--text-primary)" />
               <Text fontSize="12px" color="var(--text-primary)" fontWeight={600}>
-                Download PNG
+                {t('tools.shapeMagic.downloadPNG', 'Download PNG')}
               </Text>
             </Flex>
           </Flex>
