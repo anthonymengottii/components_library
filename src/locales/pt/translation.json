@@ -164,28 +164,14 @@
     "requestBtn": "Solicitar um Template",
     "anonymous": "Anônimo"
   },
-  "tools": {
-    "title": "Ferramentas Criativas",
-    "subtitle": "Utilitários gratuitos para impulsionar seu fluxo criativo e ajudar você a tirar o máximo proveito do Components Library em seus projetos.",
-    "comingSoon": "Em Breve",
-    "open": "Abrir",
-    "loading": "Carregando...",
-    "settingsSoon": "As configurações aparecerão aqui quando a ferramenta estiver pronta.",
-    "genericTool": "Ferramenta",
-    "items": {
-      "background-studio": {
-        "label": "Estúdio de Fundos",
-        "description": "Explore fundos animados para seus projetos. Escolha entre vários efeitos e personalize como quiser. Exporte como vídeo, imagem ou código, ou compartilhe suas criações por URL."
-      },
-      "shape-magic": {
-        "label": "Mágica de Formas",
-        "description": "Ferramenta para criar automaticamente cantos internos arredondados entre formas de tamanhos diferentes. Exporte como código ou SVG."
-      },
-      "texture-lab": {
-        "label": "Laboratório de Texturas",
-        "description": "Aplique efeitos às suas imagens e exporte os resultados. Adicione ruído, dithering, halftone, arte ASCII e muito mais. Salve seus presets para compartilhar ou usar depois."
-      }
-    }
+  "common": {
+    "notFound": "Não encontrado",
+    "sectionUnavailable": "Esta seção não está disponível."
+  },
+  "announcement": {
+    "share": "Compartilhar",
+    "shareX": "Postar no X",
+    "close": "Fechar anúncio"
   },
   "sidebar": {
     "categories": "Categorias",
@@ -490,16 +476,16 @@
     "settingsSoon": "As configurações para esta ferramenta estarão disponíveis em breve.",
     "items": {
       "background-studio": {
-        "label": "Background Studio",
-        "description": "Explore fundos animados para seus projetos. Escolha entre vários efeitos e personalize como desejar. Exporte como vídeo, imagem ou código ou compartilhe suas criações via URL."
+        "label": "Estúdio de Fundos",
+        "description": "Explore fundos animados para seus projetos. Escolha entre vários efeitos e personalize como quiser. Exporte como vídeo, imagem ou código, ou compartilhe suas criações por URL."
       },
       "shape-magic": {
-        "label": "Shape Magic",
-        "description": "Ferramenta para criar cantos arredondados internos automaticamente entre formas de diferentes tamanhos. Exporte como código ou SVG."
+        "label": "Mágica de Formas",
+        "description": "Ferramenta para criar automaticamente cantos internos arredondados entre formas de tamanhos diferentes. Exporte como código ou SVG."
       },
       "texture-lab": {
-        "label": "Texture Lab",
-        "description": "Aplique efeitos às suas imagens e exporte os resultados. Adicione ruído, dither, halftone, ASCII art e muito mais. Salve seus presets para compartilhar ou uso futuro."
+        "label": "Laboratório de Texturas",
+        "description": "Aplique efeitos às suas imagens e exporte os resultados. Adicione ruído, dithering, halftone, arte ASCII e muito mais. Salve seus presets para compartilhar ou usar depois."
       }
     }
   }

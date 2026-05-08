@@ -160,7 +160,7 @@ const ToolDropdown = ({ selectedTool, onSelect, isOpen, setIsOpen }) => {
             </Text>
             {!tool.component && (
               <Text fontSize="10px" color={colors.accentMuted} fontWeight={600} ml="auto">
-                SOON
+                {t('nav.soon')}
               </Text>
             )}
           </Flex>

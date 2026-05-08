@@ -441,6 +441,7 @@ export default function Canvas({
           <Box w="60px" h="60px" borderRadius="16px" display="flex" alignItems="center" justifyContent="center">
             <Icon as={Upload} boxSize={8} color="var(--border-primary)" />
           </Box>
+          <Text fontSize="14px" color="var(--text-muted)" textAlign="center">
             {t('tools.textureLab.noImage')}
           </Text>
         </Flex>

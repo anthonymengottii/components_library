@@ -164,28 +164,9 @@
     "requestBtn": "Request a Template",
     "anonymous": "Anonymous"
   },
-  "tools": {
-    "title": "Creative Tools",
-    "subtitle": "Free utilities to boost your creative workflow and help you get the most out of Components Library in your projects.",
-    "comingSoon": "Coming Soon",
-    "open": "Open",
-    "loading": "Loading...",
-    "settingsSoon": "Settings will appear here when the tool is ready.",
-    "genericTool": "Tool",
-    "items": {
-      "background-studio": {
-        "label": "Background Studio",
-        "description": "Explore animated backgrounds for your projects. Choose from various effects and customize as you like. Export as video, image, or code or share your creations as URLs."
-      },
-      "shape-magic": {
-        "label": "Shape Magic",
-        "description": "Tool for automagically creating inner rounded corners between shapes of different sizes. Export as code or SVG."
-      },
-      "texture-lab": {
-        "label": "Texture Lab",
-        "description": "Apply effects to your images and export the results. Add noise, dithering, halftone, ASCII art, and more. Save your presets for sharing or future use."
-      }
-    }
+  "common": {
+    "notFound": "Not found",
+    "sectionUnavailable": "This section is unavailable."
   },
   "sidebar": {
     "categories": "Categories",

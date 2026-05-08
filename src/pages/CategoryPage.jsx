@@ -55,10 +55,10 @@ const CategoryPage = () => {
             ) : (
               <Box p={6}>
                 <Text color="#fff" fontWeight={600} fontSize="18px">
-                  Not found
+                  {t('common.notFound', 'Not found')}
                 </Text>
                 <Text color="#a6a6a6" fontSize="14px">
-                  This section is unavailable.
+                  {t('common.sectionUnavailable', 'This section is unavailable.')}
                 </Text>
               </Box>
             )}

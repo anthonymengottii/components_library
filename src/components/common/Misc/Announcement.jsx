@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { FiX, FiShare2 } from 'react-icons/fi';
+import { useTranslation } from 'react-i18next';
 
 const ANNOUNCEMENT_MESSAGE = '';
 
@@ -45,6 +46,7 @@ const parseMessageWithLinks = (message) => {
 };
 
 const Announcement = () => {
+  const { t } = useTranslation();
   const [isVisible, setIsVisible] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
 
@@ -122,11 +124,11 @@ const Announcement = () => {
     <div className="announcement-bar">
       <div className="announcement-content">{parseMessageWithLinks(ANNOUNCEMENT_MESSAGE)}</div>
       <div className="announcement-actions">
-        <button onClick={handleShare} className="announcement-share" aria-label={isMobile ? 'Share' : 'Share on X'}>
+        <button onClick={handleShare} className="announcement-share" aria-label={isMobile ? t('announcement.share') : t('announcement.shareX')}>
           <FiShare2 size={16} />
-          <span className="announcement-share-text">{isMobile ? 'Share' : 'Share on X'}</span>
+          <span className="announcement-share-text">{isMobile ? t('announcement.share') : t('announcement.shareX')}</span>
         </button>
-        <button onClick={closeAnnouncement} className="announcement-close" aria-label="Close announcement">
+        <button onClick={closeAnnouncement} className="announcement-close" aria-label={t('announcement.close')}>
           <FiX size={18} />
         </button>
       </div>
