@@ -48,7 +48,9 @@ const BackgroundContent = ({
               className="bg-content-glass"
             >
               <Box display="flex" alignItems="center" gap={2}>
-                <Box w="20px" h="20px" borderRadius="50%" bg="white" />
+                <Text color="white" fontSize="14px" fontWeight={700} letterSpacing="-0.02em">
+                  Components Library
+                </Text>
               </Box>
 
               <Box display={{ base: 'flex', md: 'none' }} alignItems="center" color="rgba(255,255,255,0.5)">
