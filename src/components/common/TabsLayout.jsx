@@ -1,3 +1,4 @@
+import React, { useEffect, useMemo, useState, useCallback } from 'react';
 import TabsFooter from './TabsFooter';
 import { useTranslation } from 'react-i18next';
 
