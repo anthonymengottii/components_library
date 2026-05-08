@@ -4,7 +4,6 @@ import { TbMenu } from 'react-icons/tb';
 import { useTranslation } from 'react-i18next';
 
 import PreviewSwitch from './PreviewSwitch';
-import logo from '../../../assets/logos/react-bits-logo.svg';
 
 const BackgroundContent = ({
   headline = 'Build interfaces that feel alive'
@@ -49,7 +48,7 @@ const BackgroundContent = ({
               className="bg-content-glass"
             >
               <Box display="flex" alignItems="center" gap={2}>
-                <img src={logo} alt="Logo" style={{ height: '20px', borderRadius: '50px' }} />
+                <Box w="20px" h="20px" borderRadius="50%" bg="white" />
               </Box>
 
               <Box display={{ base: 'flex', md: 'none' }} alignItems="center" color="rgba(255,255,255,0.5)">
