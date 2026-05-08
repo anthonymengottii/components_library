@@ -2,8 +2,8 @@ import { useState } from 'react';
 import { useSingleEffect } from 'react-haiku';
 import { getStarsCount } from '../utils/utils';
 
-const CACHE_KEY = 'github_stars_cache';
-const CACHE_DURATION = 24 * 60 * 60 * 1000;
+const CACHE_KEY = 'github_stars_cache_v2';
+const CACHE_DURATION = 1 * 60 * 60 * 1000;
 const DEFAULT_STARS = 33200;
 
 export const useStars = () => {

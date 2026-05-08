@@ -485,7 +485,7 @@ export default function BackgroundStudio({ toolSelector }) {
           py={1.5}
         >
           <Text fontSize="12px" color="var(--text-muted)" fontWeight={500}>
-            {background.label}
+            {t(`subcategories.${background.label}`, background.label)}
           </Text>
         </Box>
 

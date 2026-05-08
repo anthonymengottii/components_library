@@ -187,7 +187,8 @@ const ComponentList = ({ list, hasDeleteButton = false, hasFavoriteButton = fals
     return items.filter(({ title, categoryLabel }) => {
       const categoryOk = all || categoryLabel === selectedCategory;
       if (!term) return categoryOk;
-      return categoryOk && fuzzyMatch(title, term);
+      const translatedTitle = t(`subcategories.${title}`, title);
+      return categoryOk && (fuzzyMatch(title, term) || fuzzyMatch(translatedTitle, term));
     });
   }, [items, selectedCategory, search, t]);
   const controlsDisabled = items.length === 0;
@@ -365,7 +366,9 @@ const ComponentList = ({ list, hasDeleteButton = false, hasFavoriteButton = fals
                 w="full"
               >
                 <Select.ValueText color={controlsDisabled ? 'rgba(255,255,255,0.3)' : '#fff'} pl={2}>
-                  {selectedCategory}
+                  {selectedCategory === t('componentList.allComponents')
+                    ? selectedCategory
+                    : t(`categories.${selectedCategory}`, selectedCategory)}
                 </Select.ValueText>
                 <Select.IndicatorGroup>
                   <Select.Indicator />
@@ -395,7 +398,9 @@ const ComponentList = ({ list, hasDeleteButton = false, hasFavoriteButton = fals
                       cursor="pointer"
                       _highlighted={{ bg: 'rgba(255,255,255,0.06)' }}
                     >
-                      {cat}
+                      {cat === t('componentList.allComponents')
+                        ? cat
+                        : t(`categories.${cat}`, cat)}
                     </Select.Item>
                   ))}
                 </Select.Content>
@@ -529,7 +534,7 @@ const ComponentList = ({ list, hasDeleteButton = false, hasFavoriteButton = fals
 
                                 {hasDeleteButton ? (
                                   <IconButton
-                                    aria-label="Remove from favorites"
+                                    aria-label={t('preview.removedFromFavorites')}
                                     {...FAV_BTN_STYLE}
                                     opacity={hoveredKey === item.key ? 1 : 0}
                                     pointerEvents={hoveredKey === item.key ? 'auto' : 'none'}
@@ -560,7 +565,7 @@ const ComponentList = ({ list, hasDeleteButton = false, hasFavoriteButton = fals
 
                                 {!hasDeleteButton && hasFavoriteButton ? (
                                   <IconButton
-                                    aria-label={isSaved ? 'Remove from favorites' : 'Add to favorites'}
+                                    aria-label={isSaved ? t('preview.removedFromFavorites') : t('preview.addedToFavorites')}
                                     {...FAV_BTN_STYLE}
                                     opacity={isSaved || hoveredKey === item.key ? 1 : 0}
                                     pointerEvents={hoveredKey === item.key ? 'auto' : 'none'}
@@ -572,11 +577,10 @@ const ComponentList = ({ list, hasDeleteButton = false, hasFavoriteButton = fals
                                       setSavedSet(new Set(next));
                                       toast?.[saved ? 'success' : 'error']?.(
                                         <>
-                                          {saved ? 'Added' : 'Removed'}{' '}
                                           <span style={{ color: colors.accent, fontWeight: 700 }}>
                                             &lt;{item.title} /&gt;
                                           </span>{' '}
-                                          {saved ? 'to favorites' : 'from favorites'}
+                                          {saved ? t('preview.addedToFavorites') : t('preview.removedFromFavorites')}
                                         </>
                                       );
                                       if (e.currentTarget && typeof e.currentTarget.blur === 'function') {
@@ -590,10 +594,10 @@ const ComponentList = ({ list, hasDeleteButton = false, hasFavoriteButton = fals
                               </Box>
                               <Box px={2} pt={3} pb={1.5}>
                                 <Text color="#fff" fontSize="14px" fontWeight={500} lineHeight="1.3" letterSpacing="-0.2px">
-                                  {item.title}
+                                  {t(`subcategories.${item.title}`, item.title)}
                                 </Text>
                                 <Text color={colors.textMuted} fontWeight={400} fontSize="12px" mt={0.5}>
-                                  {item.categoryLabel}
+                                  {t(`categories.${item.categoryLabel}`, item.categoryLabel)}
                                 </Text>
                               </Box>
                             </Box>

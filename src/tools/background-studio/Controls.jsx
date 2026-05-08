@@ -1,3 +1,5 @@
+import React, { useState, useEffect, useRef, useMemo, useCallback } from 'react';
+import { Link } from 'react-router-dom';
 import { Box, Flex, Text, Icon, Input, Code, Button, Tooltip } from '@chakra-ui/react';
 import { ChevronDown, RotateCcw, Share2, Code2, Plus, X, ExternalLink, Info } from 'lucide-react';
 import { TbCopy, TbCopyCheckFilled } from 'react-icons/tb';
@@ -62,7 +64,7 @@ const BackgroundSelector = ({ selectedId, onSelect }) => {
         _hover={{ borderColor: 'var(--border-primary)' }}
       >
         <Text fontSize="14px" fontWeight={600} color="var(--text-primary)">
-          {selected.label}
+          {t(`subcategories.${selected.label}`, selected.label)}
         </Text>
         <Icon
           as={ChevronDown}
@@ -143,7 +145,7 @@ const BackgroundSelector = ({ selectedId, onSelect }) => {
                 transition="background 0.15s"
               >
                 <Text fontSize="14px" fontWeight={500} color="var(--text-primary)">
-                  {bg.label}
+                  {t(`subcategories.${bg.label}`, bg.label)}
                 </Text>
               </Flex>
             ))
@@ -155,11 +157,12 @@ const BackgroundSelector = ({ selectedId, onSelect }) => {
 };
 
 const NumberControl = ({ prop, value, onChange }) => {
+  const { t } = useTranslation();
   const { name, label, min = 0, max = 100, step = 1 } = prop;
 
   return (
     <PreviewSliderVertical
-      title={label}
+      title={t(`props.${label}`, label)}
       min={min}
       max={max}
       step={step}
@@ -170,17 +173,19 @@ const NumberControl = ({ prop, value, onChange }) => {
 };
 
 const BooleanControl = ({ prop, value, onChange }) => {
+  const { t } = useTranslation();
   const { name, label } = prop;
 
-  return <PreviewSwitch title={label} isChecked={value} onChange={checked => onChange(name, checked)} />;
+  return <PreviewSwitch title={t(`props.${label}`, label)} isChecked={value} onChange={checked => onChange(name, checked)} />;
 };
 
 const ColorControl = ({ prop, value, onChange }) => {
+  const { t } = useTranslation();
   const { name, label } = prop;
 
   return (
     <PreviewColorPickerCustom
-      title={label}
+      title={t(`props.${label}`, label)}
       color={value}
       onChange={val => onChange(name, val)}
     />
@@ -188,6 +193,7 @@ const ColorControl = ({ prop, value, onChange }) => {
 };
 
 const ColorArrayControl = ({ prop, value, onChange }) => {
+  const { t } = useTranslation();
   const { name, label, minItems = 1, maxItems = 5 } = prop;
   const colors = Array.isArray(value) ? value : [value];
 
@@ -218,7 +224,7 @@ const ColorArrayControl = ({ prop, value, onChange }) => {
         {colors.map((color, index) => (
           <Box key={index} position="relative">
             <PreviewColorPickerCustom
-              title={`${label} ${index + 1}`}
+              title={`${t(`props.${label}`, label)} ${index + 1}`}
               color={color}
               onChange={val => updateColor(index, val)}
             />
@@ -274,12 +280,13 @@ const ColorArrayControl = ({ prop, value, onChange }) => {
 };
 
 const SelectControl = ({ prop, value, onChange }) => {
+  const { t } = useTranslation();
   const { name, label, options = [] } = prop;
-  const selectOptions = options.map(opt => (typeof opt === 'string' ? { value: opt, label: opt } : opt));
+  const selectOptions = options.map(opt => (typeof opt === 'string' ? { value: opt, label: t(`props.${opt}`, opt) } : { ...opt, label: t(`props.${opt.label}`, opt.label) }));
 
   return (
     <PreviewSelect
-      title={label}
+      title={t(`props.${label}`, label)}
       options={selectOptions}
       value={value}
       onChange={val => onChange(name, val)}
@@ -289,6 +296,7 @@ const SelectControl = ({ prop, value, onChange }) => {
 };
 
 const RgbArrayControl = ({ prop, value, onChange }) => {
+  const { t } = useTranslation();
   const { name, label } = prop;
   const rgb = Array.isArray(value) ? value : [0.5, 0.5, 0.5];
 
@@ -312,7 +320,7 @@ const RgbArrayControl = ({ prop, value, onChange }) => {
 
   return (
     <PreviewColorPickerCustom
-      title={label}
+      title={t(`props.${label}`, label)}
       color={hexValue}
       onChange={hex => onChange(name, hexToRgb(hex))}
     />
@@ -320,12 +328,13 @@ const RgbArrayControl = ({ prop, value, onChange }) => {
 };
 
 const TextControl = ({ prop, value, onChange }) => {
+  const { t } = useTranslation();
   const { name, label } = prop;
 
   return (
     <Box>
       <Text fontSize="sm" mb={2}>
-        {label}
+        {t(`props.${label}`, label)}
       </Text>
       <Input
         type="text"
@@ -340,7 +349,7 @@ const TextControl = ({ prop, value, onChange }) => {
         py={2}
         _hover={{ borderColor: 'var(--border-primary)' }}
         _focus={{ borderColor: 'var(--color-primary)', boxShadow: 'none' }}
-        placeholder={`${t('tools.backgroundStudio.enter')} ${label.toLowerCase()}...`}
+        placeholder={`${t('tools.backgroundStudio.enter')} ${t(`props.${label}`, label).toLowerCase()}...`}
       />
     </Box>
   );
@@ -699,7 +708,7 @@ export default function Controls({
         >
           <Icon as={Code2} boxSize={4} color="var(--text-primary)" />
           <Text fontSize="13px" color="var(--text-primary)" fontWeight={600}>
-            {t('tools.backgroundStudio.exportCode')}
+            {t('tools.common.exportCode')}
           </Text>
         </Flex>
       </Box>

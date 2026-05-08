@@ -50,6 +50,7 @@ import {
   Dices
 } from 'lucide-react';
 import { useState, useCallback, useRef, useMemo, memo } from 'react';
+import { useTranslation } from 'react-i18next';
 import { toaster } from '../../components/setup/toaster';
 import PreviewSlider from '../../components/common/Preview/PreviewSlider';
 import PreviewSelect from '../../components/common/Preview/PreviewSelect';
@@ -146,6 +147,47 @@ const EFFECT_NAMES = {
   [EFFECT_TYPES.EXPOSURE]: 'Exposure',
   [EFFECT_TYPES.VIBRANCE]: 'Vibrance',
   [EFFECT_TYPES.DOT_DITHER]: 'Dot Dither'
+};
+
+const EFFECT_TYPE_KEYS = {
+  [EFFECT_TYPES.NOISE]: 'noise',
+  [EFFECT_TYPES.DITHER]: 'dither',
+  [EFFECT_TYPES.HALFTONE]: 'halftone',
+  [EFFECT_TYPES.ASCII]: 'ascii',
+  [EFFECT_TYPES.OVERLAY]: 'overlay',
+  [EFFECT_TYPES.CHROMATIC]: 'chromatic',
+  [EFFECT_TYPES.VIGNETTE]: 'vignette',
+  [EFFECT_TYPES.SCANLINES]: 'scanlines',
+  [EFFECT_TYPES.PIXELATE]: 'pixelate',
+  [EFFECT_TYPES.BLUR]: 'blur',
+  [EFFECT_TYPES.DISTORTION]: 'distortion',
+  [EFFECT_TYPES.POSTERIZE]: 'posterize',
+  [EFFECT_TYPES.EDGE]: 'edge',
+  [EFFECT_TYPES.GRAIN]: 'grain',
+  [EFFECT_TYPES.COLOR_GRADE]: 'colorGrade',
+  [EFFECT_TYPES.GLITCH]: 'glitch',
+  [EFFECT_TYPES.CRT]: 'crt',
+  [EFFECT_TYPES.DUOTONE]: 'duotone',
+  [EFFECT_TYPES.KUWAHARA]: 'kuwahara',
+  [EFFECT_TYPES.BARREL]: 'barrel',
+  [EFFECT_TYPES.RIPPLE]: 'ripple',
+  [EFFECT_TYPES.DISPLACEMENT]: 'displacement',
+  [EFFECT_TYPES.LIGHT_LEAK]: 'lightLeak',
+  [EFFECT_TYPES.BLOOM]: 'bloom',
+  [EFFECT_TYPES.RADIAL_BLUR]: 'radialBlur',
+  [EFFECT_TYPES.MOSAIC]: 'mosaic',
+  [EFFECT_TYPES.TILT_SHIFT]: 'tiltShift',
+  [EFFECT_TYPES.EXPOSURE]: 'exposure',
+  [EFFECT_TYPES.VIBRANCE]: 'vibrance',
+  [EFFECT_TYPES.DOT_DITHER]: 'dotDither'
+};
+
+const EFFECT_CATEGORY_KEYS = {
+  texture: 'texture',
+  stylize: 'stylize',
+  color: 'color',
+  distort: 'distort',
+  overlay: 'overlay'
 };
 
 const ToggleButton = ({ icon: IconComponent, label, onClick, flex, disabled, title, ...rest }) => (
@@ -289,6 +331,7 @@ const ASCIIParams = ({ params, onChange }) => (
 );
 
 const OverlayParams = ({ params, onChange }) => {
+  const { t } = useTranslation();
   const fileInputRef = useRef(null);
 
   const handleCustomTextureUpload = useCallback(
@@ -360,14 +403,14 @@ const OverlayParams = ({ params, onChange }) => {
                   opacity={0.5}
                 />
                 <Text fontSize="11px" color="var(--color-primary)" fontWeight={500} zIndex={1}>
-                  Click to change texture
+                  {t('tools.textureLab.clickToChangeTexture')}
                 </Text>
               </>
             ) : (
               <>
                 <Icon as={Upload} boxSize={4} color="#ffffff" />
                 <Text fontSize="11px" color="#ffffff" fontWeight={500}>
-                  Upload custom texture
+                  {t('tools.textureLab.uploadCustomTexture')}
                 </Text>
               </>
             )}
@@ -569,6 +612,7 @@ const RippleParams = ({ params, onChange }) => (
 );
 
 const DisplacementParams = ({ params, onChange }) => {
+  const { t } = useTranslation();
   const fileInputRef = useRef(null);
 
   const handleMapUpload = useCallback(
@@ -629,10 +673,10 @@ const DisplacementParams = ({ params, onChange }) => {
           />
         ) : null}
         <Text fontSize="11px" color="var(--text-muted)" zIndex={1}>
-          {params.customMapUrl ? 'Click to change' : 'Upload Displacement Map'}
+          {params.customMapUrl ? t('tools.textureLab.clickToChange') : t('tools.textureLab.uploadDisplacementMap')}
         </Text>
         <Text fontSize="10px" color="var(--text-dimmed)" zIndex={1}>
-          (Leave empty for procedural noise)
+          {t('tools.textureLab.proceduralNoteMap')}
         </Text>
       </Flex>
     </>
@@ -783,6 +827,7 @@ const EffectCard = memo(({
   isExpanded,
   onExpandToggle
 }) => {
+  const { t } = useTranslation();
   const EffectIcon = EFFECT_ICONS[effect.type];
   const ParamsComponent = PARAMS_COMPONENTS[effect.type];
 
@@ -824,7 +869,7 @@ const EffectCard = memo(({
           </Flex>
           <Icon as={EffectIcon} boxSize={3} color={effect.enabled ? 'var(--color-primary)' : 'var(--text-muted)'} />
           <Text fontSize="12px" color={effect.enabled ? 'var(--text-primary)' : 'var(--text-muted)'} fontWeight={500}>
-            {EFFECT_NAMES[effect.type]}
+            {t(`tools.textureLab.effectNames.${EFFECT_TYPE_KEYS[effect.type]}`, EFFECT_NAMES[effect.type])}
           </Text>
         </Flex>
         <Flex align="center" gap={1}>
@@ -841,7 +886,7 @@ const EffectCard = memo(({
               onToggle(effect.id);
             }}
             _hover={{ bg: 'rgba(255,255,255,0.1)' }}
-            title={effect.enabled ? 'Disable effect' : 'Enable effect'}
+            title={effect.enabled ? t('tools.textureLab.disableEffect') : t('tools.textureLab.enableEffect')}
           >
             <Icon as={effect.enabled ? Eye : EyeOff} boxSize={3.5} color="var(--text-muted)" />
           </Flex>
@@ -858,7 +903,7 @@ const EffectCard = memo(({
               onDuplicate(effect);
             }}
             _hover={{ bg: 'rgba(255,255,255,0.1)' }}
-            title="Duplicate effect"
+            title={t('tools.textureLab.duplicateEffect')}
           >
             <Icon as={Copy} boxSize={3.5} color="var(--text-muted)" />
           </Flex>
@@ -875,7 +920,7 @@ const EffectCard = memo(({
               onDelete(effect.id);
             }}
             _hover={{ bg: 'rgba(255,100,100,0.1)' }}
-            title="Delete effect"
+            title={t('tools.textureLab.deleteEffect')}
           >
             <Icon as={Trash2} boxSize={3.5} color="var(--text-muted)" />
           </Flex>
@@ -892,7 +937,7 @@ const EffectCard = memo(({
               onExpandToggle();
             }}
             _hover={{ bg: 'rgba(255,255,255,0.1)' }}
-            title={isExpanded ? 'Collapse' : 'Expand'}
+            title={isExpanded ? t('tools.textureLab.collapse') : t('tools.textureLab.expand')}
           >
             <Icon as={isExpanded ? ChevronUp : ChevronDown} boxSize={4} color="var(--text-muted)" />
           </Flex>
@@ -965,6 +1010,7 @@ const EFFECT_CATEGORIES = {
 };
 
 const AddEffectPanel = ({ onAddEffect }) => {
+  const { t } = useTranslation();
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -984,7 +1030,7 @@ const AddEffectPanel = ({ onAddEffect }) => {
         <Flex align="center" gap={2}>
           <Icon as={Plus} boxSize={4} color="var(--text-muted)" />
           <Text fontSize="12px" color="var(--text-primary)" fontWeight={500}>
-            Add Effect
+            {t('tools.textureLab.addEffect')}
           </Text>
         </Flex>
         <Icon as={isOpen ? ChevronUp : ChevronDown} boxSize={4} color="var(--text-muted)" />
@@ -1002,7 +1048,7 @@ const AddEffectPanel = ({ onAddEffect }) => {
                 letterSpacing="0.5px"
                 mb={2}
               >
-                {category.label}
+                {t(`tools.textureLab.effectCategories.${EFFECT_CATEGORY_KEYS[catKey]}`, category.label)}
               </Text>
               <Flex
                 gap={1.5}
@@ -1035,7 +1081,7 @@ const AddEffectPanel = ({ onAddEffect }) => {
                   >
                     <Icon as={EFFECT_ICONS[type]} boxSize={3.5} color="var(--text-muted)" flexShrink={0} />
                     <Text fontSize="11px" color="var(--text-primary)" whiteSpace="nowrap" fontWeight={450}>
-                      {EFFECT_NAMES[type]}
+                      {t(`tools.textureLab.effectNames.${EFFECT_TYPE_KEYS[type]}`, EFFECT_NAMES[type])}
                     </Text>
                   </Flex>
                 ))}
@@ -1049,6 +1095,7 @@ const AddEffectPanel = ({ onAddEffect }) => {
 };
 
 const PresetsPanel = ({ onLoadPreset }) => {
+  const { t } = useTranslation();
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -1068,7 +1115,7 @@ const PresetsPanel = ({ onLoadPreset }) => {
         <Flex align="center" gap={2}>
           <Icon as={Wand2} boxSize={4} color="var(--text-muted)" />
           <Text fontSize="12px" color="var(--text-primary)" fontWeight={500}>
-            Presets
+            {t('tools.textureLab.presets')}
           </Text>
         </Flex>
         <Icon as={isOpen ? ChevronUp : ChevronDown} boxSize={4} color="var(--text-muted)" />
@@ -1124,6 +1171,7 @@ const ExportSettingsPanel = ({
   onExportScaleChange,
   onPreviewQualityChange
 }) => {
+  const { t } = useTranslation();
   const [isOpen, setIsOpen] = useState(false);
   const isVideo = mediaType === 'video';
 
@@ -1144,7 +1192,7 @@ const ExportSettingsPanel = ({
         <Flex align="center" gap={2}>
           <Icon as={Sliders} boxSize={4} color="var(--text-muted)" />
           <Text fontSize="12px" color="var(--text-primary)" fontWeight={500}>
-            Export Settings
+            {t('tools.textureLab.exportSettings')}
           </Text>
         </Flex>
         <Icon as={isOpen ? ChevronUp : ChevronDown} boxSize={4} color="var(--text-muted)" />
@@ -1154,7 +1202,7 @@ const ExportSettingsPanel = ({
         <Flex direction="column" gap={3} p={3}>
           {isVideo ? (
             <Text fontSize="11px" color="var(--text-muted)">
-              Videos export as WebM format.
+              {t('tools.textureLab.videoExportNote')}
             </Text>
           ) : (
             <>
@@ -1233,6 +1281,7 @@ export default function Controls({
   toolSelector
 }) {
   const fileInputRef = useRef(null);
+  const { t } = useTranslation();
   const [urlInput, setUrlInput] = useState('');
   const [isLoadingUrl, setIsLoadingUrl] = useState(false);
 
@@ -1962,7 +2011,7 @@ export default function Controls({
           scrollbarWidth: 'none'
         }}
       >
-        <SectionHeader>Media Source</SectionHeader>
+        <SectionHeader>{t('tools.textureLab.mediaSource')}</SectionHeader>
         <Flex direction="column" gap={2} mb={4}>
           <input
             type="file"
@@ -1974,14 +2023,14 @@ export default function Controls({
           <Flex gap={2}>
             <ToggleButton
               icon={Upload}
-              label="Upload"
+              label={t('tools.textureLab.uploadBtn')}
               onClick={() => fileInputRef.current?.click()}
               flex={1}
               disabled={isExporting}
             />
             <ToggleButton
               icon={ImageIcon}
-              label="Sample"
+              label={t('tools.textureLab.sampleBtn')}
               onClick={() =>
                 onMediaLoad(
                   'https://images.unsplash.com/photo-1597848212624-a19eb35e2651?q=80&w=1335&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
@@ -1991,11 +2040,11 @@ export default function Controls({
               flex={1}
               disabled={isExporting}
             />
-            {(image || video) && !isExporting && <ToggleButton icon={X} label="Clear" onClick={onClearMedia} />}
+            {(image || video) && !isExporting && <ToggleButton icon={X} label={t('tools.textureLab.clearBtn')} onClick={onClearMedia} />}
           </Flex>
           <Flex gap={2}>
             <Input
-              placeholder="Paste image or video URL..."
+              placeholder={t('tools.textureLab.urlPlaceholder')}
               value={urlInput}
               onChange={e => setUrlInput(e.target.value)}
               size="sm"
@@ -2020,7 +2069,7 @@ export default function Controls({
           {corsError && (
             <Box bg="rgba(255,100,100,0.1)" p={2} borderRadius="6px" border="1px solid rgba(255,100,100,0.3)">
               <Text fontSize="11px" color="#ff6b6b">
-                ⚠️ CORS blocked. Export/copy disabled. Re-upload the media locally to enable.
+                {t('tools.textureLab.corsWarning')}
               </Text>
             </Box>
           )}
@@ -2030,11 +2079,11 @@ export default function Controls({
 
         <Flex align="center" justify="space-between" mb={3}>
           <Text fontSize="11px" color="var(--text-muted)" fontWeight={600} textTransform="uppercase" letterSpacing="0.5px">
-            Effects ({effects.length})
+            {t('tools.textureLab.effects')} ({effects.length})
           </Text>
           <Flex gap={1}>
-            <ToggleButton icon={Dices} onClick={handleRandomizeEffects} title="Randomize effects" />
-            <ToggleButton icon={Shuffle} onClick={handleRandomizeParams} title="Randomize parameters" />
+            <ToggleButton icon={Dices} onClick={handleRandomizeEffects} title={t('tools.textureLab.randomizeEffects')} />
+            <ToggleButton icon={Shuffle} onClick={handleRandomizeParams} title={t('tools.textureLab.randomizeParams')} />
           </Flex>
         </Flex>
 
@@ -2061,7 +2110,7 @@ export default function Controls({
           {effects.length === 0 && (
             <Box p={4} bg="var(--bg-elevated)" border="1px dashed var(--border-primary)" borderRadius="var(--radius-sm)" textAlign="center">
               <Text fontSize="12px" color="var(--text-muted)">
-                No effects added. Click &ldquo;Add Effect&rdquo; to get started.
+                {t('tools.textureLab.noEffects')}
               </Text>
             </Box>
           )}
@@ -2088,7 +2137,7 @@ export default function Controls({
           >
             <Icon as={FileDown} boxSize={3.5} color="var(--text-muted)" />
             <Text fontSize="12px" color="var(--text-muted)" fontWeight={500}>
-              Save Preset
+              {t('tools.textureLab.savePreset')}
             </Text>
           </Flex>
           <Flex
@@ -2108,7 +2157,7 @@ export default function Controls({
           >
             <Icon as={FileUp} boxSize={3.5} color="var(--text-muted)" />
             <Text fontSize="12px" color="var(--text-muted)" fontWeight={500}>
-              Load Preset
+              {t('tools.textureLab.loadPreset')}
             </Text>
           </Flex>
           <input
@@ -2152,7 +2201,7 @@ export default function Controls({
             >
               <Icon as={Copy} boxSize={4} color="var(--text-muted)" />
               <Text fontSize="12px" color="var(--text-muted)" fontWeight={500}>
-                Copy
+                {t('tools.textureLab.copy')}
               </Text>
             </Flex>
           )}
@@ -2174,7 +2223,7 @@ export default function Controls({
           >
             <Icon as={RotateCcw} boxSize={4} color="var(--text-muted)" />
             <Text fontSize="12px" color="var(--text-muted)" fontWeight={500}>
-              Reset
+              {t('tools.textureLab.reset')}
             </Text>
           </Flex>
         </Flex>
@@ -2233,10 +2282,10 @@ export default function Controls({
               </Box>
               <Text fontSize="14px" color="#fff" fontWeight={600}>
                 {isExporting
-                  ? exportStatus || 'Exporting...'
+                  ? exportStatus || t('tools.textureLab.exporting')
                   : mediaType === 'video'
-                    ? 'Export Video'
-                    : `Export ${exportFormat.toUpperCase()}`}
+                    ? t('tools.textureLab.exportVideo')
+                    : `${t('tools.common.export', 'Export')} ${exportFormat.toUpperCase()}`}
               </Text>
             </Flex>
 
