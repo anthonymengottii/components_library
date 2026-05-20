@@ -178,6 +178,9 @@
     "usage": "Uso",
     "withYourSettings": "(com suas configurações)"
   },
+  "seo": {
+    "description": "Uma coleção de código aberto de componentes React de alta qualidade, animados, interativos e totalmente personalizáveis para criar interfaces de usuário incríveis e memoráveis."
+  },
   "announcement": {
     "share": "Compartilhar",
     "shareX": "Postar no X",

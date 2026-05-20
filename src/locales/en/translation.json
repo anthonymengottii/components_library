@@ -178,6 +178,9 @@
     "usage": "Usage",
     "withYourSettings": "(with your settings)"
   },
+  "seo": {
+    "description": "An open source collection of high quality, animated, interactive & fully customizable React components for building stunning, memorable user interfaces."
+  },
   "sidebar": {
     "categories": "Categories",
     "new": "New",
