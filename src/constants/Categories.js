@@ -120,7 +120,8 @@ export const CATEGORIES = [
       'Counter',
       'Infinite Menu',
       'Stepper',
-      'Bounce Cards'
+      'Bounce Cards',
+      'Preloader'
     ]
   },
   {

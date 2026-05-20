@@ -70,6 +70,7 @@ const components = {
   'elastic-slider': () => import('../demo/Components/ElasticSliderDemo'),
   'decay-card': () => import('../demo/Components/DecayCardDemo'),
   'bounce-cards': () => import('../demo/Components/BounceCardsDemo'),
+  'preloader': () => import('../demo/Components/PreloaderDemo'),
   'pixel-card': () => import('../demo/Components/PixelCardDemo'),
   'tilted-card': () => import('../demo/Components/TiltedCardDemo'),
   'infinite-menu': () => import('../demo/Components/InfiniteMenuDemo'),
