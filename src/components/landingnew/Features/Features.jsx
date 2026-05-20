@@ -237,6 +237,7 @@ const AI_CONVOS = [
 ];
 
 const AITerminal = () => {
+  const { t } = useTranslation();
   const [idx, setIdx] = useState(0);
   const [typed, setTyped] = useState('');
   const [phase, setPhase] = useState('prompt'); // prompt | thinking | code
@@ -303,7 +304,7 @@ const AITerminal = () => {
             <div className="ln-feat-aichat-dots">
               <span /><span /><span />
             </div>
-            <span className="ln-feat-aichat-title">Editor</span>
+            <span className="ln-feat-aichat-title">{t('features.editor', 'Editor')}</span>
           </div>
 
           <div className="ln-feat-aichat-prompt-row">
@@ -348,6 +349,7 @@ const AITerminal = () => {
 /* ─── 6. Star Card ─── */
 
 const StarCard = () => {
+  const { t } = useTranslation();
   const stars = useStars();
   const formatted = useMemo(
     () => (stars >= 1000 ? `${(stars / 1000).toFixed(1).replace(/\.0$/, '')}k` : String(stars)),
@@ -356,7 +358,7 @@ const StarCard = () => {
 
   return (
     <div className="ln-feat-stars">
-      <span className="ln-feat-stars-label">GitHub Stars</span>
+      <span className="ln-feat-stars-label">{t('features.githubStars', 'GitHub Stars')}</span>
       <span className="ln-feat-stars-count">{formatted}</span>
       <div className="ln-feat-stars-chart">
         <svg viewBox="0 0 200 50" fill="none" preserveAspectRatio="none">

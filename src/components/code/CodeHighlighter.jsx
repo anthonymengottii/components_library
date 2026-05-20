@@ -3,6 +3,7 @@ import { Box, Button, Flex, Icon, Text } from '@chakra-ui/react';
 import { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+import { useTranslation } from 'react-i18next';
 import { colors } from '../../constants/colors';
 import codeTheme from '../../utils/codeTheme';
 
@@ -28,6 +29,7 @@ const COPY_BTN_STYLE = {
 
 const CodeHighlighter = ({ language, codeString, showLineNumbers = true, maxLines = 25, snippetId }) => {
   const { pathname } = useLocation();
+  const { t } = useTranslation();
   const key = snippetId || hashSnippet(codeString + '|' + language);
   const [copied, setCopied] = useState(false);
   const [expanded, setExpanded] = useState(() => routeExpansionState[pathname]?.[key] ?? false);
@@ -68,7 +70,7 @@ const CodeHighlighter = ({ language, codeString, showLineNumbers = true, maxLine
           </SyntaxHighlighter>
         ) : (
           <Flex alignItems="center" gap={2} my={2} color={colors.textMuted}>
-            <Text>Sorry, this combination is not supported</Text>
+            <Text>{t('common.notSupported', 'Sorry, this combination is not supported')}</Text>
             <Icon as={TbMoodSad} />
           </Flex>
         )}
@@ -98,7 +100,7 @@ const CodeHighlighter = ({ language, codeString, showLineNumbers = true, maxLine
             zIndex={2}
             onClick={() => setExpanded(prev => !prev)}
           >
-            {expanded ? 'Collapse Snippet' : 'Expand Snippet'}
+            {expanded ? t('common.collapseSnippet', 'Collapse Snippet') : t('common.expandSnippet', 'Expand Snippet')}
           </Button>
         )}
       </Box>

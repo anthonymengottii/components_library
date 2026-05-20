@@ -50,6 +50,8 @@
   },
   "features": {
     "title": "O que você encontra",
+    "editor": "Editor",
+    "githubStars": "Estrelas no GitHub",
     "cards": {
       "components": {
         "title": "130+ Componentes",
@@ -166,7 +168,15 @@
   },
   "common": {
     "notFound": "Não encontrado",
-    "sectionUnavailable": "Esta seção não está disponível."
+    "sectionUnavailable": "Esta seção não está disponível.",
+    "notSupported": "Desculpe, esta combinação não é suportada",
+    "collapseSnippet": "Recolher Código",
+    "expandSnippet": "Expandir Código"
+  },
+  "code": {
+    "install": "Instalação",
+    "usage": "Uso",
+    "withYourSettings": "(com suas configurações)"
   },
   "announcement": {
     "share": "Compartilhar",
@@ -322,7 +332,8 @@
     "Grid Motion": "Movimento de Grade",
     "Shape Grid": "Grade de Formas",
     "Liquid Chrome": "Cromo Líquido",
-    "Balatro": "Balatro"
+    "Balatro": "Balatro",
+    "Preloader": "Preloader"
   },
   "intro": {
     "title": "Introdução",
@@ -798,11 +809,49 @@
     "Zoom": "Zoom",
     "Prismatic Burst": "Prismatic Burst",
     "Distort": "Distorcer",
+    "Background Color": "Cor de Fundo",
+    "Text Color": "Cor do Texto",
+    "Bar Color": "Cor da Barra",
+    "Bar Background": "Fundo da Barra",
+    "Content Background": "Fundo do Conteúdo",
+    "Content Color": "Cor do Conteúdo",
+    "Animation Duration": "Duração da Animação",
     "Hover Dampness": "Amortecimento do Hover",
     "Ray Count": "Contagem de Raios",
     "Pixel Blast": "Pixel Blast",
     "Variant": "Variante",
     "Pattern Scale": "Escala do Padrão",
+    "demos": {
+      "stepper": {
+        "welcome": "Bem-vindo ao stepper da Components Library!",
+        "checkNext": "Confira o próximo passo!",
+        "step2": "Passo 2",
+        "customContent": "Conteúdo customizado do passo!",
+        "howAboutInput": "Que tal um input?",
+        "yourName": "Qual o seu nome?",
+        "finalStep": "Passo Final",
+        "youMadeIt": "Você conseguiu!",
+        "hello": "👋🏻 Olá {{name}}!",
+        "noName": "Você não informou seu nome :(",
+        "stepCompleted": "✅ Passo {{step}}!",
+        "allCompleted": "✅ Todos os passos concluídos!"
+      },
+      "magicRings": {
+        "title": "Anéis Mágicos",
+        "subtitle": "Efeito interativo WebGL",
+        "freeOpenSource": "Gratuito e código aberto",
+        "react": "React",
+        "copyToClipboard": "Copiar para área de transferência"
+      },
+      "electricBorder": {
+        "featured": "Destaque",
+        "title": "Cartão Elétrico",
+        "desc": "Uma borda elétrica para chocar seus usuários, do jeito certo.",
+        "live": "Ao Vivo",
+        "getStarted": "Começar",
+        "learnMore": "Saiba Mais"
+      }
+    },
     "Pattern Density": "Densidade do Padrão",
     "Enable Ripples": "Ativar Ondulações",
     "Ripple Speed": "Velocidade da Ondulação",

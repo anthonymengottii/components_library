@@ -1,5 +1,6 @@
 import { useMemo, useState } from 'react';
 import { Box, Icon } from '@chakra-ui/react';
+import { useTranslation } from 'react-i18next';
 import { CodeTab, PreviewTab, TabsLayout } from '../../components/common/TabsLayout';
 
 import RefreshButton from '../../components/common/Preview/RefreshButton';
@@ -45,6 +46,7 @@ const DEFAULT_PROPS = {
 };
 
 const MagicRingsDemo = () => {
+  const { t } = useTranslation();
   const [example, setExample] = useState('basic');
   const { props, updateProp, resetProps, hasChanges } = useComponentProps(DEFAULT_PROPS);
   const {
@@ -118,20 +120,20 @@ const MagicRingsDemo = () => {
                   <Icon as={Sparkles} strokeWidth={1} boxSize={12} color="#6f94f1" position="absolute" top="50%" left="50%" transform="translate(-50%, -50%)" opacity={0.8} />
                 </div>
                 <div className="mr-demo-card-body">
-                  <h3 className="mr-demo-card-title">Magic Rings</h3>
-                  <p className="mr-demo-card-subtitle">Interactive WebGL effect</p>
+                  <h3 className="mr-demo-card-title">{t('demos.magicRings.title', 'Magic Rings')}</h3>
+                  <p className="mr-demo-card-subtitle">{t('demos.magicRings.subtitle', 'Interactive WebGL effect')}</p>
                   <div className="mr-demo-card-meta">
                     <span>
                       <Icon as={FaGithub} boxSize={4} />
-                      Free & open source
+                      {t('demos.magicRings.freeOpenSource', 'Free & open source')}
                     </span>
                     <span>
                       <Icon as={FaReact} boxSize={4} />
-                      React
+                      {t('demos.magicRings.react', 'React')}
                     </span>
                   </div>
                   <div className="mr-demo-card-actions">
-                    <button className="mr-demo-card-cta">Copy to clipboard</button>
+                    <button className="mr-demo-card-cta">{t('demos.magicRings.copyToClipboard', 'Copy to clipboard')}</button>
                     <div className="mr-demo-card-heart">
                       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#8db3ff" strokeWidth="2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z" /></svg>
                     </div>

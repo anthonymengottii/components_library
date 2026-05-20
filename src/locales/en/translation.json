@@ -50,6 +50,8 @@
   },
   "features": {
     "title": "What's inside",
+    "editor": "Editor",
+    "githubStars": "GitHub Stars",
     "cards": {
       "components": {
         "title": "130+ Components",
@@ -166,7 +168,15 @@
   },
   "common": {
     "notFound": "Not found",
-    "sectionUnavailable": "This section is unavailable."
+    "sectionUnavailable": "This section is unavailable.",
+    "notSupported": "Sorry, this combination is not supported",
+    "collapseSnippet": "Collapse Snippet",
+    "expandSnippet": "Expand Snippet"
+  },
+  "code": {
+    "install": "Install",
+    "usage": "Usage",
+    "withYourSettings": "(with your settings)"
   },
   "sidebar": {
     "categories": "Categories",
@@ -317,7 +327,8 @@
     "Grid Motion": "Grid Motion",
     "Shape Grid": "Shape Grid",
     "Liquid Chrome": "Liquid Chrome",
-    "Balatro": "Balatro"
+    "Balatro": "Balatro",
+    "Preloader": "Preloader"
   },
   "intro": {
     "title": "Introduction",
@@ -798,6 +809,13 @@
     "Pixel Blast": "Pixel Blast",
     "Variant": "Variant",
     "Pattern Scale": "Pattern Scale",
+    "Background Color": "Background Color",
+    "Text Color": "Text Color",
+    "Bar Color": "Bar Color",
+    "Bar Background": "Bar Background",
+    "Content Background": "Content Background",
+    "Content Color": "Content Color",
+    "Animation Duration": "Animation Duration",
     "Pattern Density": "Pattern Density",
     "Enable Ripples": "Enable Ripples",
     "Ripple Speed": "Ripple Speed",

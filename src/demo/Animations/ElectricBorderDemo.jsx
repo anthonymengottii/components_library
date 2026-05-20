@@ -1,6 +1,7 @@
 import { CodeTab, PreviewTab, TabsLayout } from '../../components/common/TabsLayout';
 import { Box } from '@chakra-ui/react';
 import { useMemo } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import useComponentProps from '../../hooks/useComponentProps';
 import { ComponentPropsProvider } from '../../components/context/ComponentPropsContext';
@@ -39,6 +40,7 @@ const DEFAULT_PROPS = {
 };
 
 const ElectricBorderDemo = () => {
+  const { t } = useTranslation();
   const { props, updateProp, resetProps, hasChanges } = useComponentProps(DEFAULT_PROPS);
   const { example, cardProps, buttonProps, circleProps } = props;
 
@@ -122,14 +124,14 @@ const ElectricBorderDemo = () => {
                   style={{ width: '300px', height: '360px', borderRadius: cardProps.borderRadius }}
                   className="eb-demo-card"
                 >
-                  <div className="eb-demo-badge">Featured</div>
-                  <h3 className="eb-demo-title">Electric Card</h3>
-                  <p className="eb-demo-desc">An electric border for shocking your users, the right way.</p>
+                  <div className="eb-demo-badge">{t('demos.electricBorder.featured', 'Featured')}</div>
+                  <h3 className="eb-demo-title">{t('demos.electricBorder.title', 'Electric Card')}</h3>
+                  <p className="eb-demo-desc">{t('demos.electricBorder.desc', 'An electric border for shocking your users, the right way.')}</p>
                   <div className="eb-demo-row">
-                    <span className="eb-demo-chip">Live</span>
+                    <span className="eb-demo-chip">{t('demos.electricBorder.live', 'Live')}</span>
                     <span className="eb-demo-chip">v1.0</span>
                   </div>
-                  <button className="eb-demo-cta">Get Started</button>
+                  <button className="eb-demo-cta">{t('demos.electricBorder.getStarted', 'Get Started')}</button>
                 </div>
               </ElectricBorder>
             ) : example === 'button' ? (
@@ -142,7 +144,7 @@ const ElectricBorderDemo = () => {
               >
                 <div className="eb-demo-button-wrap">
                   <button className="eb-demo-button" style={{ borderRadius: buttonProps.borderRadius }}>
-                    Learn More
+                    {t('demos.electricBorder.learnMore', 'Learn More')}
                   </button>
                 </div>
               </ElectricBorder>

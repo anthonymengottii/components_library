@@ -1,5 +1,6 @@
 import { useMemo } from 'react';
 import { toast } from 'sonner';
+import { useTranslation } from 'react-i18next';
 import { CodeTab, PreviewTab, TabsLayout } from '../../components/common/TabsLayout';
 import { Box, Input, Text } from '@chakra-ui/react';
 
@@ -25,6 +26,7 @@ const DEFAULT_PROPS = {
 };
 
 const StepperDemo = () => {
+  const { t } = useTranslation();
   const { props, updateProp, resetProps, hasChanges } = useComponentProps(DEFAULT_PROPS);
   const { name, step, backButtonText, nextButtonText, disableStepIndicators } = props;
 
@@ -134,14 +136,14 @@ const StepperDemo = () => {
               initialStep={step}
               onStepChange={newStep => {
                 if (newStep === 4) {
-                  name ? toast(`👋🏻 Hello ${name}!`) : toast(`You didn't provide your name :(`);
+                  name ? toast(t('demos.stepper.hello', { name })) : toast(t('demos.stepper.noName'));
                   updateProp('step', 4);
                 } else {
-                  toast(`✅ Step ${newStep}!`);
+                  toast(t('demos.stepper.stepCompleted', { step: newStep }));
                   updateProp('step', newStep);
                 }
               }}
-              onFinalStepCompleted={() => toast('✅ All steps completed!')}
+              onFinalStepCompleted={() => toast(t('demos.stepper.allCompleted'))}
               nextButtonProps={{ disabled: step === 3 && !name }}
               disableStepIndicators={disableStepIndicators || (step === 3 && !name)}
               backButtonText={backButtonText}
@@ -149,13 +151,13 @@ const StepperDemo = () => {
             >
               <Step>
                 <Text color="#5227FF" fontSize="1.2rem" fontWeight={600}>
-                  Welcome to the Components Library stepper!
+                  {t('demos.stepper.welcome')}
                 </Text>
-                <p>Check out the next step!</p>
+                <p>{t('demos.stepper.checkNext')}</p>
               </Step>
 
               <Step>
-                <h2>Step 2</h2>
+                <h2>{t('demos.stepper.step2')}</h2>
                 <img
                   style={{
                     height: '100px',
@@ -167,24 +169,24 @@ const StepperDemo = () => {
                   }}
                   src="https://www.purrfectcatgifts.co.uk/cdn/shop/collections/Funny_Cat_Cards_640x640.png?v=1663150894"
                 />
-                <p style={{ marginTop: '1em' }}>Custom step content!</p>
+                <p style={{ marginTop: '1em' }}>{t('demos.stepper.customContent')}</p>
               </Step>
 
               <Step>
-                <h2>How about an input?</h2>
+                <h2>{t('demos.stepper.howAboutInput')}</h2>
                 <Input
                   value={name}
                   onChange={e => updateProp('name', e.target.value)}
                   mt={2}
-                  placeholder="Your name?"
+                  placeholder={t('demos.stepper.yourName')}
                 />
               </Step>
 
               <Step>
                 <Text color="#5227FF" fontSize="1.2rem" fontWeight={600}>
-                  Final Step
+                  {t('demos.stepper.finalStep')}
                 </Text>
-                <p>You made it!</p>
+                <p>{t('demos.stepper.youMadeIt')}</p>
               </Step>
             </Stepper>
           </Box>

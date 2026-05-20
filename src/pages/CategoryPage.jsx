@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import { componentMap } from '../constants/Components';
 import { decodeLabel } from '../utils/utils';
 import { Box, Text } from '@chakra-ui/react';
+import { useTranslation } from 'react-i18next';
 import { useTransition } from '../hooks/useTransition';
 import BackToTopButton from '../components/common/BackToTopButton';
 import { SkeletonLoader, GetStartedLoader } from '../components/common/SkeletonLoader';
@@ -11,8 +12,10 @@ import IndexPage from './IndexPage';
 const CategoryPage = () => {
   const { category, subcategory } = useParams();
   const { transitionPhase, getPreloadedComponent } = useTransition();
+  const { t } = useTranslation();
 
   const decodedLabel = decodeLabel(subcategory);
+  const translatedLabel = t(`subcategories.${decodedLabel}`, decodedLabel);
   const isLoading = transitionPhase === 'loading';
   const opacity = ['fade-out', 'loading'].includes(transitionPhase) ? 0 : 1;
   const isGetStartedRoute = category === 'get-started';
@@ -34,10 +37,10 @@ const CategoryPage = () => {
   }, [subcategory, transitionPhase]);
 
   useEffect(() => {
-    if (decodedLabel) {
-      document.title = `Components Library - ${decodedLabel}`;
+    if (translatedLabel) {
+      document.title = `Components Library - ${translatedLabel}`;
     }
-  }, [decodedLabel]);
+  }, [translatedLabel]);
 
   return (
     <>
@@ -46,7 +49,7 @@ const CategoryPage = () => {
       ) : (
         <Box className={`category-page ${isLoading ? 'loading' : ''}`}>
           <Box className="page-transition-fade" style={{ opacity }}>
-            {!isGetStartedRoute && <h2 className="sub-category">{decodedLabel}</h2>}
+            {!isGetStartedRoute && <h2 className="sub-category">{translatedLabel}</h2>}
 
             {SubcategoryComponent ? (
               <Suspense fallback={<Loader />}>

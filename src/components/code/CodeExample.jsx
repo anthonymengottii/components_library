@@ -1,4 +1,5 @@
 import { useMemo } from 'react';
+import { useTranslation } from 'react-i18next';
 import { getLanguage } from '../../utils/utils';
 import { useComponentPropsContext } from '../../hooks/useComponentPropsContext';
 import { formatPropValue } from '../../utils/codeGeneration';
@@ -103,6 +104,7 @@ export function injectPropsIntoCode(usageCode, props, defaultProps, componentNam
 }
 
 const CodeExample = ({ codeObject, componentName }) => {
+  const { t } = useTranslation();
   const { tailwind, css, tsTailwind, tsCode, code, usage, dependencies } = codeObject;
   const { props, hasChanges, demoOnlyProps, computedProps } = useComponentPropsContext();
 
@@ -128,7 +130,7 @@ const CodeExample = ({ codeObject, componentName }) => {
       {dynamicUsage && (
         <div>
           <h2 className="demo-title">
-            Usage {hasChanges && <span style={{ color: colors.accent, fontSize: '12px' }}>(with your settings)</span>}
+            {t('code.usage', 'Usage')} {hasChanges && <span style={{ color: colors.accent, fontSize: '12px' }}>{t('code.withYourSettings', '(with your settings)')}</span>}
           </h2>
           <CodeHighlighter snippetId="usage" language="jsx" codeString={dynamicUsage} />
         </div>

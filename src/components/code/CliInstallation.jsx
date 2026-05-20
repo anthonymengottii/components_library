@@ -14,6 +14,7 @@ import { TbCopy, TbCopyCheckFilled } from 'react-icons/tb';
 import { useActiveRoute } from '../../hooks/useActiveRoute';
 import { useOptions } from '../context/OptionsContext/useOptions';
 import { useMemo, useState, useEffect, useRef, useCallback } from 'react';
+import { useTranslation } from 'react-i18next';
 import { generateCliCommands } from '../../utils/cli';
 import { useInstallation } from '../../hooks/useInstallation';
 import { colors } from '../../constants/colors';
@@ -28,6 +29,7 @@ const CLI_ICON_MAP = { jsrepo: jsrepoIcon, shadcn: shadcnIcon };
 const CLI_LABEL_MAP = { shadcn: 'shadcn', jsrepo: 'jsrepo' };
 
 const CliInstallation = ({ deps }) => {
+  const { t } = useTranslation();
   const { category, subcategory } = useActiveRoute();
   const { languagePreset, stylePreset } = useOptions() || {};
 
@@ -268,7 +270,7 @@ const CliInstallation = ({ deps }) => {
 
   return (
     <div className="cli-install">
-      <Text className="demo-title">Install</Text>
+      <Text className="demo-title">{t('code.install', 'Install')}</Text>
       <Stack my={2}>
         <Flex className="mode-switch" data-mode-switch w="100%" align="center" gap={0}>
           <HStack>
