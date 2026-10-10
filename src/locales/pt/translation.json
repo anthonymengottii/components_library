@@ -192,7 +192,12 @@
     "updated": "Atualizado",
     "tools": "Ferramentas",
     "usefulLinks": "Links Úteis",
-    "close": "Fechar"
+    "close": "Fechar",
+    "filter": "Filtrar…",
+    "clear": "Limpar",
+    "expandAll": "Expandir tudo",
+    "collapseAll": "Recolher tudo",
+    "noResults": "Nenhum componente encontrado"
   },
   "categories": {
     "Get Started": "Começar",
@@ -812,7 +817,6 @@
     "Zoom": "Zoom",
     "Prismatic Burst": "Prismatic Burst",
     "Distort": "Distorcer",
-    "Background Color": "Cor de Fundo",
     "Text Color": "Cor do Texto",
     "Bar Color": "Cor da Barra",
     "Bar Background": "Fundo da Barra",

@@ -1,7 +1,16 @@
 import { useRef, useState, useLayoutEffect, useCallback, useMemo, memo, useEffect, Fragment } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Box, Flex, VStack, Text, Stack, Icon, IconButton, Drawer, Image, Separator } from '@chakra-ui/react';
-import { ArrowRight, MenuIcon, SearchIcon, Sparkles, XIcon, HeartIcon } from 'lucide-react';
+import {
+  ArrowRight,
+  MenuIcon,
+  SearchIcon,
+  XIcon,
+  HeartIcon,
+  ChevronDown,
+  ChevronsDownUp,
+  ChevronsUpDown
+} from 'lucide-react';
 
 import { TOOLS } from '../../constants/Tools';
 import { colors } from '../../constants/colors';
@@ -12,8 +21,6 @@ import { CATEGORIES, NEW, UPDATED } from '../../constants/Categories';
 import { componentMap } from '../../constants/Components';
 import { getSavedComponents } from '../../utils/favorites';
 import { useTranslation } from 'react-i18next';
-
-import Logo from '../../assets/logos/logo.svg';
 
 // ─── Constants ───────────────────────────────────────────────────────────────
 const SCROLL_OFFSET = 100;
@@ -68,6 +75,32 @@ const useFavoritesSync = () => {
   return savedSet;
 };
 
+const COLLAPSED_KEY = 'sidebarCollapsed';
+
+const useCollapsedCategories = () => {
+  const [collapsed, setCollapsed] = useState(() => {
+    try {
+      return JSON.parse(localStorage.getItem(COLLAPSED_KEY)) || {};
+    } catch {
+      return {};
+    }
+  });
+
+  useEffect(() => {
+    try {
+      localStorage.setItem(COLLAPSED_KEY, JSON.stringify(collapsed));
+    } catch {
+      /* storage unavailable */
+    }
+  }, [collapsed]);
+
+  const toggle = useCallback(name => setCollapsed(prev => ({ ...prev, [name]: !prev[name] })), []);
+  const expand = useCallback(name => setCollapsed(prev => (prev[name] ? { ...prev, [name]: false } : prev)), []);
+  const setAll = useCallback(value => setCollapsed(Object.fromEntries(CATEGORIES.map(c => [c.name, value]))), []);
+
+  return { collapsed, toggle, expand, setAll };
+};
+
 const useScrolledToBottom = ref => {
   const [isScrolledToBottom, setIsScrolledToBottom] = useState(false);
 
@@ -109,8 +142,59 @@ const HoverLine = ({ position, isVisible }) => (
   />
 );
 
+const SidebarFilter = ({ query, onChange, onToggleAll, allCollapsed, t }) => (
+  <Flex gap={2} mb={4} align="center" className="sidebar-filter">
+    <Box position="relative" flex="1">
+      <Icon as={SearchIcon} boxSize={3.5} className="sidebar-filter-icon" />
+      <input
+        type="text"
+        value={query}
+        onChange={e => onChange(e.target.value)}
+        onKeyDown={e => e.key === 'Escape' && onChange('')}
+        placeholder={t('sidebar.filter', 'Filter…')}
+        aria-label={t('sidebar.filter', 'Filter…')}
+        className="sidebar-filter-input"
+      />
+      {query && (
+        <button
+          type="button"
+          className="sidebar-filter-clear"
+          onClick={() => onChange('')}
+          aria-label={t('sidebar.clear', 'Clear')}
+        >
+          <Icon as={XIcon} boxSize={3} />
+        </button>
+      )}
+    </Box>
+    <button
+      type="button"
+      className="sidebar-filter-toggle"
+      onClick={onToggleAll}
+      title={allCollapsed ? t('sidebar.expandAll', 'Expand all') : t('sidebar.collapseAll', 'Collapse all')}
+      aria-label={allCollapsed ? t('sidebar.expandAll', 'Expand all') : t('sidebar.collapseAll', 'Collapse all')}
+    >
+      <Icon as={allCollapsed ? ChevronsUpDown : ChevronsDownUp} boxSize={4} />
+    </button>
+  </Flex>
+);
+
+const NoResults = ({ t }) => (
+  <Text color="#a6a6a6" fontSize="sm" py={2}>
+    {t('sidebar.noResults', 'No components found')}
+  </Text>
+);
+
 const MobileHeader = ({ onSearchClick, onMenuClick, t }) => (
-  <Box display={{ md: 'none' }} position="fixed" top="60px" left={0} zIndex="overlay" w="100%" bg={colors.bgBody} p="1em">
+  <Box
+    display={{ md: 'none' }}
+    position="fixed"
+    top="60px"
+    left={0}
+    zIndex="overlay"
+    w="100%"
+    bg={colors.bgBody}
+    p="1em"
+  >
     <Flex align="center" justify="space-between" gap="1em">
       <Link to="/" style={{ textDecoration: 'none' }}>
         <Text fontSize="xl" fontWeight="900" letterSpacing="-0.5px" color="white" whiteSpace="nowrap">
@@ -185,7 +269,17 @@ const UsefulLinks = ({ onClose, t }) => (
   </>
 );
 
-const MainDrawer = ({ isOpen, onClose, categories, location, pendingActivePath, onNavigation, isTransitioning, t }) => (
+const MainDrawer = ({
+  isOpen,
+  onClose,
+  categories,
+  location,
+  pendingActivePath,
+  onNavigation,
+  isTransitioning,
+  filter,
+  t
+}) => (
   <Drawer.Root open={isOpen} onOpenChange={onClose} placement="left" size="full">
     <Drawer.Backdrop mt="50px" h="calc(100vh - 50px)" />
     <Drawer.Positioner
@@ -213,7 +307,17 @@ const MainDrawer = ({ isOpen, onClose, categories, location, pendingActivePath, 
           </Flex>
         </Drawer.Header>
         <Drawer.Body pb="6em">
-          <VStack align="stretch" spacing={5} mt={8}>
+          <Box mt={6}>
+            <SidebarFilter
+              query={filter.query}
+              onChange={filter.setQuery}
+              onToggleAll={filter.onToggleAll}
+              allCollapsed={filter.allCollapsed}
+              t={t}
+            />
+          </Box>
+          <VStack align="stretch" spacing={5}>
+            {filter.query && !filter.hasResults && <NoResults t={t} />}
             {categories.map((cat, i) => (
               <Box key={cat.name}>
                 <Category
@@ -227,8 +331,12 @@ const MainDrawer = ({ isOpen, onClose, categories, location, pendingActivePath, 
                   itemRefs={{}}
                   isTransitioning={isTransitioning}
                   isFirstCategory={i === 0}
+                  query={filter.query}
+                  collapsed={filter.collapsed[cat.name]}
+                  onToggle={filter.toggle}
+                  savedSet={filter.savedSet}
                 />
-                {i === 0 && <ToolsLinks onClose={onClose} t={t} />}
+                {i === 0 && !filter.query && <ToolsLinks onClose={onClose} t={t} />}
               </Box>
             ))}
           </VStack>
@@ -238,8 +346,6 @@ const MainDrawer = ({ isOpen, onClose, categories, location, pendingActivePath, 
     </Drawer.Positioner>
   </Drawer.Root>
 );
-
-
 
 const Category = memo(
   ({
@@ -253,8 +359,12 @@ const Category = memo(
     itemRefs,
     isTransitioning,
     isFirstCategory,
-    savedSet
+    savedSet,
+    query = '',
+    collapsed = false,
+    onToggle
   }) => {
+    const { t } = useTranslation();
     const items = useMemo(
       () =>
         category.subcategories.map(sub => {
@@ -273,31 +383,50 @@ const Category = memo(
       [category.name, category.subcategories, location.pathname, pendingActivePath, savedSet]
     );
 
+    const needle = query.trim().toLowerCase();
+    const visibleItems = needle
+      ? items.filter(
+          ({ sub }) =>
+            sub.toLowerCase().includes(needle) || t(`subcategories.${sub}`, sub).toLowerCase().includes(needle)
+        )
+      : items;
+
+    if (needle && visibleItems.length === 0) return null;
+    const isOpen = needle ? true : !collapsed;
+
     return (
       <Box>
-        <CategoryName name={category.name} isFirstCategory={isFirstCategory} />
+        <CategoryName
+          name={category.name}
+          isFirstCategory={isFirstCategory}
+          isOpen={isOpen}
+          count={items.length}
+          onToggle={onToggle && !needle ? () => onToggle(category.name) : undefined}
+        />
 
-        <Stack spacing={0.5} pl={4} borderLeft="1px solid #2F293A" position="relative">
-          {items.map(({ sub, path, isActive, isNew, isUpdated, isFavorited }) => (
-            <Link
-              key={path}
-              ref={el => itemRefs.current && (itemRefs.current[path] = el)}
-              to={path}
-              className={`sidebar-item ${isActive ? 'active-sidebar-item' : ''} ${isTransitioning ? 'transitioning' : ''}`}
-              onClick={e => {
-                e.preventDefault();
-                handleTransitionNavigation ? handleTransitionNavigation(path, sub) : handleClick();
-              }}
-              onMouseEnter={e => onItemMouseEnter(path, e)}
-              onMouseLeave={onItemMouseLeave}
-            >
-              <SubcategoryLabel name={sub} />
-              {isNew && <NewTag />}
-              {isUpdated && <UpdatedTag />}
-              {isFavorited && <Icon as={HeartIcon} color={colors.accent} boxSize={3} style={{ marginLeft: 6 }} />}
-            </Link>
-          ))}
-        </Stack>
+        {isOpen && (
+          <Stack spacing={0.5} pl={4} borderLeft="1px solid #2F293A" position="relative">
+            {visibleItems.map(({ sub, path, isActive, isNew, isUpdated, isFavorited }) => (
+              <Link
+                key={path}
+                ref={el => itemRefs?.current && (itemRefs.current[path] = el)}
+                to={path}
+                className={`sidebar-item ${isActive ? 'active-sidebar-item' : ''} ${isTransitioning ? 'transitioning' : ''}`}
+                onClick={e => {
+                  e.preventDefault();
+                  handleTransitionNavigation ? handleTransitionNavigation(path, sub) : handleClick();
+                }}
+                onMouseEnter={e => onItemMouseEnter(path, e)}
+                onMouseLeave={onItemMouseLeave}
+              >
+                <SubcategoryLabel name={sub} />
+                {isNew && <NewTag />}
+                {isUpdated && <UpdatedTag />}
+                {isFavorited && <Icon as={HeartIcon} color={colors.accent} boxSize={3} style={{ marginLeft: 6 }} />}
+              </Link>
+            ))}
+          </Stack>
+        )}
       </Box>
     );
   }
@@ -306,12 +435,28 @@ const Category = memo(
 Category.displayName = 'Category';
 
 // Small wrapper components that use hooks (since Category is memo'd without t)
-const CategoryName = ({ name, isFirstCategory }) => {
+const CategoryName = ({ name, isFirstCategory, isOpen, onToggle, count }) => {
   const { t } = useTranslation();
+  const label = t(`categories.${name}`, name);
+  if (!onToggle) {
+    return (
+      <Text className="category-name" mb={2} mt={isFirstCategory ? 0 : 4}>
+        {label}
+      </Text>
+    );
+  }
   return (
-    <Text className="category-name" mb={2} mt={isFirstCategory ? 0 : 4}>
-      {t(`categories.${name}`, name)}
-    </Text>
+    <button
+      type="button"
+      className="category-name category-toggle"
+      style={{ marginTop: isFirstCategory ? 0 : 16, marginBottom: 8 }}
+      onClick={onToggle}
+      aria-expanded={isOpen}
+    >
+      <span>{label}</span>
+      <span className="category-count">{count}</span>
+      <Icon as={ChevronDown} boxSize={3.5} className={`category-chevron ${isOpen ? '' : 'collapsed'}`} />
+    </button>
   );
 };
 
@@ -340,6 +485,8 @@ const Sidebar = () => {
   const [hoverLinePosition, setHoverLinePosition] = useState(null);
   const [isHoverLineVisible, setIsHoverLineVisible] = useState(false);
   const [pendingActivePath, setPendingActivePath] = useState(null);
+  const [query, setQuery] = useState('');
+  const { collapsed, toggle, expand, setAll } = useCollapsedCategories();
 
   // Refs
   const sidebarRef = useRef(null);
@@ -390,6 +537,29 @@ const Sidebar = () => {
       });
     }
   }, [findActiveElement]);
+
+  const activeCategory = useMemo(
+    () =>
+      CATEGORIES.find(cat => cat.subcategories.some(sub => location.pathname === `/${slug(cat.name)}/${slug(sub)}`)),
+    [location.pathname]
+  );
+
+  const allCollapsed = CATEGORIES.every(cat => collapsed[cat.name]);
+  const needle = query.trim().toLowerCase();
+  const hasResults = useMemo(
+    () =>
+      !needle ||
+      CATEGORIES.some(cat =>
+        cat.subcategories.some(
+          sub => sub.toLowerCase().includes(needle) || t(`subcategories.${sub}`, sub).toLowerCase().includes(needle)
+        )
+      ),
+    [needle, t]
+  );
+
+  const onToggleAll = useCallback(() => setAll(!allCollapsed), [setAll, allCollapsed]);
+
+  const filter = { query, setQuery, collapsed, toggle, onToggleAll, allCollapsed, hasResults, savedSet };
 
   // Handlers
   const closeDrawer = useCallback(() => setDrawerOpen(false), []);
@@ -447,7 +617,12 @@ const Sidebar = () => {
     const pos = updateLinePosition(activeEl);
     setLinePosition(pos);
     setIsLineVisible(pos !== null);
-  }, [findActiveElement, updateLinePosition]);
+  }, [findActiveElement, updateLinePosition, collapsed, query]);
+
+  // Always reveal the category of the current page
+  useEffect(() => {
+    if (activeCategory) expand(activeCategory.name);
+  }, [activeCategory, expand]);
 
   useEffect(() => {
     const timer = setTimeout(scrollActiveItemIntoView, 100);
@@ -478,6 +653,7 @@ const Sidebar = () => {
         pendingActivePath={pendingActivePath}
         onNavigation={handleMobileNavigation}
         isTransitioning={isTransitioning}
+        filter={filter}
         t={t}
       />
 
@@ -498,7 +674,15 @@ const Sidebar = () => {
           <ActiveLine position={linePosition} isVisible={isLineVisible} />
           <HoverLine position={hoverLinePosition} isVisible={isHoverLineVisible} />
 
+          <SidebarFilter
+            query={query}
+            onChange={setQuery}
+            onToggleAll={onToggleAll}
+            allCollapsed={allCollapsed}
+            t={t}
+          />
           <VStack align="stretch" spacing={4}>
+            {query && !hasResults && <NoResults t={t} />}
             {CATEGORIES.map((cat, i) => (
               <Fragment key={cat.name}>
                 <Category
@@ -514,9 +698,12 @@ const Sidebar = () => {
                   isTransitioning={isTransitioning}
                   isFirstCategory={i === 0}
                   savedSet={savedSet}
+                  query={query}
+                  collapsed={collapsed[cat.name]}
+                  onToggle={toggle}
                 />
                 {/* Tools Section - after Get Started */}
-                {i === 0 && (
+                {i === 0 && !query && (
                   <Box>
                     <Text className="category-name" mb={2} mt={4}>
                       {t('sidebar.tools')}

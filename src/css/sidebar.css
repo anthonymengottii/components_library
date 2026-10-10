@@ -21,8 +21,9 @@
 }
 
 .sidebar {
-  min-width: fit-content;
-  max-width: 160px;
+  width: 200px !important;
+  min-width: 200px;
+  max-width: 200px !important;
   padding: 92px 0 6em 0 !important;
 }
 
@@ -189,4 +190,99 @@
   width: 12px;
   height: 12px;
   transition: 0.3s ease;
+}
+
+/* ─── Sidebar filter & collapsible categories ─── */
+.sidebar-filter {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  padding: 4px 0;
+  background: var(--bg-body);
+}
+
+.sidebar-filter-input {
+  width: 100%;
+  min-width: 0;
+  height: 34px;
+  padding: 0 28px 0 30px;
+  font-size: 0.8rem;
+  color: var(--text-primary);
+  background: transparent;
+  border: 1px solid var(--border-primary);
+  border-radius: 10px;
+  outline: none;
+  transition: border-color var(--transition-base);
+}
+
+.sidebar-filter-input:focus {
+  border-color: var(--color-accent);
+}
+
+.sidebar-filter-icon {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-muted);
+  pointer-events: none;
+}
+
+.sidebar-filter-clear,
+.sidebar-filter-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: color var(--transition-base);
+}
+
+.sidebar-filter-clear {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.sidebar-filter-toggle {
+  flex-shrink: 0;
+  width: 34px;
+  height: 34px;
+  border: 1px solid var(--border-primary);
+  border-radius: 10px;
+}
+
+.sidebar-filter-clear:hover,
+.sidebar-filter-toggle:hover {
+  color: var(--color-accent);
+}
+
+.category-toggle {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  transition: color var(--transition-base);
+}
+
+.category-toggle:hover {
+  color: var(--text-primary);
+}
+
+.category-count {
+  font-size: 11px;
+  opacity: 0.55;
+  font-family: 'Geist Mono', monospace;
+}
+
+.category-chevron {
+  margin-left: auto;
+  transition: transform 0.2s ease;
+}
+
+.category-chevron.collapsed {
+  transform: rotate(-90deg);
 }

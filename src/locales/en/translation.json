@@ -187,7 +187,12 @@
     "updated": "Updated",
     "tools": "Tools",
     "usefulLinks": "Useful Links",
-    "close": "Close"
+    "close": "Close",
+    "filter": "Filter…",
+    "clear": "Clear",
+    "expandAll": "Expand all",
+    "collapseAll": "Collapse all",
+    "noResults": "No components found"
   },
   "categories": {
     "Get Started": "Get Started",
@@ -812,7 +817,6 @@
     "Pixel Blast": "Pixel Blast",
     "Variant": "Variant",
     "Pattern Scale": "Pattern Scale",
-    "Background Color": "Background Color",
     "Text Color": "Text Color",
     "Bar Color": "Bar Color",
     "Bar Background": "Bar Background",
