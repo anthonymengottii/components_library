@@ -241,7 +241,7 @@ export const NEW = ['Component Name', ...];
   description: 'Short description.',
   category: 'Category',
   name: 'ComponentName',
-  docsUrl: 'https://reactbits.dev/category/kebab-case-name',
+  docsUrl: 'https://components-library.pages.dev/category/kebab-case-name',
   tags: []
 },
 ```

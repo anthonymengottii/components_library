@@ -9,7 +9,7 @@ export const circularText = {
   usage: `import CircularText from './CircularText';
   
 <CircularText
-  text="REACT*BITS*COMPONENTS*"
+  text="COMPONENTS*LIBRARY*"
   onHover="speedUp"
   spinDuration={20}
   className="custom-class"

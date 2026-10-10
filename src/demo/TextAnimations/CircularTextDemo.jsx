@@ -17,7 +17,7 @@ import CircularText from '../../content/TextAnimations/CircularText/CircularText
 import { circularText } from '../../constants/code/TextAnimations/circularTextCode';
 
 const DEFAULT_PROPS = {
-  text: 'REACT*BITS*COMPONENTS*',
+  text: 'COMPONENTS*LIBRARY*',
   onHover: 'speedUp',
   spinDuration: 20
 };

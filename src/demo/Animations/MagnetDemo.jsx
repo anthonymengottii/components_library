@@ -84,7 +84,7 @@ const MagnetDemo = () => {
         <PreviewTab>
           <Box position="relative" className="demo-container" minH={400}>
             <Magnet padding={Math.floor(padding / 2)} disabled={disabled} magnetStrength={magnetStrength}>
-              <a href="https://github.com/DavidHDev/react-bits" target="_blank" rel="noreferrer">
+              <a href="https://github.com/anthonymengottii/components_library" target="_blank" rel="noreferrer">
                 <Flex
                   fontSize="lg"
                   color="#fff"

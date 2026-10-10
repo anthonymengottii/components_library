@@ -12,8 +12,8 @@ import PropTable from '../../components/common/Preview/PropTable';
 import PreviewSelect from '../../components/common/Preview/PreviewSelect';
 import Dependencies from '../../components/code/Dependencies';
 
-import logoDark from '../../assets/logos/reactbits-gh-white.svg';
-import logoLight from '../../assets/logos/reactbits-gh-black.svg';
+import logoDark from '../../assets/logos/logo-mark-white.svg';
+import logoLight from '../../assets/logos/logo-mark-black.svg';
 
 import CardNav from '../../content/Components/CardNav/CardNav';
 import { cardNav } from '../../constants/code/Components/cardNavCode';

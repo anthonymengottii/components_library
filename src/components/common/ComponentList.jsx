@@ -28,7 +28,6 @@ import {
   toggleSavedComponent
 } from '../../utils/favorites';
 // import { ArrowRightIcon } from 'lucide-react';
-// import Aurora from '../../content/Backgrounds/Aurora/Aurora';
 import { colors } from '../../constants/colors';
 
 const CARD_RADIUS = 16;
@@ -235,53 +234,6 @@ const ComponentList = ({ list, hasDeleteButton = false, hasFavoriteButton = fals
 
   return (
     <Box className="category-page" ref={scrollRef}>
-      {/* <Flex
-        position="relative"
-        w="100%"
-        h="110px"
-        border={`1px solid ${colors.bgElevated}`}
-        overflow="hidden"
-        bg={colors.bgBody}
-        mb={6}
-        cursor="pointer"
-        alignItems="center"
-        pl={{ base: 4, md: 8 }}
-        pr={2}
-        borderRadius="25px"
-        as="a"
-        href="https://pro.reactbits.dev"
-        target="_blank"
-      >
-        <Flex
-          direction="column"
-          position="relative"
-          zIndex={1}
-          alignSelf={{ base: 'flex-start', md: 'center' }}
-          pt={{ base: 4, md: 0 }}
-        >
-          <Text fontSize={{ base: '16px', md: '24px' }} fontWeight="600" color="#fff" letterSpacing={'-.5px'}>
-            Components Library Pro is live!
-          </Text>
-          <Text fontSize={{ base: '12px', md: '16px' }} fontWeight="500" color={colors.accent} letterSpacing={'-.5px'}>
-            Explore unique components, UI blocks, and templates to supercharge your work.
-          </Text>
-        </Flex>
-
-        <Icon
-          boxSize={{ base: 8 }}
-          opacity={0.5}
-          color="#a78bfa"
-          as={ArrowRightIcon}
-          display="inline-block"
-          mr={'1em'}
-          ml={'auto'}
-        />
-
-        <Box position="absolute" top={0} left={0} w="100%" h="100%" zIndex={0} rotate={'180deg'} opacity={0.25}>
-          <Aurora colorStops={['#FF9FFC', '#5227FF', '#FF9FFC']} amplitude={6} blend={6} />
-        </Box>
-      </Flex> */}
-
       <Flex
         className="page-transition-fade"
         mb={12}

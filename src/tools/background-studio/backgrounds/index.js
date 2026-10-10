@@ -3,7 +3,7 @@ export const BACKGROUNDS = [
     id: 'silk',
     label: 'Silk',
     component: () => import('../../../content/Backgrounds/Silk/Silk.jsx'),
-    installCommand: 'npx shadcn@latest add "https://reactbits.dev/default/backgrounds/silk"',
+    installCommand: 'npx shadcn@latest add "https://components-library.pages.dev/default/backgrounds/silk"',
     props: [
       { name: 'speed', type: 'number', default: 5, min: 0, max: 20, step: 0.1, label: 'Speed' },
       { name: 'scale', type: 'number', default: 1, min: 0.1, max: 5, step: 0.1, label: 'Scale' },
@@ -16,7 +16,7 @@ export const BACKGROUNDS = [
     id: 'aurora',
     label: 'Aurora',
     component: () => import('../../../content/Backgrounds/Aurora/Aurora.jsx'),
-    installCommand: 'npx shadcn@latest add "https://reactbits.dev/default/backgrounds/aurora"',
+    installCommand: 'npx shadcn@latest add "https://components-library.pages.dev/default/backgrounds/aurora"',
     props: [
       {
         name: 'colorStops',
@@ -34,7 +34,7 @@ export const BACKGROUNDS = [
     id: 'particles',
     label: 'Particles',
     component: () => import('../../../content/Backgrounds/Particles/Particles.jsx'),
-    installCommand: 'npx shadcn@latest add "https://reactbits.dev/default/backgrounds/particles"',
+    installCommand: 'npx shadcn@latest add "https://components-library.pages.dev/default/backgrounds/particles"',
     props: [
       { name: 'particleCount', type: 'number', default: 200, min: 10, max: 1000, step: 10, label: 'Particle Count' },
       { name: 'particleSpread', type: 'number', default: 10, min: 1, max: 50, step: 1, label: 'Spread' },
@@ -60,7 +60,7 @@ export const BACKGROUNDS = [
     id: 'shape-grid',
     label: 'Shape Grid',
     component: () => import('../../../content/Backgrounds/ShapeGrid/ShapeGrid.jsx'),
-    installCommand: 'npx shadcn@latest add "https://reactbits.dev/default/backgrounds/shape-grid"',
+    installCommand: 'npx shadcn@latest add "https://components-library.pages.dev/default/backgrounds/shape-grid"',
     props: [
       { name: 'speed', type: 'number', default: 0.5, min: 0, max: 2, step: 0.05, label: 'Speed' },
       { name: 'squareSize', type: 'number', default: 40, min: 10, max: 100, step: 5, label: 'Square Size' },
@@ -87,7 +87,7 @@ export const BACKGROUNDS = [
     id: 'waves',
     label: 'Waves',
     component: () => import('../../../content/Backgrounds/Waves/Waves.jsx'),
-    installCommand: 'npx shadcn@latest add "https://reactbits.dev/default/backgrounds/waves"',
+    installCommand: 'npx shadcn@latest add "https://components-library.pages.dev/default/backgrounds/waves"',
     props: [
       { name: 'lineColor', type: 'color', default: '#5227FF', label: 'Line Color' },
       { name: 'backgroundColor', type: 'color', default: 'transparent', label: 'Background Color' },
@@ -106,7 +106,7 @@ export const BACKGROUNDS = [
     id: 'ballpit',
     label: 'Ballpit',
     component: () => import('../../../content/Backgrounds/Ballpit/Ballpit.jsx'),
-    installCommand: 'npx shadcn@latest add "https://reactbits.dev/default/backgrounds/ballpit"',
+    installCommand: 'npx shadcn@latest add "https://components-library.pages.dev/default/backgrounds/ballpit"',
     props: [
       { name: 'count', type: 'number', default: 100, min: 10, max: 500, step: 10, label: 'Ball Count' },
       { name: 'gravity', type: 'number', default: 0.5, min: 0, max: 2, step: 0.1, label: 'Gravity' },
@@ -127,7 +127,7 @@ export const BACKGROUNDS = [
     id: 'hyperspeed',
     label: 'Hyperspeed',
     component: () => import('../../../content/Backgrounds/Hyperspeed/Hyperspeed.jsx'),
-    installCommand: 'npx shadcn@latest add "https://reactbits.dev/default/backgrounds/hyperspeed"',
+    installCommand: 'npx shadcn@latest add "https://components-library.pages.dev/default/backgrounds/hyperspeed"',
     props: [
       {
         name: 'preset',
@@ -150,7 +150,7 @@ export const BACKGROUNDS = [
     id: 'iridescence',
     label: 'Iridescence',
     component: () => import('../../../content/Backgrounds/Iridescence/Iridescence.jsx'),
-    installCommand: 'npx shadcn@latest add "https://reactbits.dev/default/backgrounds/iridescence"',
+    installCommand: 'npx shadcn@latest add "https://components-library.pages.dev/default/backgrounds/iridescence"',
     props: [
       { name: 'speed', type: 'number', default: 1.0, min: 0, max: 5, step: 0.1, label: 'Speed' },
       { name: 'amplitude', type: 'number', default: 0.1, min: 0, max: 1, step: 0.05, label: 'Amplitude' },
@@ -161,14 +161,14 @@ export const BACKGROUNDS = [
     id: 'grid-motion',
     label: 'Grid Motion',
     component: () => import('../../../content/Backgrounds/GridMotion/GridMotion.jsx'),
-    installCommand: 'npx shadcn@latest add "https://reactbits.dev/default/backgrounds/grid-motion"',
+    installCommand: 'npx shadcn@latest add "https://components-library.pages.dev/default/backgrounds/grid-motion"',
     props: [{ name: 'gradientColor', type: 'color', default: '#5227FF', label: 'Gradient Color' }]
   },
   {
     id: 'grid-distortion',
     label: 'Grid Distortion',
     component: () => import('../../../content/Backgrounds/GridDistortion/GridDistortion.jsx'),
-    installCommand: 'npx shadcn@latest add "https://reactbits.dev/default/backgrounds/grid-distortion"',
+    installCommand: 'npx shadcn@latest add "https://components-library.pages.dev/default/backgrounds/grid-distortion"',
     props: [
       {
         name: 'imageSrc',
@@ -186,7 +186,7 @@ export const BACKGROUNDS = [
     id: 'orb',
     label: 'Orb',
     component: () => import('../../../content/Backgrounds/Orb/Orb.jsx'),
-    installCommand: 'npx shadcn@latest add "https://reactbits.dev/default/backgrounds/orb"',
+    installCommand: 'npx shadcn@latest add "https://components-library.pages.dev/default/backgrounds/orb"',
     props: [
       { name: 'hue', type: 'number', default: 0, min: 0, max: 360, step: 1, label: 'Hue' },
       { name: 'hoverIntensity', type: 'number', default: 0.5, min: 0, max: 2, step: 0.1, label: 'Hover Intensity' },
@@ -198,7 +198,7 @@ export const BACKGROUNDS = [
     id: 'letter-glitch',
     label: 'Letter Glitch',
     component: () => import('../../../content/Backgrounds/LetterGlitch/LetterGlitch.jsx'),
-    installCommand: 'npx shadcn@latest add "https://reactbits.dev/default/backgrounds/letter-glitch"',
+    installCommand: 'npx shadcn@latest add "https://components-library.pages.dev/default/backgrounds/letter-glitch"',
     props: [
       {
         name: 'glitchColors',
@@ -218,7 +218,7 @@ export const BACKGROUNDS = [
     id: 'liquid-chrome',
     label: 'Liquid Chrome',
     component: () => import('../../../content/Backgrounds/LiquidChrome/LiquidChrome.jsx'),
-    installCommand: 'npx shadcn@latest add "https://reactbits.dev/default/backgrounds/liquid-chrome"',
+    installCommand: 'npx shadcn@latest add "https://components-library.pages.dev/default/backgrounds/liquid-chrome"',
     props: [
       { name: 'speed', type: 'number', default: 0.2, min: 0, max: 2, step: 0.05, label: 'Speed' },
       { name: 'amplitude', type: 'number', default: 0.3, min: 0, max: 1, step: 0.05, label: 'Amplitude' },
@@ -231,7 +231,7 @@ export const BACKGROUNDS = [
     id: 'balatro',
     label: 'Balatro',
     component: () => import('../../../content/Backgrounds/Balatro/Balatro.jsx'),
-    installCommand: 'npx shadcn@latest add "https://reactbits.dev/default/backgrounds/balatro"',
+    installCommand: 'npx shadcn@latest add "https://components-library.pages.dev/default/backgrounds/balatro"',
     props: [
       { name: 'spinRotation', type: 'number', default: -2.0, min: -10, max: 10, step: 0.5, label: 'Spin Rotation' },
       { name: 'spinSpeed', type: 'number', default: 7.0, min: 0, max: 20, step: 0.5, label: 'Spin Speed' },
@@ -248,7 +248,7 @@ export const BACKGROUNDS = [
     id: 'threads',
     label: 'Threads',
     component: () => import('../../../content/Backgrounds/Threads/Threads.jsx'),
-    installCommand: 'npx shadcn@latest add "https://reactbits.dev/default/backgrounds/threads"',
+    installCommand: 'npx shadcn@latest add "https://components-library.pages.dev/default/backgrounds/threads"',
     props: [
       { name: 'color', type: 'rgbArray', default: [0.32, 0.15, 1.0], label: 'Color' },
       { name: 'amplitude', type: 'number', default: 1, min: 0, max: 3, step: 0.1, label: 'Amplitude' },
@@ -260,7 +260,7 @@ export const BACKGROUNDS = [
     id: 'dither',
     label: 'Dither',
     component: () => import('../../../content/Backgrounds/Dither/Dither.jsx'),
-    installCommand: 'npx shadcn@latest add "https://reactbits.dev/default/backgrounds/dither"',
+    installCommand: 'npx shadcn@latest add "https://components-library.pages.dev/default/backgrounds/dither"',
     props: [
       { name: 'waveColor', type: 'rgbArray', default: [0.32, 0.15, 1.0], label: 'Color' },
       { name: 'disableAnimation', type: 'boolean', default: false, label: 'Disable Animation' },
@@ -277,7 +277,7 @@ export const BACKGROUNDS = [
     id: 'lightning',
     label: 'Lightning',
     component: () => import('../../../content/Backgrounds/Lightning/Lightning.jsx'),
-    installCommand: 'npx shadcn@latest add "https://reactbits.dev/default/backgrounds/lightning"',
+    installCommand: 'npx shadcn@latest add "https://components-library.pages.dev/default/backgrounds/lightning"',
     props: [
       { name: 'hue', type: 'number', default: 230, min: 0, max: 360, step: 1, label: 'Hue' },
       { name: 'xOffset', type: 'number', default: 0, min: -2, max: 2, step: 0.1, label: 'X Offset' },
@@ -290,7 +290,7 @@ export const BACKGROUNDS = [
     id: 'dot-grid',
     label: 'Dot Grid',
     component: () => import('../../../content/Backgrounds/DotGrid/DotGrid.jsx'),
-    installCommand: 'npx shadcn@latest add "https://reactbits.dev/default/backgrounds/dot-grid"',
+    installCommand: 'npx shadcn@latest add "https://components-library.pages.dev/default/backgrounds/dot-grid"',
     props: [
       { name: 'dotSize', type: 'number', default: 16, min: 4, max: 40, step: 2, label: 'Dot Size' },
       { name: 'gap', type: 'number', default: 32, min: 10, max: 80, step: 4, label: 'Gap' },
@@ -309,7 +309,7 @@ export const BACKGROUNDS = [
     id: 'beams',
     label: 'Beams',
     component: () => import('../../../content/Backgrounds/Beams/Beams.jsx'),
-    installCommand: 'npx shadcn@latest add "https://reactbits.dev/default/backgrounds/beams"',
+    installCommand: 'npx shadcn@latest add "https://components-library.pages.dev/default/backgrounds/beams"',
     props: [
       { name: 'beamWidth', type: 'number', default: 2, min: 0.5, max: 10, step: 0.5, label: 'Beam Width' },
       { name: 'beamHeight', type: 'number', default: 15, min: 5, max: 30, step: 1, label: 'Beam Height' },
@@ -325,7 +325,7 @@ export const BACKGROUNDS = [
     id: 'ripple-grid',
     label: 'Ripple Grid',
     component: () => import('../../../content/Backgrounds/RippleGrid/RippleGrid.jsx'),
-    installCommand: 'npx shadcn@latest add "https://reactbits.dev/default/backgrounds/ripple-grid"',
+    installCommand: 'npx shadcn@latest add "https://components-library.pages.dev/default/backgrounds/ripple-grid"',
     props: [
       { name: 'enableRainbow', type: 'boolean', default: false, label: 'Enable Rainbow' },
       { name: 'gridColor', type: 'color', default: '#ffffff', label: 'Grid Color' },
@@ -353,7 +353,7 @@ export const BACKGROUNDS = [
     id: 'dark-veil',
     label: 'Dark Veil',
     component: () => import('../../../content/Backgrounds/DarkVeil/DarkVeil.jsx'),
-    installCommand: 'npx shadcn@latest add "https://reactbits.dev/default/backgrounds/dark-veil"',
+    installCommand: 'npx shadcn@latest add "https://components-library.pages.dev/default/backgrounds/dark-veil"',
     props: [
       { name: 'hueShift', type: 'number', default: 0, min: -180, max: 180, step: 5, label: 'Hue Shift' },
       { name: 'noiseIntensity', type: 'number', default: 0, min: 0, max: 0.5, step: 0.01, label: 'Noise Intensity' },
@@ -376,7 +376,7 @@ export const BACKGROUNDS = [
     id: 'galaxy',
     label: 'Galaxy',
     component: () => import('../../../content/Backgrounds/Galaxy/Galaxy.jsx'),
-    installCommand: 'npx shadcn@latest add "https://reactbits.dev/default/backgrounds/galaxy"',
+    installCommand: 'npx shadcn@latest add "https://components-library.pages.dev/default/backgrounds/galaxy"',
     props: [
       { name: 'starSpeed', type: 'number', default: 0.5, min: 0, max: 3, step: 0.1, label: 'Star Speed' },
       { name: 'density', type: 'number', default: 1, min: 0.1, max: 3, step: 0.1, label: 'Density' },
@@ -403,7 +403,7 @@ export const BACKGROUNDS = [
     id: 'light-rays',
     label: 'Light Rays',
     component: () => import('../../../content/Backgrounds/LightRays/LightRays.jsx'),
-    installCommand: 'npx shadcn@latest add "https://reactbits.dev/default/backgrounds/light-rays"',
+    installCommand: 'npx shadcn@latest add "https://components-library.pages.dev/default/backgrounds/light-rays"',
     props: [
       {
         name: 'raysOrigin',
@@ -438,7 +438,7 @@ export const BACKGROUNDS = [
     id: 'faulty-terminal',
     label: 'Faulty Terminal',
     component: () => import('../../../content/Backgrounds/FaultyTerminal/FaultyTerminal.jsx'),
-    installCommand: 'npx shadcn@latest add "https://reactbits.dev/default/backgrounds/faulty-terminal"',
+    installCommand: 'npx shadcn@latest add "https://components-library.pages.dev/default/backgrounds/faulty-terminal"',
     props: [
       { name: 'scale', type: 'number', default: 1, min: 0.5, max: 3, step: 0.1, label: 'Scale' },
       { name: 'digitSize', type: 'number', default: 1.5, min: 0.5, max: 5, step: 0.1, label: 'Digit Size' },
@@ -475,7 +475,7 @@ export const BACKGROUNDS = [
     id: 'plasma',
     label: 'Plasma',
     component: () => import('../../../content/Backgrounds/Plasma/Plasma.jsx'),
-    installCommand: 'npx shadcn@latest add "https://reactbits.dev/default/backgrounds/plasma"',
+    installCommand: 'npx shadcn@latest add "https://components-library.pages.dev/default/backgrounds/plasma"',
     props: [
       { name: 'color', type: 'color', default: '#ffffff', label: 'Color' },
       { name: 'speed', type: 'number', default: 1, min: 0, max: 5, step: 0.1, label: 'Speed' },
@@ -489,7 +489,7 @@ export const BACKGROUNDS = [
     id: 'plasma-wave',
     label: 'Plasma Wave',
     component: () => import('../../../content/Backgrounds/PlasmaWave/PlasmaWave.jsx'),
-    installCommand: 'npx shadcn@latest add "https://reactbits.dev/default/backgrounds/plasma-wave"',
+    installCommand: 'npx shadcn@latest add "https://components-library.pages.dev/default/backgrounds/plasma-wave"',
     props: [
       {
         name: 'colors',
@@ -511,7 +511,7 @@ export const BACKGROUNDS = [
     id: 'prism',
     label: 'Prism',
     component: () => import('../../../content/Backgrounds/Prism/Prism.jsx'),
-    installCommand: 'npx shadcn@latest add "https://reactbits.dev/default/backgrounds/prism"',
+    installCommand: 'npx shadcn@latest add "https://components-library.pages.dev/default/backgrounds/prism"',
     props: [
       { name: 'height', type: 'number', default: 3.5, min: 1, max: 10, step: 0.5, label: 'Height' },
       { name: 'baseWidth', type: 'number', default: 5.5, min: 1, max: 15, step: 0.5, label: 'Base Width' },
@@ -538,7 +538,7 @@ export const BACKGROUNDS = [
     id: 'gradient-blinds',
     label: 'Gradient Blinds',
     component: () => import('../../../content/Backgrounds/GradientBlinds/GradientBlinds.jsx'),
-    installCommand: 'npx shadcn@latest add "https://reactbits.dev/default/backgrounds/gradient-blinds"',
+    installCommand: 'npx shadcn@latest add "https://components-library.pages.dev/default/backgrounds/gradient-blinds"',
     props: [
       {
         name: 'gradientColors',
@@ -571,7 +571,7 @@ export const BACKGROUNDS = [
     id: 'grainient',
     label: 'Grainient',
     component: () => import('../../../content/Backgrounds/Grainient/Grainient.jsx'),
-    installCommand: 'npx shadcn@latest add "https://reactbits.dev/default/backgrounds/grainient"',
+    installCommand: 'npx shadcn@latest add "https://components-library.pages.dev/default/backgrounds/grainient"',
     props: [
       { name: 'color1', type: 'color', default: '#FF9FFC', label: 'Color 1' },
       { name: 'color2', type: 'color', default: '#5227FF', label: 'Color 2' },
@@ -601,7 +601,7 @@ export const BACKGROUNDS = [
     id: 'prismatic-burst',
     label: 'Prismatic Burst',
     component: () => import('../../../content/Backgrounds/PrismaticBurst/PrismaticBurst.jsx'),
-    installCommand: 'npx shadcn@latest add "https://reactbits.dev/default/backgrounds/prismatic-burst"',
+    installCommand: 'npx shadcn@latest add "https://components-library.pages.dev/default/backgrounds/prismatic-burst"',
     props: [
       { name: 'intensity', type: 'number', default: 2, min: 0.5, max: 5, step: 0.5, label: 'Intensity' },
       { name: 'speed', type: 'number', default: 0.5, min: 0, max: 2, step: 0.1, label: 'Speed' },
@@ -629,7 +629,7 @@ export const BACKGROUNDS = [
     id: 'pixel-blast',
     label: 'Pixel Blast',
     component: () => import('../../../content/Backgrounds/PixelBlast/PixelBlast.jsx'),
-    installCommand: 'npx shadcn@latest add "https://reactbits.dev/default/backgrounds/pixel-blast"',
+    installCommand: 'npx shadcn@latest add "https://components-library.pages.dev/default/backgrounds/pixel-blast"',
     props: [
       {
         name: 'variant',
@@ -671,7 +671,7 @@ export const BACKGROUNDS = [
     id: 'liquid-ether',
     label: 'Liquid Ether',
     component: () => import('../../../content/Backgrounds/LiquidEther/LiquidEther.jsx'),
-    installCommand: 'npx shadcn@latest add "https://reactbits.dev/default/backgrounds/liquid-ether"',
+    installCommand: 'npx shadcn@latest add "https://components-library.pages.dev/default/backgrounds/liquid-ether"',
     props: [
       { name: 'mouseForce', type: 'number', default: 20, min: 1, max: 50, step: 1, label: 'Mouse Force' },
       { name: 'cursorSize', type: 'number', default: 100, min: 20, max: 300, step: 10, label: 'Cursor Size' },
@@ -696,7 +696,7 @@ export const BACKGROUNDS = [
     id: 'color-bends',
     label: 'Color Bends',
     component: () => import('../../../content/Backgrounds/ColorBends/ColorBends.jsx'),
-    installCommand: 'npx shadcn@latest add "https://reactbits.dev/default/backgrounds/color-bends"',
+    installCommand: 'npx shadcn@latest add "https://components-library.pages.dev/default/backgrounds/color-bends"',
     props: [
       { name: 'rotation', type: 'number', default: 90, min: 0, max: 360, step: 5, label: 'Rotation' },
       { name: 'speed', type: 'number', default: 0.2, min: 0, max: 1, step: 0.05, label: 'Speed' },
@@ -725,7 +725,7 @@ export const BACKGROUNDS = [
     id: 'grid-scan',
     label: 'Grid Scan',
     component: () => import('../../../content/Backgrounds/GridScan/GridScan.jsx').then(m => ({ default: m.GridScan })),
-    installCommand: 'npx shadcn@latest add "https://reactbits.dev/default/backgrounds/grid-scan"',
+    installCommand: 'npx shadcn@latest add "https://components-library.pages.dev/default/backgrounds/grid-scan"',
     props: [
       { name: 'sensitivity', type: 'number', default: 0.55, min: 0, max: 1, step: 0.05, label: 'Sensitivity' },
       { name: 'lineThickness', type: 'number', default: 1, min: 0.5, max: 5, step: 0.5, label: 'Line Thickness' },
@@ -768,7 +768,7 @@ export const BACKGROUNDS = [
     id: 'floating-lines',
     label: 'Floating Lines',
     component: () => import('../../../content/Backgrounds/FloatingLines/FloatingLines.jsx'),
-    installCommand: 'npx shadcn@latest add "https://reactbits.dev/default/backgrounds/floating-lines"',
+    installCommand: 'npx shadcn@latest add "https://components-library.pages.dev/default/backgrounds/floating-lines"',
     props: [
       {
         name: 'linesGradient',
@@ -791,7 +791,7 @@ export const BACKGROUNDS = [
     id: 'light-pillar',
     label: 'Light Pillar',
     component: () => import('../../../content/Backgrounds/LightPillar/LightPillar.jsx'),
-    installCommand: 'npx shadcn@latest add "https://reactbits.dev/default/backgrounds/light-pillar"',
+    installCommand: 'npx shadcn@latest add "https://components-library.pages.dev/default/backgrounds/light-pillar"',
     props: [
       { name: 'topColor', type: 'color', default: '#5227FF', label: 'Top Color' },
       { name: 'bottomColor', type: 'color', default: '#FF9FFC', label: 'Bottom Color' },
@@ -809,7 +809,7 @@ export const BACKGROUNDS = [
     id: 'pixel-snow',
     label: 'Pixel Snow',
     component: () => import('../../../content/Backgrounds/PixelSnow/PixelSnow.jsx'),
-    installCommand: 'npx shadcn@latest add "https://reactbits.dev/default/backgrounds/pixel-snow"',
+    installCommand: 'npx shadcn@latest add "https://components-library.pages.dev/default/backgrounds/pixel-snow"',
     props: [
       { name: 'color', type: 'color', default: '#ffffff', label: 'Color' },
       { name: 'flakeSize', type: 'number', default: 0.01, min: 0.001, max: 0.05, step: 0.002, label: 'Flake Size' },
@@ -835,7 +835,7 @@ export const BACKGROUNDS = [
     id: 'line-waves',
     label: 'Line Waves',
     component: () => import('../../../content/Backgrounds/LineWaves/LineWaves.jsx'),
-    installCommand: 'npx shadcn@latest add "https://reactbits.dev/default/backgrounds/line-waves"',
+    installCommand: 'npx shadcn@latest add "https://components-library.pages.dev/default/backgrounds/line-waves"',
     props: [
       { name: 'speed', type: 'number', default: 0.3, min: 0.1, max: 3, step: 0.1, label: 'Speed' },
       { name: 'innerLineCount', type: 'number', default: 32, min: 2, max: 40, step: 1, label: 'Inner Line Count' },
@@ -856,7 +856,7 @@ export const BACKGROUNDS = [
     id: 'evil-eye',
     label: 'Evil Eye',
     component: () => import('../../../content/Backgrounds/EvilEye/EvilEye.jsx'),
-    installCommand: 'npx shadcn@latest add "https://reactbits.dev/default/backgrounds/evil-eye"',
+    installCommand: 'npx shadcn@latest add "https://components-library.pages.dev/default/backgrounds/evil-eye"',
     props: [
       { name: 'eyeColor', type: 'color', default: '#FF6F37', label: 'Eye Color' },
       { name: 'intensity', type: 'number', default: 1.5, min: 0.5, max: 5, step: 0.1, label: 'Intensity' },
@@ -874,7 +874,7 @@ export const BACKGROUNDS = [
     id: 'radar',
     label: 'Radar',
     component: () => import('../../../content/Backgrounds/Radar/Radar.jsx'),
-    installCommand: 'npx shadcn@latest add "https://reactbits.dev/default/backgrounds/radar"',
+    installCommand: 'npx shadcn@latest add "https://components-library.pages.dev/default/backgrounds/radar"',
     props: [
       { name: 'speed', type: 'number', default: 1.0, min: 0.1, max: 5, step: 0.1, label: 'Speed' },
       { name: 'scale', type: 'number', default: 0.5, min: 0.1, max: 3, step: 0.1, label: 'Scale' },
@@ -897,7 +897,7 @@ export const BACKGROUNDS = [
     id: 'soft-aurora',
     label: 'Soft Aurora',
     component: () => import('../../../content/Backgrounds/SoftAurora/SoftAurora.jsx'),
-    installCommand: 'npx shadcn@latest add "https://reactbits.dev/default/backgrounds/soft-aurora"',
+    installCommand: 'npx shadcn@latest add "https://components-library.pages.dev/default/backgrounds/soft-aurora"',
     props: [
       { name: 'speed', type: 'number', default: 0.6, min: 0.1, max: 5, step: 0.1, label: 'Speed' },
       { name: 'scale', type: 'number', default: 1.5, min: 0.1, max: 3, step: 0.1, label: 'Scale' },
@@ -919,7 +919,7 @@ export const BACKGROUNDS = [
     id: 'antigravity',
     label: 'Antigravity',
     component: () => import('../../../content/Animations/Antigravity/Antigravity.jsx'),
-    installCommand: 'npx shadcn@latest add "https://reactbits.dev/default/animations/antigravity"',
+    installCommand: 'npx shadcn@latest add "https://components-library.pages.dev/default/animations/antigravity"',
     props: [
       { name: 'count', type: 'number', default: 300, min: 50, max: 1000, step: 10, label: 'Particle Count' },
       { name: 'magnetRadius', type: 'number', default: 10, min: 1, max: 30, step: 1, label: 'Magnet Radius' },
@@ -948,7 +948,7 @@ export const BACKGROUNDS = [
     id: 'click-spark',
     label: 'Click Spark',
     component: () => import('../../../content/Animations/ClickSpark/ClickSpark.jsx'),
-    installCommand: 'npx shadcn@latest add "https://reactbits.dev/default/animations/click-spark"',
+    installCommand: 'npx shadcn@latest add "https://components-library.pages.dev/default/animations/click-spark"',
     props: [
       { name: 'sparkColor', type: 'color', default: '#ffffff', label: 'Spark Color' },
       { name: 'sparkSize', type: 'number', default: 10, min: 2, max: 50, step: 1, label: 'Spark Size' },
@@ -969,7 +969,7 @@ export const BACKGROUNDS = [
     id: 'ghost-cursor',
     label: 'Ghost Cursor',
     component: () => import('../../../content/Animations/GhostCursor/GhostCursor.jsx'),
-    installCommand: 'npx shadcn@latest add "https://reactbits.dev/default/animations/ghost-cursor"',
+    installCommand: 'npx shadcn@latest add "https://components-library.pages.dev/default/animations/ghost-cursor"',
     forceRemountOnPropChange: true,
     wrapperStyle: { width: '100%', height: '100%', minHeight: '100%', position: 'relative' },
     props: [
@@ -987,7 +987,7 @@ export const BACKGROUNDS = [
     id: 'image-trail',
     label: 'Image Trail',
     component: () => import('../../../content/Animations/ImageTrail/ImageTrail.jsx'),
-    installCommand: 'npx shadcn@latest add "https://reactbits.dev/default/animations/image-trail"',
+    installCommand: 'npx shadcn@latest add "https://components-library.pages.dev/default/animations/image-trail"',
     props: [
       {
         name: 'variant',
@@ -1021,7 +1021,7 @@ export const BACKGROUNDS = [
     label: 'Laser Flow',
     component: () =>
       import('../../../content/Animations/LaserFlow/LaserFlow.jsx').then(m => ({ default: m.LaserFlow })),
-    installCommand: 'npx shadcn@latest add "https://reactbits.dev/default/animations/laser-flow"',
+    installCommand: 'npx shadcn@latest add "https://components-library.pages.dev/default/animations/laser-flow"',
     props: [
       { name: 'color', type: 'color', default: '#8db3ff', label: 'Color' },
       { name: 'wispDensity', type: 'number', default: 1, min: 0, max: 2, step: 0.1, label: 'Wisp Density' },
@@ -1058,7 +1058,7 @@ export const BACKGROUNDS = [
     id: 'noise',
     label: 'Noise',
     component: () => import('../../../content/Animations/Noise/Noise.jsx'),
-    installCommand: 'npx shadcn@latest add "https://reactbits.dev/default/animations/noise"',
+    installCommand: 'npx shadcn@latest add "https://components-library.pages.dev/default/animations/noise"',
     props: [
       { name: 'patternSize', type: 'number', default: 250, min: 50, max: 500, step: 10, label: 'Pattern Size' },
       { name: 'patternScaleX', type: 'number', default: 1, min: 0.1, max: 5, step: 0.1, label: 'Scale X' },
@@ -1079,7 +1079,7 @@ export const BACKGROUNDS = [
     id: 'ribbons',
     label: 'Ribbons',
     component: () => import('../../../content/Animations/Ribbons/Ribbons.jsx'),
-    installCommand: 'npx shadcn@latest add "https://reactbits.dev/default/animations/ribbons"',
+    installCommand: 'npx shadcn@latest add "https://components-library.pages.dev/default/animations/ribbons"',
     props: [
       { name: 'colors', type: 'colorArray', default: ['#FC8EAC'], label: 'Colors', minItems: 1, maxItems: 5 },
       { name: 'baseSpring', type: 'number', default: 0.03, min: 0.01, max: 0.1, step: 0.01, label: 'Spring' },
@@ -1098,7 +1098,7 @@ export const BACKGROUNDS = [
     id: 'splash-cursor',
     label: 'Splash Cursor',
     component: () => import('../../../content/Animations/SplashCursor/SplashCursor.jsx'),
-    installCommand: 'npx shadcn@latest add "https://reactbits.dev/default/animations/splash-cursor"',
+    installCommand: 'npx shadcn@latest add "https://components-library.pages.dev/default/animations/splash-cursor"',
     forceRemountOnPropChange: true,
     props: [
       {
@@ -1148,7 +1148,7 @@ export const BACKGROUNDS = [
     id: 'dot-field',
     label: 'Dot Field',
     component: () => import('../../../content/Backgrounds/DotField/DotField.jsx'),
-    installCommand: 'npx shadcn@latest add "https://reactbits.dev/default/backgrounds/dot-field"',
+    installCommand: 'npx shadcn@latest add "https://components-library.pages.dev/default/backgrounds/dot-field"',
     props: [
       { name: 'dotRadius', type: 'number', default: 1.5, min: 0.5, max: 5, step: 0.5, label: 'Dot Radius' },
       { name: 'dotSpacing', type: 'number', default: 14, min: 5, max: 30, step: 1, label: 'Dot Spacing' },

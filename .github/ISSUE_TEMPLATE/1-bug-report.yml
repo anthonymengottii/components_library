@@ -27,7 +27,7 @@ body:
     attributes:
       label: Reproduction Link
       description: Link a codesandbox environment you used to reproduce.
-      placeholder: https://github.com/DavidHDev/react-bits
+      placeholder: https://github.com/anthonymengottii/components_library
     validations:
       required: false
   - type: textarea

@@ -3,7 +3,7 @@ import { TbBug, TbBulb } from 'react-icons/tb';
 import { useParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
-const ISSUE_BASE = 'https://github.com/DavidHDev/react-bits/issues/new';
+const ISSUE_BASE = 'https://github.com/anthonymengottii/components_library/issues/new';
 
 const ContributionSection = () => {
   const { t } = useTranslation();

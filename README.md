@@ -17,13 +17,7 @@ A Components Library ajuda você a **entregar interfaces incríveis mais rápido
 
 ## 🎯 Direção do Projeto
 
-Este projeto começou tendo o **React Bits** como base e referência de padrões de componentes e estrutura de documentação.
-
-Hoje, o objetivo evoluiu: a Components Library está indo além de componentes individuais para oferecer **templates completos, experiências iniciais e fluxos mais amplos de construção de UI**.
-
-## 🙏 Créditos
-
-Agradecimento especial ao **[React Bits](https://www.reactbits.dev/)** pela inspiração que ajudou a dar início a esta biblioteca.
+O objetivo da Components Library é ir além de componentes individuais para oferecer **templates completos, experiências iniciais e fluxos mais amplos de construção de UI**.
 
 ## 🚀 Recursos
 

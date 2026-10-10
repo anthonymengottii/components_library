@@ -32,7 +32,7 @@ import { useOptions } from '../context/OptionsContext/useOptions';
 import FadeContent from '../../content/Animations/FadeContent/FadeContent';
 import { useTranslation } from 'react-i18next';
 
-import Logo from '../../assets/logos/react-bits-logo.svg';
+import Logo from '../../assets/logos/logo.svg';
 import Star from '../../assets/common/star.svg';
 import jsIcon from '../../assets/icons/js.svg';
 import tsIcon from '../../assets/icons/ts.svg';

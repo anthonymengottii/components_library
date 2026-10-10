@@ -5,7 +5,7 @@ import { Palette, Shapes, ImageIcon } from 'lucide-react';
 import { FiType, FiCircle, FiLayers, FiImage, FiCode, FiGrid, FiZap, FiBox, FiStar, FiHeart, FiEye, FiCompass } from 'react-icons/fi';
 import { useStars } from '../../../hooks/useStars';
 import { useTranslation } from 'react-i18next';
-import rbLogo from '../../../assets/logos/react-bits-logo-small.svg';
+import rbLogo from '../../../assets/logos/logo-small.svg';
 import './Features.css';
 
 /* ─── 1. Component Name Marquee ─── */

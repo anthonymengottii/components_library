@@ -6,7 +6,6 @@ import { useTranslation } from 'react-i18next';
 import { ActiveRouteProvider } from './components/context/ActiveRouteContext/ActiveRouteContext';
 import { forceChakraDarkTheme } from './utils/utils';
 
-import AnnouncementModal from './components/common/AnnouncementModal/AnnouncementModal';
 import SidebarLayout from './components/layout/SidebarLayout';
 import CategoryPage from './pages/CategoryPage';
 import TemplatesPage from './pages/TemplatesPage';
@@ -74,7 +73,6 @@ export default function App() {
       <NuqsAdapter>
         <ActiveRouteProvider>
           <AppContent />
-          <AnnouncementModal />
         </ActiveRouteProvider>
       </NuqsAdapter>
     </Router>

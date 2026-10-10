@@ -8,7 +8,7 @@ import Customize from '../../components/common/Preview/Customize';
 import PreviewSlider from '../../components/common/Preview/PreviewSlider';
 import PreviewColorPickerCustom from '../../components/common/Preview/PreviewColorPickerCustom';
 import PreviewSwitch from '../../components/common/Preview/PreviewSwitch';
-import logo from '../../assets/logos/react-bits-logo-small-black.svg';
+import logo from '../../assets/logos/logo-small-black.svg';
 import CodeExample from '../../components/code/CodeExample';
 import useForceRerender from '../../hooks/useForceRerender';
 

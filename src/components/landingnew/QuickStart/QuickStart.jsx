@@ -12,8 +12,8 @@ const PKG_TO_RUNNER = { npm: 'npx', pnpm: 'pnpm dlx', bun: 'bunx --bun', yarn: '
 const RUNNER_TO_PKG = { npx: 'npm', 'pnpm dlx': 'pnpm', 'bunx --bun': 'bun', 'yarn dlx': 'yarn' };
 
 const COMMANDS = {
-  shadcn: (runner) => `${runner} shadcn@latest add @react-bits/Aurora-TS-TW`,
-  jsrepo: (runner) => `${runner} jsrepo@latest add github/davidhaz/react-bits Aurora-TS-TW`,
+  shadcn: (runner) => `${runner} shadcn@latest add @components-library/Aurora-TS-TW`,
+  jsrepo: (runner) => `${runner} jsrepo@latest add github/anthonymengottii/components_library Aurora-TS-TW`,
 };
 
 const QuickStart = () => {

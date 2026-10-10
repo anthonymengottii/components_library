@@ -35,7 +35,7 @@ const CTA = () => {
                 {t('cta.browse')} <FiArrowRight size={15} />
               </Link>
               <a
-                href="https://github.com/DavidHDev/react-bits"
+                href="https://github.com/anthonymengottii/components_library"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="ln-cta-btn ln-cta-btn--secondary"

@@ -13,8 +13,8 @@ import PreviewSelect from '../../components/common/Preview/PreviewSelect';
 import PreviewSwitch from '../../components/common/Preview/PreviewSwitch';
 import Dependencies from '../../components/code/Dependencies';
 
-import logoDark from '../../assets/logos/react-bits-logo-small-black.svg';
-import logoLight from '../../assets/logos/react-bits-logo-small.svg';
+import logoDark from '../../assets/logos/logo-small-black.svg';
+import logoLight from '../../assets/logos/logo-small.svg';
 
 import PillNav from '../../content/Components/PillNav/PillNav';
 import { pillNav } from '../../constants/code/Components/pillNavCode';

@@ -12,7 +12,7 @@ import CodeExample from '../../components/code/CodeExample';
 import PropTable from '../../components/common/Preview/PropTable';
 import PreviewSelect from '../../components/common/Preview/PreviewSelect';
 import PreviewSlider from '../../components/common/Preview/PreviewSlider';
-import logo from '../../assets/logos/react-bits-logo-small.svg';
+import logo from '../../assets/logos/logo-small.svg';
 
 import LiquidEther from '@/content/Backgrounds/LiquidEther/LiquidEther';
 import { glassSurface } from '../../constants/code/Components/glassSurfaceCode';

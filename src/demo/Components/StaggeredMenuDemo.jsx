@@ -12,7 +12,7 @@ import PreviewColorPickerCustom from '../../components/common/Preview/PreviewCol
 import useForceRerender from '../../hooks/useForceRerender';
 import useComponentProps from '../../hooks/useComponentProps';
 import { ComponentPropsProvider } from '../../components/context/ComponentPropsContext';
-import logo from '../../assets/logos/reactbits-gh-white.svg';
+import logo from '../../assets/logos/logo-mark-white.svg';
 
 import { staggeredMenu } from '../../constants/code/Components/staggeredMenuCode';
 import StaggeredMenu from '@content/Components/StaggeredMenu/StaggeredMenu';

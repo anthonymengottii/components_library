@@ -13,7 +13,7 @@ import PreviewSelect from '../../components/common/Preview/PreviewSelect';
 import PreviewSlider from '../../components/common/Preview/PreviewSlider';
 import PreviewColorPickerCustom from '../../components/common/Preview/PreviewColorPickerCustom';
 import Dependencies from '../../components/code/Dependencies';
-import logo from '../../assets/logos/reactbits-gh-black.svg';
+import logo from '../../assets/logos/logo-mark-black.svg';
 
 import BubbleMenu from '../../content/Components/BubbleMenu/BubbleMenu';
 import { bubbleMenu } from '../../constants/code/Components/bubbleMenuCode';
